@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-11-21T11:35:37.523Z'
+modified: '2023-11-21T11:43:54.388Z'
 ---
 
 # (C#)
@@ -11,7 +11,7 @@ modified: '2023-11-21T11:35:37.523Z'
 
 [//]: # (version: 1.0)
 [//]: # (author: Izan Abramovici Cabrera)
-[//]: # (date: 2023-10-24)
+[//]: # (date: 2023-11-21)
 
 
 
