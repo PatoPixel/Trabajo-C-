@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-11-21T11:43:54.388Z'
+modified: '2023-11-21T11:50:35.959Z'
 ---
 
 # (C#)
@@ -33,6 +33,8 @@ modified: '2023-11-21T11:43:54.388Z'
 [Tabla de contenidos](#tabla-de-contenidos)
 
 - ¿Qué es C#?
+
+
 - URL
   - 
   - 
