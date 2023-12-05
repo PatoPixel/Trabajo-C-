@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-05T15:54:01.179Z'
+modified: '2023-12-05T19:44:10.810Z'
 ---
 
 # (C#)
@@ -16,14 +16,16 @@ modified: '2023-12-05T15:54:01.179Z'
 
 
 # Tabla de contenidos
+- [(C#)](#c)
 - [Tabla de contenidos](#tabla-de-contenidos)
   - [Introducción](#introducción)
-  - [Instalación](#instalación)
+  - [Instalación del IDE](#instalación-del-ide)
+    - [Windows:](#windows)
+    - [Linux:](#linux)
+  - [Capitulo 2](#capitulo-2)
+    - [Subapartado 2.1](#subapartado-21)
+  - [Capitulo 3](#capitulo-3)
     - [Seccion1](#seccion1)
-- [Capitulo 2](#capitulo-2)
-  - [Subapartado 2.1](#subapartado-21)
-- [Capitulo 3](#capitulo-3)
-    - [Seccion1](#seccion1-1)
 
 <div style="page-break-after: always;"></div>
 
@@ -50,12 +52,12 @@ modified: '2023-12-05T15:54:01.179Z'
 
 - URL
   - 
-  - 
+  -  
 
 ## Instalación del IDE
 [Índice](#tabla-de-contenidos)
-    1. deberemos de usar un IDE (Integrated Development Environment o, lo que es lo mismo, Entorno de Desarrollo Integrado), usaremos Visual Studio, para ello deberemos seguir los siguientes pasos:
-- Windows:
+    1. deberemos de usar un IDE (Integrated Development Environment o, lo que es lo mismo, Entorno de Desarrollo Integrado), usaremos Visual Studio para windows y visual studio code para linux, deberemos seguir los siguientes pasos:
+### Windows:
  1. Enlace de descarga para el visual studio community: https://visualstudio.microsoft.com/es/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false
 
  2. Instalamos haciendo doble click 
@@ -68,11 +70,33 @@ modified: '2023-12-05T15:54:01.179Z'
 
  6. Inciar proyecto
 
-      - Linux:
+### Linux:
+  1. Debemos instalar visual studio code, haremos lo siguiente:
+  Recursos:
+    - https://ubunlog.com/visual-studio-code-editor-codigo-abierto-ubuntu-20-04/
 
-### Seccion1
-[Tabla de contenidos](#tabla-de-contenidos)
+- Instalación por consola:
 
+```console
+sudo apt update
+sudo apt install software-properties-common apt-transport-https wget
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt install code
+```
+
+  2. Instalaremos dotnet-sdk:
+  - Recursos:
+  
+  https://learn.microsoft.com/en-us/dotnet/core/install/linux
+  ```console
+  Si no hiciste el paso anterior, haz el "sudo apt update"
+
+  sudo apt-get install -y dotnet-sdk-7.0
+
+  dotnet --version (para comprobar que version se ha instalado)
+  ```
+  
 ## Capitulo 2
 [Tabla de contenidos](#tabla-de-contenidos)
 
@@ -84,10 +108,8 @@ modified: '2023-12-05T15:54:01.179Z'
 - Recursos: 
   - 
 
-```console
-#...
-```
-)
+
+
 ### Seccion1
 [Tabla de contenidos](#tabla-de-contenidos)
 
