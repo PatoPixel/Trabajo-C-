@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-05T21:12:13.869Z'
+modified: '2023-12-05T21:29:03.348Z'
 ---
 
 # (C#)
@@ -32,7 +32,7 @@ modified: '2023-12-05T21:12:13.869Z'
 
 <div style="page-break-after: always;"></div>
  
-
+ 
 
 ## Introducción
 [Indice](#c)
@@ -137,6 +137,7 @@ Console.WriteLine("Hello, World!");
 C:\Users\Izan\Documents\C#\Prueba01\Prueba01\bin\Debug\net8.0\Prueba01.exe (proceso 19688) se cerró con el código 0.
 Presione cualquier tecla para cerrar esta ventana. . .
   ``` 
+  Ha hecho exactamente lo que el código pedia, imprimir en una consola la frase "Hello, World!"
 
 
 ### Linux:
