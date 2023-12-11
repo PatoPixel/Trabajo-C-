@@ -1,0 +1,15 @@
+C:\Users\Izan\Documents\repositorios-git\Trabajo-C-\c-sharp\bin\Debug\net8.0\c-sharp.exe
+C:\Users\Izan\Documents\repositorios-git\Trabajo-C-\c-sharp\bin\Debug\net8.0\c-sharp.deps.json
+C:\Users\Izan\Documents\repositorios-git\Trabajo-C-\c-sharp\bin\Debug\net8.0\c-sharp.runtimeconfig.json
+C:\Users\Izan\Documents\repositorios-git\Trabajo-C-\c-sharp\bin\Debug\net8.0\c-sharp.dll
+C:\Users\Izan\Documents\repositorios-git\Trabajo-C-\c-sharp\bin\Debug\net8.0\c-sharp.pdb
+C:\Users\Izan\Documents\repositorios-git\Trabajo-C-\c-sharp\obj\Debug\net8.0\c-sharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Izan\Documents\repositorios-git\Trabajo-C-\c-sharp\obj\Debug\net8.0\c-sharp.AssemblyInfoInputs.cache
+C:\Users\Izan\Documents\repositorios-git\Trabajo-C-\c-sharp\obj\Debug\net8.0\c-sharp.AssemblyInfo.cs
+C:\Users\Izan\Documents\repositorios-git\Trabajo-C-\c-sharp\obj\Debug\net8.0\c-sharp.csproj.CoreCompileInputs.cache
+C:\Users\Izan\Documents\repositorios-git\Trabajo-C-\c-sharp\obj\Debug\net8.0\c-sharp.sourcelink.json
+C:\Users\Izan\Documents\repositorios-git\Trabajo-C-\c-sharp\obj\Debug\net8.0\c-sharp.dll
+C:\Users\Izan\Documents\repositorios-git\Trabajo-C-\c-sharp\obj\Debug\net8.0\refint\c-sharp.dll
+C:\Users\Izan\Documents\repositorios-git\Trabajo-C-\c-sharp\obj\Debug\net8.0\c-sharp.pdb
+C:\Users\Izan\Documents\repositorios-git\Trabajo-C-\c-sharp\obj\Debug\net8.0\c-sharp.genruntimeconfig.cache
+C:\Users\Izan\Documents\repositorios-git\Trabajo-C-\c-sharp\obj\Debug\net8.0\ref\c-sharp.dll
