@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-12T18:28:30.327Z'
+modified: '2023-12-12T19:06:41.457Z'
 ---
 
 # (C#)
@@ -61,7 +61,8 @@ modified: '2023-12-12T18:28:30.327Z'
          4. C# puedes divir el código en múltiples hilos de ejecución y trabajar en paralelo (mejorar el rendimiento y la capacidad de respuesta de una aplicación)
 
 ## Instalación del IDE
-[Índice](#c)
+[Índice](#c)  
+
     1. deberemos de usar un IDE (Integrated Development Environment o, lo que es lo mismo, Entorno de Desarrollo Integrado), usaremos Visual Studio para windows y visual studio code para linux, deberemos seguir los siguientes pasos:
 ### Windows:
  1. Enlace de descarga para el visual studio community: https://visualstudio.microsoft.com/es/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false
@@ -198,29 +199,48 @@ Presione cualquier tecla para cerrar esta ventana. . .
 ## Sintaxis
 [Indice](#c)  
 - SIEMPRE hay que poner ; después de añadir una línea de código.
-- SIEMPRE hace face que hay que definir un Main, si no el código tendrá un error, aun así puede llegar a funcionar.
-- C# si distingue entre mayúsculas y minisculas.
+- No es obligatorio pero es una buena práctica poner la primera letra mayúscula en las clases.
+- SIEMPRE hay que definir un Main, si no el código tendrá un error, aun así puede llegar a funcionar.
+- C# SÍ distingue entre mayúsculas y minisculas.
 - No se pueden modificar las variables que esten definidas dentro de un método importado
 
 
 ## Estructura básica
 [Indice](#c)  
 En C#, la estructura básica de un programa es la siguiente:
-- Espacios de nombres (namespace)
-  - Clases [class]
+- Espacios de nombres [(namespace)](#1-espacios-de-nombres-namespace)
+  - Clases [(class)](#2-clases-class)
     - Campos
-  - Interfaces [interface]
-  - Enumeraciones [enum] 
-  - Delegados [delegate] 
-  - Eventos [event] 
-  - Estructuras [struct] 
-  - Alias [alias]
+  - Interfaces (interface)
+  - Enumeraciones (enum)
+  - Delegados (delegate) 
+  - Eventos (event) 
+  - Estructuras (struct) 
+  - Alias (alias)
 
 ### 1. Espacios de Nombres (namespace):
-[Indice](#c)  
-  - Es el necesario al empezar un archivo nuevo, pueden haber más de 1 en un mismo archivo a la vez que se pueden anidar.  
-  - Nos permite usar el código que tenga escrito en otros archivos o proyectos.   
+[Indice](#c)
+**¿Qué es?**: es un contenedor que se utiliza para organizar y agrupar tipos relacionados. El propósito principal de los espacios de nombres es evitar conflictos de nombres y proporcionar una estructura jerárquica para organizar el código.  
+- Que puede contener un espacio de nombres:
+  - Clases [(class)](#2-clases-class)
+  - Interfaces (interface)
+  - Enumeraciones (enum)
+  - Delegados (delegate) 
+  - Eventos (event) 
+  - Estructuras (struct) 
+  - Alias (alias)
 
+- Características:
+  - Es el necesario al empezar un archivo nuevo.
+  - Puede haber más de 1 en un mismo archivo. 
+  - Los namespace no pueden tener modificadores (public, private, etc).
+  - Usando namespace no hay conficto de nombres
+  - Nos permite usar el código que tenga escrito en otros archivos o proyectos.   
+  - Se pueden anidar.
+  >[!WARNING]
+  >Pudes anidar un namespace con otro name space con exactamente el mismo nombre, pero si usas la palabra clave "using" para acortar la ruta te dará error y el código no podrá saber a que namespace te estás refiriendo.  
+
+- Ejemplo para usar namespace en otros archivos:
 Imaginemos un archivo que contiene lo siguiente:
 ```csharp
 //Puedes comprobar que si intentas correr este codigo, te dará un error, podrá correrlo aun así pero no es el objetivo.
@@ -265,7 +285,7 @@ Esto llamará al método "Valor1" del otro archivo y será ejecutado por el mét
 >[!NOTE]
 > Podríamos haber metido "MiPrograma.Prueba.Valor1();" directamente en "Main". Pero para esta explicación he alargado el código.
 
-- Todos los nombres que usemos se quedarán dentro de ese namespace, es decir, puedes tener el mismo nombre para una clase en 2 namespace distintos.
+- Ejemplo para conflicto de nombres:
 Ejemplo: 
 Si al primer archivo que creamos le añadimos lo siguiente
 ```csharp
@@ -295,10 +315,14 @@ namespace ArchivoPrincipal
 }
 ```
 El codigo seguirá funcionando, lo  unico que hemos cambiado es el nombre del namespace, pero las clases y los métodos siguen teniendo el mismo nombre
->[!WARNING]
-> Pudes anidar un namespace con otro name space con exactamente el mismo nombre, pero si usas la palabra clave "using" para acortar la ruta te dará error y el código no podrá saber a que namespace te estás refiriendo.
+
 #### 2. Clases (class)
-[Indice](#c)
+[Indice](#c)  
+
+>[!NOTE]
+> Ya he explicado namespace, asi que para no hacer los codigos tan largos voy a dejar de escribirlos si no es necesario para el ejemplo  
+
+**¿Que es?**: Las clases son fundamentales en C#, se utilizan para definir tipos de objetos.
 
 ```csharp
 namespace MiPrograma
@@ -309,6 +333,7 @@ namespace MiPrograma
     }
 }
 ``` 
+
 ##### 3. Campos (field):
 
 **¿Qué es?**: Nos almacena una variable que podrá ser usada siempre en la clase o incluso fuera de la misma si es pública
