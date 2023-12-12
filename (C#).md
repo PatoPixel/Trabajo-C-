@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-12T13:27:29.489Z'
+modified: '2023-12-12T18:28:30.327Z'
 ---
 
 # (C#)
@@ -27,11 +27,12 @@ modified: '2023-12-12T13:27:29.489Z'
       - [Correr el código](#correr-el-código)
     - [Linux](#linux-1)
       - [Correr el código](#correr-el-código-1)
-  - [Sintaxis básica](#sintaxis-básica)
+  - [Sintaxis](#sintaxis)
+  - [Estructura básica](#estructura-básica)
     - [1. Espacios de Nombres (namespace):](#1-espacios-de-nombres-namespace)
-    - [2. Clases (class):](#2-clases-class)
-      - [Campos (field):](#campos-field)
-    - [3. Métodos (method):](#3-métodos-method)
+      - [2. Clases (class)](#2-clases-class)
+        - [3. Campos (field):](#3-campos-field)
+        - [3. Métodos (method):](#3-métodos-method)
     - [4. Propiedades (property):](#4-propiedades-property)
     - [Visual Studio:](#visual-studio)
     - [Seccion1](#seccion1)
@@ -177,10 +178,10 @@ Presione cualquier tecla para cerrar esta ventana. . .
   Se te debieron crear 1 carpeta y 2 archivos, una carpeta de nombre "OBJ" y 2 archivos con nombre "(nombre de la carpeta del proyecto).csproj" y "Program.cs"
 
   5. Listo, ya tienes tu primer proyecto creado, ahora hace falta hacerlo funcionar
-
+ 
 #### Correr el código
   [Indice](#c)
-
+   
 1. Abriremos una nueva terminal como hicimos previamente
 
 2. Nos aseguramos que estamos en la carpeta del proyecto
@@ -195,14 +196,15 @@ Presione cualquier tecla para cerrar esta ventana. . .
     Hello, World!
    ```
 ## Sintaxis
+[Indice](#c)  
 - SIEMPRE hay que poner ; después de añadir una línea de código.
 - SIEMPRE hace face que hay que definir un Main, si no el código tendrá un error, aun así puede llegar a funcionar.
 - C# si distingue entre mayúsculas y minisculas.
 - No se pueden modificar las variables que esten definidas dentro de un método importado
 
 
-## Sintaxis y Estructura básica
-[Indice](#c)
+## Estructura básica
+[Indice](#c)  
 En C#, la estructura básica de un programa es la siguiente:
 - Espacios de nombres (namespace)
   - Clases [class]
@@ -215,9 +217,10 @@ En C#, la estructura básica de un programa es la siguiente:
   - Alias [alias]
 
 ### 1. Espacios de Nombres (namespace):
-[Indice](#c)
-Es el necesario al empezar un archivo nuevo, pueden haber más de 1 en un mismo archivo a la vez que se pueden anidar
-también nos permite usar el código que tenga escrito en otros archivos o proyectos
+[Indice](#c)  
+  - Es el necesario al empezar un archivo nuevo, pueden haber más de 1 en un mismo archivo a la vez que se pueden anidar.  
+  - Nos permite usar el código que tenga escrito en otros archivos o proyectos.   
+
 Imaginemos un archivo que contiene lo siguiente:
 ```csharp
 //Puedes comprobar que si intentas correr este codigo, te dará un error, podrá correrlo aun así pero no es el objetivo.
@@ -233,9 +236,11 @@ namespace MiPrograma
     }
 }
 ```
-Este archivo nos genera una variable con valor 1 y luego por consola nos muestra un mensaje.
+Este archivo nos genera una variable con valor 1 y luego por consola nos muestra un mensaje.  
+
+Ahora vamos a usar este código en otro archivo
 >[!IMPORTANT]
->Ahora para usarlo en otro archivo o proyecto asegúrate de que los archivos que contienen tu espacio de nombres y los archivos que lo utilizan estén en el mismo proyecto o que el proyecto que contiene el espacio de nombres esté referenciado por el proyecto que lo utiliza.  
+>Para usarlo en otro archivo o proyecto asegúrate de que los archivos que contienen tu espacio de nombres y los archivos que lo utilizan estén en el mismo proyecto o que el proyecto que contiene el espacio de nombres esté referenciado por el proyecto que lo utiliza.  
 
 >[!CAUTION]
 >Recuerda poner las mayusculas y minúsuclas bien
@@ -251,8 +256,7 @@ namespace ArchvioPrincipal
         public static void ProbarCodigo()
         {
             //Tenemos que poner toda la ruta NameSpace>Clase>Método.
-            MiPrograma.Prueba.Valor1();
-    
+            MiPrograma.Prueba.Valor1();   
         }
     }
 }
@@ -260,7 +264,40 @@ namespace ArchvioPrincipal
 Esto llamará al método "Valor1" del otro archivo y será ejecutado por el método "ProbarCodigo" cuando el método Main en este caso "Main" lo llame
 >[!NOTE]
 > Podríamos haber metido "MiPrograma.Prueba.Valor1();" directamente en "Main". Pero para esta explicación he alargado el código.
-### 2. Clases (class)
+
+- Todos los nombres que usemos se quedarán dentro de ese namespace, es decir, puedes tener el mismo nombre para una clase en 2 namespace distintos.
+Ejemplo: 
+Si al primer archivo que creamos le añadimos lo siguiente
+```csharp
+namespace MiPrograma2
+{
+    public class Prueba
+    {
+        public static void Valor1() { 
+            int NumeroPrueba2 = 2;
+            System.Console.WriteLine("El valor es " + NumeroPrueba2);
+        }
+    }
+}
+```
+y al siguiente archivo en la parte "Main" ponemos
+```csharp
+namespace ArchivoPrincipal
+{ 
+    public class ClasePrincipal
+    {
+        static void Main()
+        {
+            MiPrograma.Prueba.Valor1();
+            MiPrograma2.Prueba.Valor1();
+        }
+    }
+}
+```
+El codigo seguirá funcionando, lo  unico que hemos cambiado es el nombre del namespace, pero las clases y los métodos siguen teniendo el mismo nombre
+>[!WARNING]
+> Pudes anidar un namespace con otro name space con exactamente el mismo nombre, pero si usas la palabra clave "using" para acortar la ruta te dará error y el código no podrá saber a que namespace te estás refiriendo.
+#### 2. Clases (class)
 [Indice](#c)
 
 ```csharp
@@ -271,8 +308,8 @@ namespace MiPrograma
         // Contenido de la clase aquí
     }
 }
-```
-#### Campos (field):
+``` 
+##### 3. Campos (field):
 
 **¿Qué es?**: Nos almacena una variable que podrá ser usada siempre en la clase o incluso fuera de la misma si es pública
 
@@ -283,7 +320,7 @@ class MiClase
 }
 ```
 
-### 3. Métodos (method):
+##### 3. Métodos (method):
 [Indice](#c)
 **¿Necesario?**: No siempre. Un programa debe tener al menos un método Main como punto de entrada para la ejecución.
 **¿Qué es?**: código que realiza una tarea específica o una acción.
