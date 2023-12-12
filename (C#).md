@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-11T22:37:29.389Z'
+modified: '2023-12-12T12:45:37.440Z'
 ---
 
 # (C#)
@@ -198,6 +198,8 @@ Presione cualquier tecla para cerrar esta ventana. . .
 ## Sintaxis básica
 [Indice](#c)
 
+## Estructura básica
+[Indice](#c)
 En C#, la estructura básica de un programa es la siguiente:
 - Espacios de nombres (namespace)
   - Clases [class]
@@ -214,43 +216,38 @@ En C#, la estructura básica de un programa es la siguiente:
 
 ### 1. Espacios de Nombres (namespace):
 [Indice](#c)
-
-Nos permite usar el código que tenga escrito dentro en otros archivos o proyectos
+Es el necesario al empezar un archivo nuevo, pueden haber más de 1 en un mismo archivo a la vez que se pueden anidar
+también nos permite usar el código que tenga escrito en otros archivos o proyectos
+Imaginemos un archivo que contiene lo siguiente:
 
 ```csharp
-using System;
-using MiPrograma;
 namespace MiPrograma
 {
     public class Prueba
     {
-        static void Main()
+        public static void valor1()
         {
-          valor1();
-        }// Contenido de la clase Prueba
-        static void valor1()
-        {
-          int NumeroPrueba = 1;
+            int NumeroPrueba = 1;
+            System.Console.WriteLine("El valor es " + NumeroPrueba);
         }
     }
 }
-public class Prueba2
-{
-  static void Main()
-  {
-    Console.WriteLine("el numero de prueba es" valor1.NumeroPrueba);
-  }
-}
 ```
+>[!Note]
+> Ayuda
+
+Este archivo nos genera una variable con valor 1 y luego por consola nos muestra un mensaje, peor necesitamos llamar a este métoc
 Ahora para usarlo en otro archivo o proyecto asegúrate de que los archivos que contienen tu espacio de nombres y los archivos que lo utilizan estén en el mismo proyecto o que el proyecto que contiene el espacio de nombres esté referenciado por el proyecto que lo utiliza.
 ```csharp
-using MiPrograma
-class Juego
-{
-    static void Main()
+namespace OtroArchivo
+{ 
+    class Juego
     {
-        Prueba instancia = new Prueba();
-        // Utiliza la instancia de Prueba y otros elementos de MiPrograma
+        static void Prueba()
+        {
+            MiPrograma.Prueba instancia = new MiPrograma.Prueba();
+            // Utiliza la instancia de Prueba y otros elementos de MiPrograma
+        }
     }
 }
 ```
