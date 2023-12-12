@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-11T18:36:06.630Z'
+modified: '2023-12-11T22:37:29.389Z'
 ---
 
 # (C#)
@@ -30,8 +30,9 @@ modified: '2023-12-11T18:36:06.630Z'
   - [Sintaxis básica](#sintaxis-básica)
     - [1. Espacios de Nombres (namespace):](#1-espacios-de-nombres-namespace)
     - [2. Clases (class):](#2-clases-class)
+      - [Campos (field):](#campos-field)
     - [3. Métodos (method):](#3-métodos-method)
-    - [5. Campos (field):](#5-campos-field)
+    - [4. Propiedades (property):](#4-propiedades-property)
     - [Visual Studio:](#visual-studio)
     - [Seccion1](#seccion1)
 
@@ -199,33 +200,62 @@ Presione cualquier tecla para cerrar esta ventana. . .
 
 En C#, la estructura básica de un programa es la siguiente:
 - Espacios de nombres (namespace)
-  - clases[class], 
-  - interfaces [interface], 
-  - [enum], 
-  - [delegate], 
-  - [event], 
-  - [struct], 
-  - [alias]
+  - Clases [class]
+    - Campos
+  - Interfaces [interface]
+  - Enumeraciones [enum] 
+  - Delegados [delegate] 
+  - Eventos [event] 
+  - Estructuras [struct] 
+  - Alias [alias]
 
 
 
 
 ### 1. Espacios de Nombres (namespace):
+[Indice](#c)
 
-**¿Necesario?**: Sí, se utiliza para organizar y agrupar tipos relacionados.
-**Ubicación**: Puede contener clases, otros espacios de nombres y tipos relacionados.
+Nos permite usar el código que tenga escrito dentro en otros archivos o proyectos
 
 ```csharp
+using System;
+using MiPrograma;
 namespace MiPrograma
 {
-    // Contenido del espacio de nombres aquí
+    public class Prueba
+    {
+        static void Main()
+        {
+          valor1();
+        }// Contenido de la clase Prueba
+        static void valor1()
+        {
+          int NumeroPrueba = 1;
+        }
+    }
+}
+public class Prueba2
+{
+  static void Main()
+  {
+    Console.WriteLine("el numero de prueba es" valor1.NumeroPrueba);
+  }
 }
 ```
-
-### 2. Clases (class):
-
-**¿Necesario?**: Sí, las clases son la base de la programación orientada a objetos en C#.
-**Ubicación**: Dentro de un espacio de nombres.
+Ahora para usarlo en otro archivo o proyecto asegúrate de que los archivos que contienen tu espacio de nombres y los archivos que lo utilizan estén en el mismo proyecto o que el proyecto que contiene el espacio de nombres esté referenciado por el proyecto que lo utiliza.
+```csharp
+using MiPrograma
+class Juego
+{
+    static void Main()
+    {
+        Prueba instancia = new Prueba();
+        // Utiliza la instancia de Prueba y otros elementos de MiPrograma
+    }
+}
+```
+### 2. Clases (class)
+[Indice](#c)
 
 ```csharp
 namespace MiPrograma
@@ -236,9 +266,19 @@ namespace MiPrograma
     }
 }
 ```
- 
-### 3. Métodos (method):
+#### Campos (field):
 
+**¿Qué es?**: Nos almacena una variable que podrá ser usada siempre en la clase o incluso fuera de la misma si es pública
+
+```csharp
+class MiClase
+{
+    private int miCampo;
+}
+```
+
+### 3. Métodos (method):
+[Indice](#c)
 **¿Necesario?**: No siempre. Un programa debe tener al menos un método Main como punto de entrada para la ejecución.
 **¿Qué es?**: código que realiza una tarea específica o una acción.
 **Ubicación**: Dentro de una clase.
@@ -284,9 +324,9 @@ public class MiClase
 }
 ```
 Este método se llama Sumar, es público, estático, tiene un tipo de retorno int, acepta dos parámetros a y b, y devuelve la suma de los dos parámetros. Recuerda que no todos los modificadores son aplicables a todos los métodos; su aplicabilidad depende del contexto y del tipo de método que estés definiendo.
-```
-### 4. Propiedades (property):
 
+### 4. Propiedades (property):
+[Indice](#c)
 **¿Necesario?**: No siempre. Se utilizan para acceder y modificar valores de un objeto.
 **Ubicación**: Dentro de una clase.
 
@@ -294,17 +334,6 @@ Este método se llama Sumar, es público, estático, tiene un tipo de retorno in
 class MiClase
 {
     public int MiPropiedad { get; set; }
-}
-```
-### 5. Campos (field):
-
-**¿Necesario?**: No siempre. Se utilizan para almacenar datos dentro de una clase.
-**Ubicación**: Dentro de una clase.
-
-```csharp
-class MiClase
-{
-    private int miCampo;
 }
 ```
 Ahora, algunas consideraciones adicionales:
