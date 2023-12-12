@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-12T19:06:41.457Z'
+modified: '2023-12-12T19:10:21.891Z'
 ---
 
 # (C#)
@@ -63,7 +63,7 @@ modified: '2023-12-12T19:06:41.457Z'
 ## Instalación del IDE
 [Índice](#c)  
 
-    1. deberemos de usar un IDE (Integrated Development Environment o, lo que es lo mismo, Entorno de Desarrollo Integrado), usaremos Visual Studio para windows y visual studio code para linux, deberemos seguir los siguientes pasos:
+1. deberemos de usar un IDE (Integrated Development Environment o, lo que es lo mismo, Entorno de Desarrollo Integrado), usaremos Visual Studio para windows y visual studio code para linux, deberemos seguir los siguientes pasos:
 ### Windows:
  1. Enlace de descarga para el visual studio community: https://visualstudio.microsoft.com/es/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false
 
@@ -237,10 +237,11 @@ En C#, la estructura básica de un programa es la siguiente:
   - Usando namespace no hay conficto de nombres
   - Nos permite usar el código que tenga escrito en otros archivos o proyectos.   
   - Se pueden anidar.
-  >[!WARNING]
-  >Pudes anidar un namespace con otro name space con exactamente el mismo nombre, pero si usas la palabra clave "using" para acortar la ruta te dará error y el código no podrá saber a que namespace te estás refiriendo.  
+>[!WARNING]
+>Pudes anidar un namespace con otro name space con exactamente el mismo nombre, pero si usas la palabra clave "using" para acortar la ruta te dará error y el código no podrá saber a que namespace te estás refiriendo.  
 
-- Ejemplo para usar namespace en otros archivos:
+- Ejemplo para usar namespace en otros archivos:  
+
 Imaginemos un archivo que contiene lo siguiente:
 ```csharp
 //Puedes comprobar que si intentas correr este codigo, te dará un error, podrá correrlo aun así pero no es el objetivo.
@@ -285,9 +286,9 @@ Esto llamará al método "Valor1" del otro archivo y será ejecutado por el mét
 >[!NOTE]
 > Podríamos haber metido "MiPrograma.Prueba.Valor1();" directamente en "Main". Pero para esta explicación he alargado el código.
 
-- Ejemplo para conflicto de nombres:
-Ejemplo: 
-Si al primer archivo que creamos le añadimos lo siguiente
+- Ejemplo para conflicto de nombres:  
+
+Al primer archvio que habiamos creado le añadimos lo siguiente:  
 ```csharp
 namespace MiPrograma2
 {
