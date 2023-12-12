@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-12T19:10:21.891Z'
+modified: '2023-12-12T19:51:33.412Z'
 ---
 
 # (C#)
@@ -237,8 +237,9 @@ En C#, la estructura básica de un programa es la siguiente:
   - Usando namespace no hay conficto de nombres
   - Nos permite usar el código que tenga escrito en otros archivos o proyectos.   
   - Se pueden anidar.
+  - El uso de la palabra clave [using]()
 >[!WARNING]
->Pudes anidar un namespace con otro name space con exactamente el mismo nombre, pero si usas la palabra clave "using" para acortar la ruta te dará error y el código no podrá saber a que namespace te estás refiriendo.  
+>Pudes anidar un namespace con otro namespace con exactamente el mismo nombre, pero si usas la palabra clave "using" para acortar la ruta te dará error y el código no podrá saber a que namespace te estás refiriendo.  
 
 - Ejemplo para usar namespace en otros archivos:  
 
@@ -323,7 +324,27 @@ El codigo seguirá funcionando, lo  unico que hemos cambiado es el nombre del na
 >[!NOTE]
 > Ya he explicado namespace, asi que para no hacer los codigos tan largos voy a dejar de escribirlos si no es necesario para el ejemplo  
 
-**¿Que es?**: Las clases son fundamentales en C#, se utilizan para definir tipos de objetos.
+**¿Que es?**: Las clases son fundamentales en C#, se utilizan para definir tipos de objetos.  
+
+- Que puede contener una clase:
+  - Métodos (Methods)
+  - Campos (Fields)
+  - Constructores (Constructors)
+  - Clases (class)
+  - Eventos (event) 
+  - Propiedades (Properties) 
+
+
+
+- Características:
+  - Es el necesario al empezar un archivo nuevo.
+  - Puede haber más de 1 en un mismo archivo. 
+  - Los namespace no pueden tener modificadores (public, private, etc).
+  - Usando namespace no hay conficto de nombres
+  - Nos permite usar el código que tenga escrito en otros archivos o proyectos.   
+  - Se pueden anidar.
+  - El uso de la palabra clave [using]()
+
 
 ```csharp
 namespace MiPrograma
@@ -334,6 +355,7 @@ namespace MiPrograma
     }
 }
 ``` 
+
 
 ##### 3. Campos (field):
 
@@ -351,15 +373,13 @@ class MiClase
 **¿Necesario?**: No siempre. Un programa debe tener al menos un método Main como punto de entrada para la ejecución.
 **¿Qué es?**: código que realiza una tarea específica o una acción.
 **Ubicación**: Dentro de una clase.
-La estructura básica de un método en C# incluye varias palabras clave y elementos opcionales. Aquí tienes una combinación típica de palabras clave que conforman la declaración de un método:
-```csharp
+- Estructura: 
+
 [modificadorAcceso] [modificadorOtros] tipoRetorno NombreDelMetodo([parámetros])
-{
-    // Cuerpo del método
-    // Puede incluir declaraciones, expresiones y sentencias
-    return algo; // Opcional si el método tiene tipo de retorno diferente de void
-}
-```
+
+  - Es obligatorio que como minimo haya un [tipoRetorno]() y el nombre del método para crear un método
+La estructura básica de un método en C# incluye varias palabras clave y elementos opcionales. Aquí tienes una combinación típica de palabras clave que conforman la declaración de un método:
+
 Aquí hay una descripción de estas palabras clave:
 
 - Modificador de Acceso (public, private, protected, internal, etc.): Indica el nivel de acceso al método.
