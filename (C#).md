@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-12T13:25:42.713Z'
+modified: '2023-12-12T13:26:52.482Z'
 ---
 
 # (C#)
@@ -235,7 +235,7 @@ namespace MiPrograma
 ```
 Este archivo nos genera una variable con valor 1 y luego por consola nos muestra un mensaje.
 >[!IMPORTANT]
->Ahora para usarlo en otro archivo o proyecto asegúrate de que los archivos que contienen tu espacio de nombres y los archivos que lo utilizan estén en el mismo proyecto o que el proyecto que contiene el espacio de nombres esté referenciado por el proyecto que lo utiliza.
+>Ahora para usarlo en otro archivo o proyecto asegúrate de que los archivos que contienen tu espacio de nombres y los archivos que lo utilizan estén en el mismo proyecto o que el proyecto que contiene el espacio de nombres esté referenciado por el proyecto que lo utiliza.  
 >[!CAUTION]
 >Recuerda poner las mayusculas y minúsuclas bien
 ```csharp
