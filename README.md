@@ -2,6 +2,7 @@
 Explicación completa de como usar C#
 
 Utiles para docuemntacion:
+
 >[!NOTE]
 > Nota informativa
 
