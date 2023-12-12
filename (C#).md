@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-12T12:52:04.569Z'
+modified: '2023-12-12T12:54:32.848Z'
 ---
 
 # (C#)
@@ -213,8 +213,8 @@ Es el necesario al empezar un archivo nuevo, pueden haber más de 1 en un mismo 
 también nos permite usar el código que tenga escrito en otros archivos o proyectos
 Imaginemos un archivo que contiene lo siguiente:
 >[!IMPORTANT]
-> En C# SIEMPRE hay que poner ; después de añadir una línea de código
-> En C# SIEMPRE hace face que hay que definir un Main, si no el código no correrá
+> En C# SIEMPRE hay que poner ; después de añadir una línea de código  
+> En C# SIEMPRE hace face que hay que definir un Main, si no el código no correrá  
 ```csharp
 namespace MiPrograma
 {
