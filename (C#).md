@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-12T12:54:32.848Z'
+modified: '2023-12-12T13:25:42.713Z'
 ---
 
 # (C#)
@@ -194,6 +194,13 @@ Presione cualquier tecla para cerrar esta ventana. . .
     dotnet run
     Hello, World!
    ```
+## Sintaxis
+- SIEMPRE hay que poner ; después de añadir una línea de código.
+- SIEMPRE hace face que hay que definir un Main, si no el código tendrá un error, aun así puede llegar a funcionar.
+- C# si distingue entre mayúsculas y minisculas.
+- No se pueden modificar las variables que esten definidas dentro de un método importado
+
+
 ## Sintaxis y Estructura básica
 [Indice](#c)
 En C#, la estructura básica de un programa es la siguiente:
@@ -212,15 +219,13 @@ En C#, la estructura básica de un programa es la siguiente:
 Es el necesario al empezar un archivo nuevo, pueden haber más de 1 en un mismo archivo a la vez que se pueden anidar
 también nos permite usar el código que tenga escrito en otros archivos o proyectos
 Imaginemos un archivo que contiene lo siguiente:
->[!IMPORTANT]
-> En C# SIEMPRE hay que poner ; después de añadir una línea de código  
-> En C# SIEMPRE hace face que hay que definir un Main, si no el código no correrá  
 ```csharp
+//Puedes comprobar que si intentas correr este codigo, te dará un error, podrá correrlo aun así pero no es el objetivo.
 namespace MiPrograma
 {
     public class Prueba
     {
-        public static void valor1()
+        public static void Valor1()
         {
             int NumeroPrueba = 1;
             System.Console.WriteLine("El valor es " + NumeroPrueba);
@@ -228,23 +233,32 @@ namespace MiPrograma
     }
 }
 ```
-
-
-Este archivo nos genera una variable con valor 1 y luego por consola nos muestra un mensaje, peor necesitamos llamar a este métoc
-Ahora para usarlo en otro archivo o proyecto asegúrate de que los archivos que contienen tu espacio de nombres y los archivos que lo utilizan estén en el mismo proyecto o que el proyecto que contiene el espacio de nombres esté referenciado por el proyecto que lo utiliza.
+Este archivo nos genera una variable con valor 1 y luego por consola nos muestra un mensaje.
+>[!IMPORTANT]
+>Ahora para usarlo en otro archivo o proyecto asegúrate de que los archivos que contienen tu espacio de nombres y los archivos que lo utilizan estén en el mismo proyecto o que el proyecto que contiene el espacio de nombres esté referenciado por el proyecto que lo utiliza.
+>[!CAUTION]
+>Recuerda poner las mayusculas y minúsuclas bien
 ```csharp
-namespace OtroArchivo
+namespace ArchvioPrincipal
 { 
-    class Juego
+    public class ClasePrincipal
     {
-        static void Prueba()
+        static void Main()
         {
-            MiPrograma.Prueba instancia = new MiPrograma.Prueba();
-            // Utiliza la instancia de Prueba y otros elementos de MiPrograma
+            ProbarCodigo();
+        }
+        public static void ProbarCodigo()
+        {
+            //Tenemos que poner toda la ruta NameSpace>Clase>Método.
+            MiPrograma.Prueba.Valor1();
+    
         }
     }
 }
 ```
+Esto llamará al método "Valor1" del otro archivo y será ejecutado por el método "ProbarCodigo" cuando el método Main en este caso "Main" lo llame
+>[!NOTE]
+> Podríamos haber metido "MiPrograma.Prueba.Valor1();" directamente en "Main". Pero para esta explicación he alargado el código.
 ### 2. Clases (class)
 [Indice](#c)
 
