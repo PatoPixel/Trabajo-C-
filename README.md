@@ -7,13 +7,13 @@ Utiles para docuemntacion:
 > Nota informativa
 
 >[!TIP]
-> Nota informativa
+> TIP
 
 >[!IMPORTANT]
-> Nota informativa
+> Mensaje Importante
 
 >[!WARNING]
-> Nota informativa
+> Aviso
 
 >[!CAUTION]
-> Nota informativa
+> Precaucion
