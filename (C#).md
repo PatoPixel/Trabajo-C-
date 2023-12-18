@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-12T19:51:33.412Z'
+modified: '2023-12-18T17:43:56.457Z'
 ---
 
 # (C#)
@@ -221,6 +221,14 @@ En C#, la estructura básica de un programa es la siguiente:
 ### 1. Espacios de Nombres (namespace):
 [Indice](#c)
 **¿Qué es?**: es un contenedor que se utiliza para organizar y agrupar tipos relacionados. El propósito principal de los espacios de nombres es evitar conflictos de nombres y proporcionar una estructura jerárquica para organizar el código.  
+
+```csharp
+//namespace [Nombre del espacio]
+namespace EspacioDeNombre
+{
+  //Conteniodo del namepace
+}
+```
 - Que puede contener un espacio de nombres:
   - Clases [(class)](#2-clases-class)
   - Interfaces (interface)
@@ -245,7 +253,7 @@ En C#, la estructura básica de un programa es la siguiente:
 
 Imaginemos un archivo que contiene lo siguiente:
 ```csharp
-//Puedes comprobar que si intentas correr este codigo, te dará un error, podrá correrlo aun así pero no es el objetivo.
+//Puedes comprobar que si intentas correr este codigo, te dará un error, podrá correrlo aun así pero no es un buena práctica.
 namespace MiPrograma
 {
     public class Prueba
@@ -265,7 +273,7 @@ Ahora vamos a usar este código en otro archivo
 >Para usarlo en otro archivo o proyecto asegúrate de que los archivos que contienen tu espacio de nombres y los archivos que lo utilizan estén en el mismo proyecto o que el proyecto que contiene el espacio de nombres esté referenciado por el proyecto que lo utiliza.  
 
 >[!CAUTION]
->Recuerda poner las mayusculas y minúsuclas bien
+>Recuerda poner las mayusculas y minúsculas bien
 ```csharp
 namespace ArchvioPrincipal
 { 
