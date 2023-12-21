@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-18T17:43:56.457Z'
+modified: '2023-12-21T00:15:25.639Z'
 ---
 
 # (C#)
@@ -329,30 +329,7 @@ El codigo seguirá funcionando, lo  unico que hemos cambiado es el nombre del na
 #### 2. Clases (class)
 [Indice](#c)  
 
->[!NOTE]
-> Ya he explicado namespace, asi que para no hacer los codigos tan largos voy a dejar de escribirlos si no es necesario para el ejemplo  
-
 **¿Que es?**: Las clases son fundamentales en C#, se utilizan para definir tipos de objetos.  
-
-- Que puede contener una clase:
-  - Métodos (Methods)
-  - Campos (Fields)
-  - Constructores (Constructors)
-  - Clases (class)
-  - Eventos (event) 
-  - Propiedades (Properties) 
-
-
-
-- Características:
-  - Es el necesario al empezar un archivo nuevo.
-  - Puede haber más de 1 en un mismo archivo. 
-  - Los namespace no pueden tener modificadores (public, private, etc).
-  - Usando namespace no hay conficto de nombres
-  - Nos permite usar el código que tenga escrito en otros archivos o proyectos.   
-  - Se pueden anidar.
-  - El uso de la palabra clave [using]()
-
 
 ```csharp
 namespace MiPrograma
@@ -363,11 +340,40 @@ namespace MiPrograma
     }
 }
 ``` 
+- Que puede contener una clase:
+  - Métodos (Methods)
+  - Campos (Fields)
+  - Constructores (Constructors)
+  - Clases (class)
+  - Eventos (event) 
+  - Propiedades (Properties) 
 
 
+- Características:
+  - [Herencia](#Herencia)
+  - [Polimorfismo](#Polimorfismo)
+  - [Instanciación](#Instanciación)
+  - [Modularidad](#Modularidad)
+
+
+>[!NOTE]
+> Ya he explicado namespace, asi que para no hacer los codigos tan largos voy a dejar de escribirlos si no es necesario para el ejemplo  
+
+ - 1. Herencia <span id="Herencia">
+Las clases permiten la creación de jerarquías a través de la herencia. Una clase puede heredar características (campos y métodos) de otra clase, lo que fomenta la reutilización del código y la creación de relaciones entre entidades.
+Ej:
+
+
+ - 2. Polimorfismo <span id="Polimorfismo">
+
+
+- 3. Instanciación <span id="Instanciación">
+
+
+- 4. Modularidad <span id="Modularidad">
 ##### 3. Campos (field):
 
-**¿Qué es?**: Nos almacena una variable que podrá ser usada siempre en la clase o incluso fuera de la misma si es pública
+**¿Qué es?**: Nos almacena una variable que podrá ser usada siempre en la clase o incluso fuera de la misma si es [pública](#markdown)
 
 ```csharp
 class MiClase
