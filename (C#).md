@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-22T13:12:21.551Z'
+modified: '2023-12-22T20:49:53.399Z'
 ---
 
 # (C#)
@@ -202,13 +202,12 @@ Presione cualquier tecla para cerrar esta ventana. . .
 - No es obligatorio pero es una buena práctica poner la primera letra mayúscula en las clases.
 - SIEMPRE hay que definir un Main, si no el código tendrá un error, aun así puede llegar a funcionar.
 - C# SÍ distingue entre mayúsculas y minisculas.
-- No se pueden modificar las variables que esten definidas dentro de un método importado
-
 
 ## Estructura básica
 [Indice](#c)  
 En C#, la estructura básica de un programa es la siguiente:
 - Espacios de nombres [(namespace)](#1-espacios-de-nombres-namespace)
+  - Alias (alias)
   - Clases [(class)](#2-clases-class)
     - Campos
   - Interfaces (interface)
@@ -216,10 +215,10 @@ En C#, la estructura básica de un programa es la siguiente:
   - Delegados (delegate) 
   - Eventos (event) 
   - Estructuras (struct) 
-  - Alias (alias)
+  
 
 >[!IMPORTANT]
-> Los siguientes ejemplos sirven para comprender el uso de cada elemento, explicaré que función tiene el código pero no es necesario comprender cada línea de código, solamente lo que se esté explicando en esta parte en especifica, voy a explciar de forma jerárquica, es decir, más tarde explicaré cada elemento que se ha usado.  
+> Los siguientes ejemplos sirven para comprender el uso de cada elemento, explicaré que función tiene el código pero no es necesario comprender cada línea de código, solamente lo que se esté explicando en esa parte en especifico, voy a explciar de forma jerárquica, es decir, más tarde explicaré cada sub-elemento que se ha usado.  
 
 
 
@@ -336,8 +335,71 @@ namespace ArchivoPrincipal
 }
 ```
 El codigo seguirá funcionando, lo  unico que hemos cambiado es el nombre del namespace, pero las clases y los métodos siguen teniendo el mismo nombre.
+#### 2. Alias
+Los alias son un mecanismo que te permite darle a un tipo existente un nombre alternativo. Esto puede ser útil para simplificar nombres largos o para evitar conflictos de nombres entre tipos.
 
-#### 2. Clases (class)
+1. Definición:
+Puedes utilizar la palabra clave **using** para crear un alias para un tipo. La sintaxis básica es:
+```csharp
+//using NombreAlias = RutaReal;
+using Numero = MiPrograma.Prueba;
+namespace MiPrograma
+{
+    public class Prueba
+    {
+        public static void Valor1()
+        {
+            int NumeroPrueba = 1;
+            System.Console.WriteLine("El valor es " + NumeroPrueba);
+        }
+    }
+    public class ClasePrincipal
+    {
+        static void Main()
+        {
+            Numero.Valor1();
+        }
+    }
+}
+```
+ Cambiamos la ruta "MiPrograma.Pueba" por "Numero", ahora podemos usar ese alias para evitar escribir toda la ruta siempre
+
+- Tambien podemos usar using para namespaces, pero esto es un poco diferente:
+
+```csharp
+using MiPrograma;
+namespace MiPrograma
+{
+    public class Prueba
+    {
+        public static void Valor1()
+        {
+            int NumeroPrueba = 1;
+            System.Console.WriteLine("El valor es " + NumeroPrueba);
+        }
+    }
+    public class ClasePrincipal
+    {
+        static void Main()
+        {
+            Prueba.Valor1();
+        }
+    }
+}
+```
+Con esto lo que hacemos es saltarnos la parte del espacio de nombre.
+
+>[!NOTE]
+> Ya he explicado namespace, asi que para no hacer los codigos tan largos voy a dejar de escribirlos si no es necesario para el ejemplo.  
+#### 3. Enumeracion (Enum)
+
+**¿Que es?**: Son un conjunto de constantes con nombre
+
+```csharp
+// Enum NombreDeEnumeración {nombre1,nombre2,nombre3}
+  enum NombreDeEnumeración
+```
+#### 4. Clases (class)
 [Indice](#c)  
 
 **¿Que es?**: Las clases son fundamentales en C#, se utilizan para definir tipos de objetos.  
@@ -345,6 +407,7 @@ El codigo seguirá funcionando, lo  unico que hemos cambiado es el nombre del na
 ```csharp
 namespace MiPrograma
 {
+  //[Modificador de Acceso (Opcional)] [Otros Modificadores(Opcional)] partial(opcional) class "Nombre de la clase"
     class MiClase
     {
         // Contenido de la clase aquí
@@ -359,29 +422,26 @@ namespace MiPrograma
   - Eventos (event) 
   - Propiedades (Properties) 
 
+- Modificador **Partial**
+Este modificador nos permite seguir añadiendo codigo dentro de una clase en distintos archivos, siempre y cuando el namespace sea el mismo
 
-- Características:
-  - [Herencia](#Herencia)
-  - [Polimorfismo](#Polimorfismo)
-  - [Instanciación](#Instanciación)
-  - [Modularidad](#Modularidad)
-
+```csharp
+partial class archivo1
+{
+  //Contenido de la clase
+}
+```
+En otro archivo
+```csharp
+partial class archivo1
+{
+  //Más contenido en la misma clase
+}
+```
+Esto nos permitirá añadir codigo a una clase desde distintios archvios.
 
 >[!NOTE]
-> Ya he explicado namespace, asi que para no hacer los codigos tan largos voy a dejar de escribirlos si no es necesario para el ejemplo  
-
- - 1. Herencia <span id="Herencia">
-Las clases permiten la creación de jerarquías a través de la herencia. Una clase puede heredar características (campos y métodos) de otra clase, lo que fomenta la reutilización del código y la creación de relaciones entre entidades.
-Ej:
-
-
- - 2. Polimorfismo <span id="Polimorfismo">
-
-
-- 3. Instanciación <span id="Instanciación">
-
-
-- 4. Modularidad <span id="Modularidad">
+> Las clases son el inciio de la Programación Orientada a Objetos ([POO](#POO))
 ##### 3. Campos (field):
 
 **¿Qué es?**: Nos almacena una variable que podrá ser usada siempre en la clase o incluso fuera de la misma si es [pública](#markdown)
@@ -459,58 +519,7 @@ El método Main es el punto de entrada principal para la ejecución del programa
 Propiedades, campos y otros miembros de una clase deben declararse dentro de la clase. No puedes declarar propiedades, campos o métodos directamente en el espacio de nombres sin estar dentro de una clase.
 
 En resumen, un programa C# típicamente tiene una estructura jerárquica donde las clases están dentro de espacios de nombres, los métodos están dentro de clases, y otros miembros como propiedades y campos están dentro de clases también. El método Main actúa como el punto de entrada principal. La organización específica dependerá de la complejidad y requisitos de tu programa.
-  1. Comentarios:
 
-En C#, puedes agregar comentarios de una sola línea utilizando // o comentarios de varias líneas con /* ... */. Los comentarios son ignorados por el compilador y son útiles para explicar el código.
-
-```c#
-// Esto es un comentario de una sola línea
-
-/*
-   Esto es un comentario
-   de varias líneas
-*/
-```
-2. Directivas de Uso (using directives):
-
-Las directivas using permiten importar espacios de nombres para que puedas usar tipos sin tener que escribir sus nombres completos.
-
-```csharp
-using System;
-```
-
-Esto nos permite ahorrar codigo por ejemplo:
-
-```csharp
-//sin usar "using"
-System.Console.WriteLine("Primera línea");
-System.Console.WriteLine("Segunda línea");
-
-//usando "using"
-using System
-Console.WriteLine("Primera línea");
-Console.WriteLine("Segunda línea");
-```
-3. Espacios de Nombres (namespace):
-
-Los espacios de nombres son un contenedor que se usa para organizar y agrupar tipos (clases, interfaces...).
-
-```csharp
-namespace MiEspacioDeNombres
-{
-    // Tu código aquí
-}
-```
-4. Clases:
-
-Las clases son fundamentales en C#. Contienen miembros como campos, propiedades, métodos, eventos, y más.
-
-```c#
-class MiClase
-{
-    // Miembros de la clase aquí
-}
-```
 5. Métodos:
 
 Los métodos son bloques de código que realizan tareas específicas. El método Main es el punto de entrada de una aplicación de consola.
@@ -578,39 +587,5 @@ class MiClase
 }
 
 MiClase instancia = new MiClase();
-10. Comentarios XML (Documentación):
-C# permite agregar comentarios XML para documentar tu código, y estas documentaciones se pueden generar automáticamente como documentación de API.
 
-csharp
-Copy code
-/// <summary>
-/// Este es un comentario de documentación XML
-/// </summary>
-class MiClase
-{
-}
-Estos son solo algunos de los elementos básicos de la sintaxis de C#. A medida que profundices en el lenguaje, encontrarás conceptos más avanzados y características específicas de .NET que te permitirán construir aplicaciones más complejas y robustas.
-
-
-
-
-
-### Visual Studio: 
-  - 
- 
- 
-
-### Seccion1
-[Indice](#c)
-
-```console
-#...
-```
-- hola
-gege
-  - egeg
-
-wfwfw
-
-  wffwf
 
