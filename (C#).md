@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-22T12:59:33.491Z'
+modified: '2023-12-22T13:12:21.551Z'
 ---
 
 # (C#)
@@ -219,7 +219,8 @@ En C#, la estructura básica de un programa es la siguiente:
   - Alias (alias)
 
 >[!IMPORTANT]
-> Los siguientes ejemplos sirven para comprender el uso de casa elemento, explicaré que función tiene el código pero no es necesario comprender cada linea de código, solamente lo que se esté explicando en esta parte en especifica, voy a explciar de forma gerarquica.  
+> Los siguientes ejemplos sirven para comprender el uso de cada elemento, explicaré que función tiene el código pero no es necesario comprender cada línea de código, solamente lo que se esté explicando en esta parte en especifica, voy a explciar de forma jerárquica, es decir, más tarde explicaré cada elemento que se ha usado.  
+
 
 
 ### 1. Espacios de Nombres (namespace):
