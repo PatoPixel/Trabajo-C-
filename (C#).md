@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-21T00:15:25.639Z'
+modified: '2023-12-22T12:59:33.491Z'
 ---
 
 # (C#)
@@ -218,6 +218,10 @@ En C#, la estructura básica de un programa es la siguiente:
   - Estructuras (struct) 
   - Alias (alias)
 
+>[!IMPORTANT]
+> Los siguientes ejemplos sirven para comprender el uso de casa elemento, explicaré que función tiene el código pero no es necesario comprender cada linea de código, solamente lo que se esté explicando en esta parte en especifica, voy a explciar de forma gerarquica.  
+
+
 ### 1. Espacios de Nombres (namespace):
 [Indice](#c)
 **¿Qué es?**: es un contenedor que se utiliza para organizar y agrupar tipos relacionados. El propósito principal de los espacios de nombres es evitar conflictos de nombres y proporcionar una estructura jerárquica para organizar el código.  
@@ -239,7 +243,7 @@ namespace EspacioDeNombre
   - Alias (alias)
 
 - Características:
-  - Es el necesario al empezar un archivo nuevo.
+  - No es obligatorio usarlo, pero es una buena práctica ya que te evita muchos problemas futuros y es más ordenado
   - Puede haber más de 1 en un mismo archivo. 
   - Los namespace no pueden tener modificadores (public, private, etc).
   - Usando namespace no hay conficto de nombres
@@ -297,8 +301,14 @@ Esto llamará al método "Valor1" del otro archivo y será ejecutado por el mét
 
 - Ejemplo para conflicto de nombres:  
 
+Esto quiere decir que no habrá problema en usar el mismo nombre en las clases siempre y cuando esten dentro de otro namespace
+
 Al primer archvio que habiamos creado le añadimos lo siguiente:  
 ```csharp
+namespace MiPrograma
+{
+ // Código anterior
+}
 namespace MiPrograma2
 {
     public class Prueba
@@ -324,7 +334,7 @@ namespace ArchivoPrincipal
     }
 }
 ```
-El codigo seguirá funcionando, lo  unico que hemos cambiado es el nombre del namespace, pero las clases y los métodos siguen teniendo el mismo nombre
+El codigo seguirá funcionando, lo  unico que hemos cambiado es el nombre del namespace, pero las clases y los métodos siguen teniendo el mismo nombre.
 
 #### 2. Clases (class)
 [Indice](#c)  
