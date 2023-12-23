@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-22T20:49:53.399Z'
+modified: '2023-12-22T21:11:11.577Z'
 ---
 
 # (C#)
@@ -397,8 +397,12 @@ Con esto lo que hacemos es saltarnos la parte del espacio de nombre.
 
 ```csharp
 // Enum NombreDeEnumeración {nombre1,nombre2,nombre3}
-  enum NombreDeEnumeración
+  enum NombreDeEnumeracion
+  {
+    
+  }
 ```
+
 #### 4. Clases (class)
 [Indice](#c)  
 
