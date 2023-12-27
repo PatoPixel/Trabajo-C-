@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-22T21:11:11.577Z'
+modified: '2023-12-26T23:34:54.378Z'
 ---
 
 # (C#)
@@ -13,7 +13,7 @@ modified: '2023-12-22T21:11:11.577Z'
 [//]: # (author: Izan Abramovici Cabrera)
 [//]: # (date: 2023-11-21)
 
-
+ 
 
 # Indice
 - [(C#)](#c)
@@ -27,20 +27,24 @@ modified: '2023-12-22T21:11:11.577Z'
       - [Correr el código](#correr-el-código)
     - [Linux](#linux-1)
       - [Correr el código](#correr-el-código-1)
-  - [Sintaxis](#sintaxis)
+  - [Sintaxis básica](#sintaxis-básica)
+    - [Buenas Prácticas](#buenas-prácticas)
+    - [1. Comentarios](#1-comentarios)
+    - [2. Identificadores](#2-identificadores)
+    - [3. Tipos de datos](#3-tipos-de-datos)
   - [Estructura básica](#estructura-básica)
     - [1. Espacios de Nombres (namespace):](#1-espacios-de-nombres-namespace)
-      - [2. Clases (class)](#2-clases-class)
+      - [2. Alias](#2-alias)
+      - [3. Enumeracion (Enum)](#3-enumeracion-enum)
+      - [4. Clases (class)](#4-clases-class)
         - [3. Campos (field):](#3-campos-field)
         - [3. Métodos (method):](#3-métodos-method)
     - [4. Propiedades (property):](#4-propiedades-property)
-    - [Visual Studio:](#visual-studio)
-    - [Seccion1](#seccion1)
 
 <div style="page-break-after: always;"></div>
  
  
-
+ 
 ## Introducción
 [Indice](#c)
 
@@ -76,6 +80,8 @@ modified: '2023-12-22T21:11:11.577Z'
  5. Iniciamos sesisón con Microsoft
 
  6. Inciar proyecto
+
+-------------
 
 ### Linux:
   1. Debemos instalar visual studio code, haremos lo siguiente:
@@ -147,6 +153,7 @@ Presione cualquier tecla para cerrar esta ventana. . .
   ``` 
   Ha hecho exactamente lo que el código pedia, imprimir en una consola la frase "Hello, World!"
 
+-------------
 
 ### Linux
 
@@ -196,12 +203,65 @@ Presione cualquier tecla para cerrar esta ventana. . .
     dotnet run
     Hello, World!
    ```
-## Sintaxis
+-------------
+
+## Sintaxis básica
 [Indice](#c)  
-- SIEMPRE hay que poner ; después de añadir una línea de código.
-- No es obligatorio pero es una buena práctica poner la primera letra mayúscula en las clases.
-- SIEMPRE hay que definir un Main, si no el código tendrá un error, aun así puede llegar a funcionar.
-- C# SÍ distingue entre mayúsculas y minisculas.
+- SIEMPRE hay que poner ; después de añadir una línea de código. 
+- SIEMPRE hay que definir un Main, si no el código tendrá un error.
+- Es caseSensitive : distingue entre mayúsculas y minisculas.
+
+### Buenas Prácticas
+- Usar camelCase/Snake/PascalCase
+```csharp
+//camelCase
+namespace pruebaDocumento {}
+//snake
+namespace prueba_documento {}
+//PascalCase
+namespace PruebaDocumento {}
+```
+- Seguir convenciones de nomenglatura para mejorar la legibilidad, por ejemplo, usar PascalCase para nombres de clase y camelCase para nombres de variables y métodos.
+- Dejar una linea en blanco para casa "{}"
+- Tabular cada vez que haya otro nivel inferior
+```csharp
+namespace prueba_nombre
+{
+    class PruebaMenor
+    {
+        void pruebaMetodo()
+        {
+
+        }
+    }
+}
+```
+- Usar comentarios
+
+-------------
+ 
+### 1. Comentarios
+[Indice](#c) 
+```csharp
+// Esto es un comentario de una linea
+
+/*
+ Esto es un comentario
+ Multilinea
+*/
+```
+Los comentarios en C# son anotaciones en el código que se utilizan para proporcionar información adicional. No afectan la ejecución del programa y son útiles para la documentación, explicación y comprensión del código fuente.
+
+### 2. Identificadores
+  
+  Un identificador en programación es un nombre que se utiliza para identificar una variable, constante, función, clase u otro elemento en el código fuente. Los identificadores son etiquetas que asignamos a elementos (Namespaces, clases, métodos, variables, constantes...) del programa para referirnos a ellos y manipularlos en el código.
+    - Solo se pueden usar letras, numeros y guiones bajos
+    - Debe de comenzar por una letra o un guión bajo
+    - No usar palabras reservadas por el sistema (Son las que aparecen en azul, como class, void, namespace, etc.)
+
+### 3. Tipos de datos
+
+
 
 ## Estructura básica
 [Indice](#c)  
@@ -215,7 +275,6 @@ En C#, la estructura básica de un programa es la siguiente:
   - Delegados (delegate) 
   - Eventos (event) 
   - Estructuras (struct) 
-  
 
 >[!IMPORTANT]
 > Los siguientes ejemplos sirven para comprender el uso de cada elemento, explicaré que función tiene el código pero no es necesario comprender cada línea de código, solamente lo que se esté explicando en esa parte en especifico, voy a explciar de forma jerárquica, es decir, más tarde explicaré cada sub-elemento que se ha usado.  
