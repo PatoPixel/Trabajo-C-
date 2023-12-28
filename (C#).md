@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-26T23:34:54.378Z'
+modified: '2023-12-28T18:34:57.134Z'
 ---
 
 # (C#)
@@ -261,7 +261,53 @@ Los comentarios en C# son anotaciones en el código que se utilizan para proporc
 
 ### 3. Tipos de datos
 
+Tipos: 
+  - Por referencia
+  - Por valor
+    - Primitivos
+      - Enteros
+      - Reales
+      - Booleanos
+    - Enumerados
+    - Estructurados
 
+>[!NOTE]
+>Se va a hacer una pequeña explicacion de cada tipo lo minimo para entenderlo pero por ahora no entraremos en detalles más especificos
+
+ 1. Por referencia
+    A la hora de almacenar estos datos, almacenamos una dirección en la memoria de ese tipo por la referencia   
+
+ 2. Por valor
+    Son aquellos que maneja el procesador y se almacenan en una variable
+
+  - 3. Primitivos
+      Son los más importantes y a su vez los más básicos los cuales se dividen en enteros, reales y boolenaos, hay un cuarto que hablaremos despues.
+        - Enteros: Valores sin decimales
+        - Reales: Valores con decimales
+        - Booleanos: Condiciones lógicas (True/False)
+      Dentro de los Enteros encontrados dos tipos:
+        - Sin signo: Puede ser tanto positivo como negativo
+          - byte: 0 a 255 
+          - ushort: 0 a 65.535
+          - uint: 0 a 4.294,967.295
+          - ulong: 0 a 18,446,744,073,709,551,615
+        - Con signo: Pueden ser tanto positivos como negativos
+          - sbyte: -128 a 127
+          - short: -32,768 a 32,767
+          - int: -2,147,483,648 a 2,147,483,647
+          - long: -9,223,372,036,854,775,808 a 9,223,372,036,854,775,807
+       Dentro de los Reales encontramos:
+        - Float: 6-9 digitos de precisión total
+        - Double: 15-17 dígitos de precisión total
+        - Decimal: 28-29 dígitos de precisión total   
+>[!Caution]
+>Para flotar y decimal es aconsejable poner f y m respectivamente al finalizar la declaracion de la variable:
+>```csharp
+>float NumeroFloat = 23.543f;
+>decimal NumeroDecimal = 2415.1325234m;
+>```
+>
+       
 
 ## Estructura básica
 [Indice](#c)  
