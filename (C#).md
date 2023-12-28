@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-28T20:38:29.112Z'
+modified: '2023-12-28T20:55:38.458Z'
 ---
 
 # (C#)
@@ -241,8 +241,8 @@ namespace prueba_documento {}
 namespace PruebaDocumento {}
 ```
 - Seguir convenciones de nomenglatura para mejorar la legibilidad, por ejemplo, usar PascalCase para nombres de clase y camelCase para nombres de variables y métodos.
-- Dejar una linea en blanco para casa "{}"
-- Tabular cada vez que haya otro nivel inferior
+- Dejar una linea en blanco para cada "{}"
+- Tabular cada vez que haya otro nivel inferior (indentación)
 ```csharp
 namespace prueba_nombre
 {
@@ -424,11 +424,18 @@ string textoParaUsar = "Juan";
 textoParaUsar += " y Maria";
 
 System.Console.WriteLine("La edad de " + textoParaUsar + " es " + valor1);
+
 ```
+>[!Tip]
+>Hay una manera mucho más eficaz de crear una oración así que es mediante la interpolación de strings
+>```csharp
+//usamos $ para empezar la interpolación y las variables que queramos añadir las insertamos mediante {}
+>System.Console.WriteLine($"La edad de {textoParaUsar} es {valor1}");
+>```
  El en siguiente ejemplo vamos a ver como C# trata a los numeros decimales
 ```csharp
 System.Console.WriteLine(7 / 3);
-//Nos va a salir un resultado erroneo, esto ocurre porque C# aunque sepa que da un decimal,
+//Nos va a salir un resultado erroneo, esto ocurre porque aunque C# sepa que da un decimal,
 //al ser dos numeros enteros seguirá respondiendo con otro número entero
 //Tenemos 3 maneras de solucionarlo
 
