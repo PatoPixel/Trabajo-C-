@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-28T20:55:38.458Z'
+modified: '2023-12-28T20:56:30.213Z'
 ---
 
 # (C#)
@@ -429,7 +429,7 @@ System.Console.WriteLine("La edad de " + textoParaUsar + " es " + valor1);
 >[!Tip]
 >Hay una manera mucho más eficaz de crear una oración así que es mediante la interpolación de strings
 >```csharp
-//usamos $ para empezar la interpolación y las variables que queramos añadir las insertamos mediante {}
+>//usamos $ para empezar la interpolación y las variables que queramos añadir las insertamos mediante {}
 >System.Console.WriteLine($"La edad de {textoParaUsar} es {valor1}");
 >```
  El en siguiente ejemplo vamos a ver como C# trata a los numeros decimales
