@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-28T19:36:35.440Z'
+modified: '2023-12-28T20:36:58.302Z'
 ---
 
 # (C#)
@@ -27,12 +27,14 @@ modified: '2023-12-28T19:36:35.440Z'
       - [Correr el código](#correr-el-código)
     - [Linux](#linux-1)
       - [Correr el código](#correr-el-código-1)
+  - [Estructura básica](#estructura-básica)
   - [Sintaxis básica](#sintaxis-básica)
     - [Buenas Prácticas](#buenas-prácticas)
     - [1. Comentarios](#1-comentarios)
     - [2. Identificadores](#2-identificadores)
     - [3. Tipos de datos](#3-tipos-de-datos)
-  - [Estructura básica](#estructura-básica)
+    - [4. Variables](#4-variables)
+  - [Estructura básica](#estructura-básica-1)
     - [1. Espacios de Nombres (namespace):](#1-espacios-de-nombres-namespace)
       - [2. Alias](#2-alias)
       - [3. Enumeracion (Enum)](#3-enumeracion-enum)
@@ -204,6 +206,21 @@ Presione cualquier tecla para cerrar esta ventana. . .
     Hello, World!
    ```
 -------------
+## Estructura básica
+[Indice](#c) 
+Lo minimo que debemos de tener en nuestro proyecto de c# y lo que vamos a usar en los sigueinte ejemplos es:
+```csharp
+namespace "NombreQueQueramos"
+{
+    class "NombreQueQueramos"
+    {
+        static void Main()
+        {
+          //Código
+        }
+    }
+}
+```
 
 ## Sintaxis básica
 [Indice](#c)  
@@ -350,6 +367,7 @@ edadDelAlumno = 10;
   Existe la posibilidad de hacer los dos pasos anteriores a la vez
 ```csharp
 int edadDelAlumno = 10;
+string nombreAlumno = "Juan";
 ```
 >[!Caution]
 >En C# no puedes usar una variable que no se haya iniciado.   
@@ -372,6 +390,69 @@ namespace prueba_variable
     }
 }
 ```
+
+### 5. Operadores aritméticos
+- Suma                | +
+- Resta               | -  
+- Multiplicación      | *
+- División            | /
+- Residuo / Módulo    | % (Devuelve el resto de una division)
+
+Hay 2 utilidades aparte de las que ya tienes:
+  - Si ponemos ++ o -- nos sirve para hacer un incremendo o un decremento
+  - Podemos usar +=, -=, *=, etc para evitarnos tener que escribir: "variable" = "variable" * 4 
+  - El símbolo de + nos sirve para concatenar texto, es decir, podemos juntar distintos textos
+```csharp
+//usamos siempre la misma estructura que puse al principio, no la pongo para ahorrar espacio
+//Ejemplos de operadores
+System.Console.WriteLine("Suma: " + (2 + 3));
+System.Console.WriteLine("Resta: " + (5 - 2));
+System.Console.WriteLine("Multiplicación: " + (4 * 6));
+System.Console.WriteLine("División: " + (8 / 2));
+System.Console.WriteLine("Residuo/Módulo: " + (7 % 3));
+
+//Ejemplo con variables y operadores
+
+int valor1 = 10;
+//incrementamos 1
+valor1++;
+
+string textoParaUsar = "Juan";
+//concatenamos texto evitando poner
+//textoParaUsar = textoParaUsar + " y Maria";
+textoParaUsar += " y Maria";
+
+System.Console.WriteLine("La edad de " + textoParaUsar + " es " + valor1);
+```
+ El en siguiente ejemplo vamos a ver como C# trata a los numeros decimales
+```csharp
+System.Console.WriteLine(7 / 3);
+//Nos va a salir un resultado erroneo, esto ocurre porque C# aunque sepa que da un decimal, al ser dos numeros enteros seguirá respondiendo con otro número entero
+//Tenemos 3 maneras de solucionarlo
+
+//1. Creando variables que sean de tipo decimal flotar, double, decimal
+double num = 7;
+double num2 = 3;
+System.Console.WriteLine(num / num2);
+
+//2. Escribiendo a mano un número decimal
+System.Console.WriteLine(7.0 / 3.0); //usa boolean como predeterminado
+
+//3. Especificando que es un decimal
+System.Console.WriteLine(7f / 3f);
+
+```
+
+
+
+
+
+
+
+
+
+
+
 
 ## Estructura básica
 [Indice](#c)  
