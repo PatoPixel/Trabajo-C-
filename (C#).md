@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-28T20:36:58.302Z'
+modified: '2023-12-28T20:38:29.112Z'
 ---
 
 # (C#)
@@ -34,6 +34,7 @@ modified: '2023-12-28T20:36:58.302Z'
     - [2. Identificadores](#2-identificadores)
     - [3. Tipos de datos](#3-tipos-de-datos)
     - [4. Variables](#4-variables)
+    - [5. Operadores aritméticos](#5-operadores-aritméticos)
   - [Estructura básica](#estructura-básica-1)
     - [1. Espacios de Nombres (namespace):](#1-espacios-de-nombres-namespace)
       - [2. Alias](#2-alias)
@@ -221,7 +222,7 @@ namespace "NombreQueQueramos"
     }
 }
 ```
-
+  
 ## Sintaxis básica
 [Indice](#c)  
 - SIEMPRE hay que poner ; después de añadir una línea de código. 
@@ -427,7 +428,8 @@ System.Console.WriteLine("La edad de " + textoParaUsar + " es " + valor1);
  El en siguiente ejemplo vamos a ver como C# trata a los numeros decimales
 ```csharp
 System.Console.WriteLine(7 / 3);
-//Nos va a salir un resultado erroneo, esto ocurre porque C# aunque sepa que da un decimal, al ser dos numeros enteros seguirá respondiendo con otro número entero
+//Nos va a salir un resultado erroneo, esto ocurre porque C# aunque sepa que da un decimal,
+//al ser dos numeros enteros seguirá respondiendo con otro número entero
 //Tenemos 3 maneras de solucionarlo
 
 //1. Creando variables que sean de tipo decimal flotar, double, decimal
