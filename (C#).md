@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-28T18:34:57.134Z'
+modified: '2023-12-28T19:36:35.440Z'
 ---
 
 # (C#)
@@ -208,9 +208,10 @@ Presione cualquier tecla para cerrar esta ventana. . .
 ## Sintaxis básica
 [Indice](#c)  
 - SIEMPRE hay que poner ; después de añadir una línea de código. 
-- SIEMPRE hay que definir un Main, si no el código tendrá un error.
+- SIEMPRE hay que definir un Main estático.
 - Es caseSensitive : distingue entre mayúsculas y minisculas.
-
+- C# subraya en verde para las advertencias y rojo para los errores en sintaxis
+- Lee el código de arriba a abajo siempre y cuando no tenga POO (programación orientada a objetos)
 ### Buenas Prácticas
 - Usar camelCase/Snake/PascalCase
 ```csharp
@@ -231,7 +232,7 @@ namespace prueba_nombre
     {
         void pruebaMetodo()
         {
-
+          //Codigo
         }
     }
 }
@@ -254,7 +255,7 @@ Los comentarios en C# son anotaciones en el código que se utilizan para proporc
 
 ### 2. Identificadores
   
-  Un identificador en programación es un nombre que se utiliza para identificar una variable, constante, función, clase u otro elemento en el código fuente. Los identificadores son etiquetas que asignamos a elementos (Namespaces, clases, métodos, variables, constantes...) del programa para referirnos a ellos y manipularlos en el código.
+  Un identificador en programación es un nombre que se utiliza para identificar una función, clase u otro elemento en el código fuente. Los identificadores son etiquetas que asignamos a elementos (Namespaces, clases, métodos...) del programa para referirnos a ellos y manipularlos en el código.
     - Solo se pueden usar letras, numeros y guiones bajos
     - Debe de comenzar por una letra o un guión bajo
     - No usar palabras reservadas por el sistema (Son las que aparecen en azul, como class, void, namespace, etc.)
@@ -268,8 +269,8 @@ Tipos:
       - Enteros
       - Reales
       - Booleanos
-    - Enumerados
-    - Estructurados
+    - [Enumerados](#enum)
+    - [Estructurados](#struct)
 
 >[!NOTE]
 >Se va a hacer una pequeña explicacion de cada tipo lo minimo para entenderlo pero por ahora no entraremos en detalles más especificos
@@ -281,7 +282,7 @@ Tipos:
     Son aquellos que maneja el procesador y se almacenan en una variable
 
   - 3. Primitivos
-      Son los más importantes y a su vez los más básicos los cuales se dividen en enteros, reales y boolenaos, hay un cuarto que hablaremos despues.
+      Son los más importantes y a su vez los más básicos los cuales se dividen en enteros, reales y boolenaos.
         - Enteros: Valores sin decimales
         - Reales: Valores con decimales
         - Booleanos: Condiciones lógicas (True/False)
@@ -306,8 +307,71 @@ Tipos:
 >float NumeroFloat = 23.543f;
 >decimal NumeroDecimal = 2415.1325234m;
 >```
->
-       
+>Esto es porque de manera predeterminada c# pone los decimales como double, no es estrictamente necesario ponerlos pero si queremos almacenar un número que aun no tenga decimales, es mejor especificarlo.   
+  - Tipos de datos más usados
+    - int: 32 bits
+    - long: 64 bits
+    - float: 32 bits
+    - double: 64 bits
+    - decimal: 128 bits
+    - char: Para carácteres sueltos (Seria un 4 grupo de los primitivos llamado "utf16") 16 bits
+    - String: Es una cadena de chars (es de tipo por referencia): 16bits por carácter
+    - bool (booleano): 8 bits
+>[!Note]
+>La cantidad en bits hace referencia al espacio que ocupa en la RAM  
+ 
+ ### 4. Variables
+¿Que és?: Una variable es un espacio en la memoria RAM donde se almacenará un valor que podrá cambiar durante la ejecución del programa
+
+Buenas prácticas al definir una variable:
+- No comenzar el nombre de la variable con un guion bajo
+- No crear mas de una variable que se diferencien solo por una letra
+- Comenzar el nombre de la variable con letra minúscula
+- Si el nombre de la variable está compuesto por más de una palabra,
+comenzar la segunda con mayúscula (camelCase).
+- No usar la notación húngara (nombrar variables y funciones que incluye información sobre el tipo ej: int = iEdad)
+
+<h3>4.1 Declarar una variable </h3>  
+
+```csharp
+// [Tipo de dato] [Nombre De la Variable]
+int edadDelAlumno;
+//Con esto nuestro programa ha reservado un espacio de 32 bits en la ram y ahora podremos usar edadDelAlumno en nuestro porgrama
+```   
+
+  <h3>4.2 Inciar una variable </h3>   
+
+```csharp
+//[Nombre De la Variable] = [Valor]
+edadDelAlumno = 10;
+//Con esto nuestro programa ha especificado que edadDelAlumno tiene un valor de 10
+```   
+
+  Existe la posibilidad de hacer los dos pasos anteriores a la vez
+```csharp
+int edadDelAlumno = 10;
+```
+>[!Caution]
+>En C# no puedes usar una variable que no se haya iniciado.   
+
+<h3>4.3 Ejemplo de uso</h3>   
+
+```csharp
+namespace prueba_variable
+{
+    class PruebaVariable
+    {
+        static void main()
+        {
+          int edadDelAlumno;
+          edadDelAlumno = 11;
+          int edadDelAlumno2 = 10;
+          System.Console.WriteLine(edadDelAlumno);
+          System.Console.WriteLine(edadDelAlumno2);
+        }
+    }
+}
+```
 
 ## Estructura básica
 [Indice](#c)  
@@ -381,8 +445,6 @@ Ahora vamos a usar este código en otro archivo
 >[!IMPORTANT]
 >Para usarlo en otro archivo o proyecto asegúrate de que los archivos que contienen tu espacio de nombres y los archivos que lo utilizan estén en el mismo proyecto o que el proyecto que contiene el espacio de nombres esté referenciado por el proyecto que lo utiliza.  
 
->[!CAUTION]
->Recuerda poner las mayusculas y minúsculas bien
 ```csharp
 namespace ArchvioPrincipal
 { 
