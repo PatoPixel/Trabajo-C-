@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-28T20:58:48.048Z'
+modified: '2023-12-28T21:26:15.717Z'
 ---
 
 # (C#)
@@ -355,6 +355,8 @@ comenzar la segunda con mayúscula (camelCase).
 // [Tipo de dato] [Nombre De la Variable]
 int edadDelAlumno;
 //Con esto nuestro programa ha reservado un espacio de 32 bits en la ram y ahora podremos usar edadDelAlumno en nuestro porgrama
+//se pueden declarar varias variables a la vez
+int edadDelAlumno1, edadDelAlumno2, edadDelAlumno3, edadDelAlumno4;
 ```   
 
   <h3>4.2 Inciar una variable </h3>   
@@ -363,12 +365,18 @@ int edadDelAlumno;
 //[Nombre De la Variable] = [Valor]
 edadDelAlumno = 10;
 //Con esto nuestro programa ha especificado que edadDelAlumno tiene un valor de 10
+//No se pueden iniciar varias variables a la vez
+edadDelAlumno1, edadDelAlumno2, edadDelAlumno3, edadDelAlumno4 = 27;
+//esto lo unico que hará es inciar la ultima variable
 ```   
 
   Existe la posibilidad de hacer los dos pasos anteriores a la vez
 ```csharp
 int edadDelAlumno = 10;
 string nombreAlumno = "Juan";
+//Si hacemos lo siguiente
+int edadDelAlumno1, edadDelAlumno2, edadDelAlumno3, edadDelAlumno4 = 27;
+//Se crearan las 3 primeras variables y la ulitma se creará e iniciará
 ```
 >[!Caution]
 >En C# no puedes usar una variable que no se haya iniciado.   
@@ -391,6 +399,15 @@ namespace prueba_variable
     }
 }
 ```
+
+>[!Note]
+>Existe una palbra clave llamada var se utiliza para declarar variables con inferencia de tipo. Cuando usas var para declarar una variable, >el compilador determina automáticamente el tipo de la variable basándose en el tipo de la expresión de inicialización. El tipo de la variable se determina en tiempo de compilación y no cambia durante la ejecución del programa. (Yo no recomendaría usarlo).
+```csharp
+var numero = 10; // El compilador infiere que 'numero' es de tipo int.
+var nombre = "Juan"; // El compilador infiere que 'nombre' es de tipo string.
+var pi = 3.14; // El compilador infiere que 'pi' es de tipo double.
+```
+
 
 ### 5. Operadores aritméticos
 - Suma                | +
@@ -425,6 +442,10 @@ textoParaUsar += " y Maria";
 
 System.Console.WriteLine("La edad de " + textoParaUsar + " es " + valor1);
 
+//Si queremos incrementar directamente en el output debemos de poner el ++ como prefijo
+//Nos va a dar como resultado 12 ya que ya lo incrementamos antes
+System.Console.WriteLine("La edad de " + textoParaUsar + " es " + ++valor1);
+
 ```
 >[!Tip]
 >Hay una manera mucho más eficaz de crear una oración así que es mediante la interpolación de strings
@@ -452,6 +473,18 @@ System.Console.WriteLine(7.0 / 3.0); //usa boolean como predeterminado
 System.Console.WriteLine(7f / 3f);
 
 ```
+
+#### <h3> 5.1 Funciones del "="</h3>
+
+En C# puedes igualar varias variables a la vez
+```csharp
+int edadPersona1;
+int edadPersona2;
+int edadPersona3;
+int edadPersona4;
+edadPersona1 = edadPersona2 = edadPersona3 = edadPersona4 = 27;
+```
+
 
 
 
