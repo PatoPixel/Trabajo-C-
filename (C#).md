@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-29T00:36:34.183Z'
+modified: '2023-12-29T00:41:53.214Z'
 ---
 
 # (C#)
@@ -34,7 +34,9 @@ modified: '2023-12-29T00:36:34.183Z'
     - [2. Identificadores](#2-identificadores)
     - [3. Tipos de datos](#3-tipos-de-datos)
     - [4. Variables](#4-variables)
-    - [5. Operadores aritméticos](#5-operadores-aritméticos)
+    - [5. Constantes](#5-constantes)
+    - [6. Operadores aritméticos](#6-operadores-aritméticos)
+    - [7. Transformar variables](#7-transformar-variables)
   - [Estructura básica](#estructura-básica-1)
     - [1. Espacios de Nombres (namespace):](#1-espacios-de-nombres-namespace)
       - [2. Alias](#2-alias)
@@ -42,7 +44,6 @@ modified: '2023-12-29T00:36:34.183Z'
       - [4. Clases (class)](#4-clases-class)
         - [3. Campos (field):](#3-campos-field)
         - [3. Métodos (method):](#3-métodos-method)
-    - [4. Propiedades (property):](#4-propiedades-property)
 
 <div style="page-break-after: always;"></div>
  
@@ -261,6 +262,7 @@ namespace prueba_nombre
  
 ### 1. Comentarios
 [Indice](#c) 
+<br>
 ```csharp
 // Esto es un comentario de una linea
 
@@ -272,14 +274,16 @@ namespace prueba_nombre
 Los comentarios en C# son anotaciones en el código que se utilizan para proporcionar información adicional. No afectan la ejecución del programa y son útiles para la documentación, explicación y comprensión del código fuente.
 
 ### 2. Identificadores
-  
+[Indice](#c) 
+<br>
   Un identificador en programación es un nombre que se utiliza para identificar una función, clase u otro elemento en el código fuente. Los identificadores son etiquetas que asignamos a elementos (Namespaces, clases, métodos...) del programa para referirnos a ellos y manipularlos en el código.
     - Solo se pueden usar letras, numeros y guiones bajos
     - Debe de comenzar por una letra o un guión bajo
     - No usar palabras reservadas por el sistema (Son las que aparecen en azul, como class, void, namespace, etc.)
 
 ### 3. Tipos de datos
-
+[Indice](#c) 
+<br>
 Tipos: 
   - Por referencia
   - Por valor
@@ -339,6 +343,8 @@ Tipos:
 >La cantidad en bits hace referencia al espacio que ocupa en la RAM  
  
  ### 4. Variables
+[Indice](#c) 
+<br>
 ¿Que és?: Una variable es un espacio en la memoria RAM donde se almacenará un valor que podrá cambiar durante la ejecución del programa
 
 Buenas prácticas al definir una variable:
@@ -399,7 +405,7 @@ namespace prueba_variable
     }
 }
 ```
-
+ 
 >[!Note]
 >Existe una palbra clave llamada var se utiliza para declarar variables con inferencia de tipo. Cuando usas var para declarar una variable, >el compilador determina automáticamente el tipo de la variable basándose en el tipo de la expresión de inicialización. El tipo de la variable se determina en tiempo de compilación y no cambia durante la ejecución del programa. (Yo no recomendaría usarlo).
 ```csharp
@@ -409,8 +415,10 @@ var pi = 3.14; // El compilador infiere que 'pi' es de tipo double.
 ```
 
 ### 5. Constantes
-Una constante es simplemente un variable que no va poder cambiar durante todo el código.   
+[Indice](#c) 
 <br>
+Una constante es simplemente un variable que no va poder cambiar durante todo el código.   
+
 Una buena práctica es poner las constatnes en mayúsculas
 ```csharp
 const int PI = 3.1416;
@@ -420,6 +428,8 @@ const int ESPACIO_CLASES = 30;
 
 
 ### 6. Operadores aritméticos
+[Indice](#c) 
+<br>
 - Suma                | +
 - Resta               | -  
 - Multiplicación      | *
@@ -484,6 +494,7 @@ System.Console.WriteLine(7f / 3f);
 
 ```
 ### 7. Transformar variables
+[Indice](#c) 
 <h4>7.1 Casting </h4>   
 
 - Implícito: Se realiza automáticamente por el compilador cuando hay una conversión segura y sin pérdida de datos.   
@@ -774,7 +785,7 @@ Esto nos permitirá añadir codigo a una clase desde distintios archvios.
 >[!NOTE]
 > Las clases son el inciio de la Programación Orientada a Objetos ([POO](#POO))
 ##### 3. Campos (field):
-
+ 
 **¿Qué es?**: Nos almacena una variable que podrá ser usada siempre en la clase o incluso fuera de la misma si es [pública](#markdown)
 
 ```csharp
@@ -830,93 +841,7 @@ public class MiClase
 ```
 Este método se llama Sumar, es público, estático, tiene un tipo de retorno int, acepta dos parámetros a y b, y devuelve la suma de los dos parámetros. Recuerda que no todos los modificadores son aplicables a todos los métodos; su aplicabilidad depende del contexto y del tipo de método que estés definiendo.
 
-### 4. Propiedades (property):
-[Indice](#c)
-**¿Necesario?**: No siempre. Se utilizan para acceder y modificar valores de un objeto.
-**Ubicación**: Dentro de una clase.
 
-```csharp
-class MiClase
-{
-    public int MiPropiedad { get; set; }
-}
-```
-Ahora, algunas consideraciones adicionales:
 
-Un programa puede tener múltiples espacios de nombres y clases. Puedes organizar tu código en varios espacios de nombres y tener múltiples clases dentro de cada espacio de nombres.
-
-El método Main es el punto de entrada principal para la ejecución del programa. Sin embargo, no todas las clases necesitan tener un método Main. Otros métodos y miembros de las clases pueden interactuar entre sí.
-
-Propiedades, campos y otros miembros de una clase deben declararse dentro de la clase. No puedes declarar propiedades, campos o métodos directamente en el espacio de nombres sin estar dentro de una clase.
-
-En resumen, un programa C# típicamente tiene una estructura jerárquica donde las clases están dentro de espacios de nombres, los métodos están dentro de clases, y otros miembros como propiedades y campos están dentro de clases también. El método Main actúa como el punto de entrada principal. La organización específica dependerá de la complejidad y requisitos de tu programa.
-
-5. Métodos:
-
-Los métodos son bloques de código que realizan tareas específicas. El método Main es el punto de entrada de una aplicación de consola.
-
-csharp
-Copy code
-class MiClase
-{
-    static void Main()
-    {
-        // Código del método Main
-    }
-
-    void OtroMetodo()
-    {
-        // Código de otro método
-    }
-}
-6. Variables y Tipos de Datos:
-
-Debes declarar variables antes de usarlas. C# tiene tipos de datos, como int, string, bool, etc.
-
-csharp
-Copy code
-int numero = 42;
-string texto = "Hola, mundo!";
-bool esVerdadero = true;
-7. Estructuras de Control:
-C# incluye estructuras de control como if, else, for, while, switch, etc., para controlar el flujo de ejecución del programa.
-
-csharp
-Copy code
-if (condicion)
-{
-    // Código si la condición es verdadera
-}
-else
-{
-    // Código si la condición es falsa
-}
-
-for (int i = 0; i < 5; i++)
-{
-    // Código ejecutado en cada iteración
-}
-
-while (condicion)
-{
-    // Código ejecutado mientras la condición sea verdadera
-}
-8. Arreglos:
-Los arreglos permiten almacenar colecciones de elementos del mismo tipo.
-
-csharp
-Copy code
-int[] numeros = { 1, 2, 3, 4, 5 };
-9. Orientación a Objetos:
-C# es un lenguaje orientado a objetos. Puedes definir clases, crear objetos y utilizar conceptos como herencia y polimorfismo.
-
-csharp
-Copy code
-class MiClase
-{
-    // Campos, propiedades, y métodos de la clase
-}
-
-MiClase instancia = new MiClase();
 
 
