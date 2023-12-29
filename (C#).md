@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-29T00:41:53.214Z'
+modified: '2023-12-29T13:27:15.318Z'
 ---
 
 # (C#)
@@ -27,7 +27,6 @@ modified: '2023-12-29T00:41:53.214Z'
       - [Correr el código](#correr-el-código)
     - [Linux](#linux-1)
       - [Correr el código](#correr-el-código-1)
-  - [Estructura básica](#estructura-básica)
   - [Sintaxis básica](#sintaxis-básica)
     - [Buenas Prácticas](#buenas-prácticas)
     - [1. Comentarios](#1-comentarios)
@@ -35,12 +34,20 @@ modified: '2023-12-29T00:41:53.214Z'
     - [3. Tipos de datos](#3-tipos-de-datos)
     - [4. Variables](#4-variables)
     - [5. Constantes](#5-constantes)
-    - [6. Operadores aritméticos](#6-operadores-aritméticos)
-    - [7. Transformar variables](#7-transformar-variables)
-  - [Estructura básica](#estructura-básica-1)
+    - [6. Booleanos](#6-booleanos)
+    - [7. Operadores](#7-operadores)
+      - [7.1 Operadores aritméticos](#71-operadores-aritméticos)
+      - [7.2 Operadores de comparación](#72-operadores-de-comparación)
+      - [7.3 Operadores lógicos](#73-operadores-lógicos)
+    - [8. Transformar variables](#8-transformar-variables)
+    - [9 Estructuras de contol de flujo](#9-estructuras-de-contol-de-flujo)
+      - [9.1 Condicional **if**](#91-condicional-if)
+      - [9.2 Blucle **while**](#92-blucle-while)
+  - [Estructura básica](#estructura-básica)
+    - [Métodos](#métodos)
+  - [Estructura general](#estructura-general)
     - [1. Espacios de Nombres (namespace):](#1-espacios-de-nombres-namespace)
       - [2. Alias](#2-alias)
-      - [3. Enumeracion (Enum)](#3-enumeracion-enum)
       - [4. Clases (class)](#4-clases-class)
         - [3. Campos (field):](#3-campos-field)
         - [3. Métodos (method):](#3-métodos-method)
@@ -207,10 +214,9 @@ Presione cualquier tecla para cerrar esta ventana. . .
     dotnet run
     Hello, World!
    ```
--------------
-## Estructura básica
-[Indice](#c) 
-Lo minimo que debemos de tener en nuestro proyecto de c# y lo que vamos a usar en los sigueinte ejemplos es:
+-------------  
+## Sintaxis básica
+Lo minimo que debemos de tener en nuestro proyecto de c# y lo que vamos a usar en los siguientes ejemplos es:
 ```csharp
 namespace "NombreQueQueramos"
 {
@@ -223,8 +229,7 @@ namespace "NombreQueQueramos"
     }
 }
 ```
-  
-## Sintaxis básica
+
 [Indice](#c)  
 - SIEMPRE hay que poner ; después de añadir una línea de código. 
 - SIEMPRE hay que definir un Main estático.
@@ -257,7 +262,7 @@ namespace prueba_nombre
 }
 ```
 - Usar comentarios
-
+ 
 -------------
  
 ### 1. Comentarios
@@ -425,10 +430,21 @@ const int PI = 3.1416;
 const int ESPACIO_CLASES = 30;
 //Las constantes funcionan exactamente igual que una variable
 ```
+### 6. Booleanos
+Un booleano es una constante que puede tener 2 valores, **"true"**(verdadero) y **"false"**(falaso)
 
+```csharp
+bool haceCalor;
+haceCalor = false;
 
-### 6. Operadores aritméticos
-[Indice](#c) 
+//Podemos usar el simbolo ! para darle el valor contrario
+Console.WriteLine(!haceCalor)
+//Esto hará que nos salga "True" por consola
+```
+
+### 7. Operadores
+[Indice](#c)
+#### 7.1 Operadores aritméticos
 <br>
 - Suma                | +
 - Resta               | -  
@@ -493,9 +509,44 @@ System.Console.WriteLine(7.0 / 3.0); //usa boolean como predeterminado
 System.Console.WriteLine(7f / 3f);
 
 ```
-### 7. Transformar variables
+#### 7.2 Operadores de comparación
+- Igual que | ==
+- Diferente que | !=
+- Menor que | <
+- Menor o igual que | <=
+- Mayor que | >
+- Mayor o igual que | >=
+
+Estos valores nos dan un resultado booleano
+```csharp
+int tempSevilla = 10;
+int tempCadiz = 12;
+//solo podemos almacenar el valor en una variable booleana
+bool valor = tempSevilla == tempCadiz;
+
+Console.WriteLine(valor);
+// Esto nos dará un valor false puesto que 10 no es igual a 12
+```
+>[!note]
+>En C# no es como otros lenguajes, el "==" se puede usar siempre y cuando sean de tipos parecidos, es decir, no puedes comparar una string con valor 12 y un int con valor 10, pero si puedes comparar un int con un float.
+
+#### 7.3 Operadores lógicos
+- AND : && (Solo devuelve **true** si todas las expresiones son verdaderas, si no devolverá false)
+- OR : || (Devuelve **true** si almenos 1 expresione es verdaderas, si no devolverá false)
+
+```csharp
+ bool prueba1 = true;
+ bool prueba2 = true; 
+ bool prueba3 = false;
+
+ Console.WriteLine(prueba1 && prueba2); //Verdadero
+ Console.WriteLine(prueba1 && prueba2 && prueba3); //Falso
+ Console.WriteLine(prueba3 || prueba2); //Verdadero
+```
+
+### 8. Transformar variables
 [Indice](#c) 
-<h4>7.1 Casting </h4>   
+<h4>8.1 Casting </h4>   
 
 - Implícito: Se realiza automáticamente por el compilador cuando hay una conversión segura y sin pérdida de datos.   
 ```csharp
@@ -511,7 +562,7 @@ int entero = (int)real;
 ```
 >[!NOte]
 >En este enlace están todas las [conversiones implicitas](https://learn.microsoft.com/es-es/dotnet/csharp/language-reference/builtin-types/numeric-conversions)
-<h4>7.2 Transformación de tipo </h4>
+<h4>8.2 Transformación de tipo </h4>
 Esta conversion nos permitirá cambiar strings a otro tipo de variable.   
 <br><br>
 Usaremos el siguiente comando <strong>[Tipo_Al_Que_Quieres_Convertir].Parse(string)</strong>
@@ -539,12 +590,38 @@ int num2 = int.Parse(System.Console.ReadLine();
 System.Console.WriteLine($"La suna es {num1 + num2}");
 ```
 
+### 9 Estructuras de contol de flujo
+
+Se les da este nombre a "if" y "while" ya que puedes modificar el flujo de ejecución de un programa.
+Como se explicó anteriormente, C# lee el código de arriba a abajo, pero con estas nuevas opciones podemos decirle al codigo que salte lineas,
+vaya a otras lineas, vuelva a una linea que ya se ejecutó, etc.
+
+#### 9.1 Condicional **if**
+
+
+#### 9.2 Blucle **while**
+
+
+
+
 
 
 
 
 
 ## Estructura básica
+
+Aquí hablaremos de 
+### Métodos
+
+
+
+
+
+
+
+
+## Estructura general
 [Indice](#c)  
 En C#, la estructura básica de un programa es la siguiente:
 - Espacios de nombres [(namespace)](#1-espacios-de-nombres-namespace)
@@ -729,17 +806,7 @@ Con esto lo que hacemos es saltarnos la parte del espacio de nombre.
 
 >[!NOTE]
 > Ya he explicado namespace, asi que para no hacer los codigos tan largos voy a dejar de escribirlos si no es necesario para el ejemplo.  
-#### 3. Enumeracion (Enum)
 
-**¿Que es?**: Son un conjunto de constantes con nombre
-
-```csharp
-// Enum NombreDeEnumeración {nombre1,nombre2,nombre3}
-  enum NombreDeEnumeracion
-  {
-    
-  }
-```
 
 #### 4. Clases (class)
 [Indice](#c)  
