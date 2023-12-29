@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-28T21:26:15.717Z'
+modified: '2023-12-29T00:36:34.183Z'
 ---
 
 # (C#)
@@ -408,8 +408,18 @@ var nombre = "Juan"; // El compilador infiere que 'nombre' es de tipo string.
 var pi = 3.14; // El compilador infiere que 'pi' es de tipo double.
 ```
 
+### 5. Constantes
+Una constante es simplemente un variable que no va poder cambiar durante todo el código.   
+<br>
+Una buena práctica es poner las constatnes en mayúsculas
+```csharp
+const int PI = 3.1416;
+const int ESPACIO_CLASES = 30;
+//Las constantes funcionan exactamente igual que una variable
+```
 
-### 5. Operadores aritméticos
+
+### 6. Operadores aritméticos
 - Suma                | +
 - Resta               | -  
 - Multiplicación      | *
@@ -473,24 +483,50 @@ System.Console.WriteLine(7.0 / 3.0); //usa boolean como predeterminado
 System.Console.WriteLine(7f / 3f);
 
 ```
+### 7. Transformar variables
+<h4>7.1 Casting </h4>   
 
-#### <h3> 5.1 Funciones del "="</h3>
-
-En C# puedes igualar varias variables a la vez
+- Implícito: Se realiza automáticamente por el compilador cuando hay una conversión segura y sin pérdida de datos.   
 ```csharp
-int edadPersona1;
-int edadPersona2;
-int edadPersona3;
-int edadPersona4;
-edadPersona1 = edadPersona2 = edadPersona3 = edadPersona4 = 27;
+int entero = 5;
+double real = entero; //ahora real es igual a 5 siendo decimal
+```   
+- Explícito: Se realiza manualmente por el programador y puede involucrar la posibilidad de pérdida de datos.
+```csharp
+double real = 5.67;
+int entero = (int)real;
+// En este caso como en in no puede haber decimales tenemos que obligar a que cambie su tipo
+// Esto produce que se omitan todos los decimales (No se hace un redondeo)
 ```
+>[!NOte]
+>En este enlace están todas las [conversiones implicitas](https://learn.microsoft.com/es-es/dotnet/csharp/language-reference/builtin-types/numeric-conversions)
+<h4>7.2 Transformación de tipo </h4>
+Esta conversion nos permitirá cambiar strings a otro tipo de variable.   
+<br><br>
+Usaremos el siguiente comando <strong>[Tipo_Al_Que_Quieres_Convertir].Parse(string)</strong>
+<br><br>
+
+```csharp
+// Queremos que el usuario nos escriba un número, para eso usaremos el comando ReadLine
+
+System.Console.WriteLine("Escribe un número");
+
+int num1 = System.Console.ReadLine();
+
+// Ocurre un error y es que "ReadLine" almacena los datos como una string y nosotros queremos un valor númerico
+// asi que tenemos que transformar la string
 
 
+System.Console.WriteLine("Escribe un número");
 
+int num1 = int.Parse(System.Console.ReadLine();
 
+System.Console.WriteLine("Escribe otro número");
 
+int num2 = int.Parse(System.Console.ReadLine();
 
-
+System.Console.WriteLine($"La suna es {num1 + num2}");
+```
 
 
 
