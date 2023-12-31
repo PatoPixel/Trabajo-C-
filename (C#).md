@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-29T13:27:15.318Z'
+modified: '2023-12-31T03:59:49.050Z'
 ---
 
 # (C#)
@@ -412,7 +412,7 @@ namespace prueba_variable
 ```
  
 >[!Note]
->Existe una palbra clave llamada var se utiliza para declarar variables con inferencia de tipo. Cuando usas var para declarar una variable, >el compilador determina automáticamente el tipo de la variable basándose en el tipo de la expresión de inicialización. El tipo de la variable se determina en tiempo de compilación y no cambia durante la ejecución del programa. (Yo no recomendaría usarlo).
+>Existe una palbra clave llamada "var" se utiliza para declarar variables con inferencia de tipo. Cuando usas var para declarar una variable, >el compilador determina automáticamente el tipo de la variable basándose en el tipo de la expresión de inicialización. El tipo de la variable se determina en tiempo de compilación y no cambia durante la ejecución del programa. (Yo no recomendaría usarlo).
 ```csharp
 var numero = 10; // El compilador infiere que 'numero' es de tipo int.
 var nombre = "Juan"; // El compilador infiere que 'nombre' es de tipo string.
@@ -592,12 +592,118 @@ System.Console.WriteLine($"La suna es {num1 + num2}");
 
 ### 9 Estructuras de contol de flujo
 
-Se les da este nombre a "if" y "while" ya que puedes modificar el flujo de ejecución de un programa.
+Se les da este nombre a "if" y "while" ya que pueden modificar el flujo de ejecución de un programa.
 Como se explicó anteriormente, C# lee el código de arriba a abajo, pero con estas nuevas opciones podemos decirle al codigo que salte lineas,
 vaya a otras lineas, vuelva a una linea que ya se ejecutó, etc.
 
 #### 9.1 Condicional **if**
 
+- If del ingles "si pasa algo" nos permitirá realizar ejecutar código si la condicion es correcta, seguirá la siguiente estructura:
+<br>
+```csharp
+if(condifición){
+ 
+  Código
+
+}
+```
+- Si usamos If también existe Else, este nos permite ejecutar código si la condicion es contraria al if, pero los else siempre deben de ir acompañados de un if.
+<br>
+```csharp
+if(condifición){ 
+  
+  Código
+
+}else{
+  
+  Código
+
+}
+```
+- Otra opción es el Else if, que nos permite añadir otra nueva condición a verificar que debe de ser verdadera para que se ejecute:
+<br>
+```csharp
+if(condifición){ //Se lee primero  
+  
+  Código
+
+}else if(condición){ //Se lee en caso de que el primero sea falso y este sea verdadero
+  
+  Código
+
+}
+```
+
+>[!note]
+>Se puede hacer un if sin añadir "{}" PERO este if solo ejecutará la primera linea de código, el resto del código será considerado como si > estuviese fuera del if.
+>```csharp
+>if(condición) Código;
+>```
+
+- Ejemplo de if:
+
+```csharp
+Console.WriteLine("¿Que nota has sacado en el examen 1?");
+
+int NotaEx1 = int.Parse(Console.ReadLine());
+
+Console.WriteLine("¿Que nota has sacado en el examen 2?");
+
+int NotaEx2 = int.Parse(Console.ReadLine());
+
+Console.WriteLine("¿Que nota has sacado en el examen 2?");
+
+int NotaEx3 = int.Parse(Console.ReadLine());
+
+//Aqui vas a poder observar como al usar variables de tipo int, 
+//la media de las notas seguirá saliendo como un numero entero aunque de decimales,
+// para arreglar eso lo que puedes hacer es declarar las variables con tipo float o double por ejemplo.
+if (NotaEx1 >= 5 && NotaEx2 >= 5 && NotaEx3 >= 5) Console.WriteLine($"Has Aprobado, tu nota media es {(NotaEx1 + NotaEx2 + NotaEx3) / 3}");
+
+
+else Console.WriteLine("Has suspendido al menos 1 examen, tiene que volver en septiembre");
+```
+- Se pueden hacer if's anidados:
+
+```csharp
+Console.WriteLine("¿Que nota has sacado en el examen 1?");
+
+int NotaEx1 = int.Parse(Console.ReadLine());
+
+Console.WriteLine("¿Que nota has sacado en el examen 2?");
+
+int NotaEx2 = int.Parse(Console.ReadLine());
+
+Console.WriteLine("¿Que nota has sacado en el examen 3?");
+
+int NotaEx3 = int.Parse(Console.ReadLine());
+
+if (NotaEx1 >= 5 && NotaEx2 >= 5 && NotaEx3 >= 5)
+{
+    int NotaMedia = (NotaEx1 + NotaEx2 + NotaEx3) / 3;
+    Console.WriteLine($"Has Aprobado, tu nota media es {NotaMedia}");
+    if (NotaMedia >= 9)
+    {
+        Console.WriteLine("Has sacado un sobresaliente");
+    }
+        else if (NotaMedia >= 7)
+        {
+            Console.WriteLine("Has sacado un notable");
+        }
+            else if (NotaMedia >= 6)
+            {
+                Console.WriteLine("Has sacado un bien");
+            } else if (NotaMedia >= 5)
+                {
+                    Console.WriteLine("Has sacado un suficiente");
+                }
+}else
+{     
+   Console.WriteLine("Has suspendido almenos 1 examen, tienes que volver en septiembre");
+}
+```
+>[!Caution]
+>Cuidado al generar una variable dentro de un if, al estar dentro el código no lo tomará como existente, asi que todo lo que este fuera de ese if que use esa variable no podrá funcionar, para arreglar eso lo mejor es definir la varible fuera del if e iniciarlizarla, porque como vimos antes, C# no puede usar una variable sin inicializar.
 
 #### 9.2 Blucle **while**
 
