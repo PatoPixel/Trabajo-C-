@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2023-12-31T03:59:49.050Z'
+modified: '2024-01-01T02:28:10.196Z'
 ---
 
 # (C#)
@@ -705,7 +705,65 @@ if (NotaEx1 >= 5 && NotaEx2 >= 5 && NotaEx3 >= 5)
 >[!Caution]
 >Cuidado al generar una variable dentro de un if, al estar dentro el código no lo tomará como existente, asi que todo lo que este fuera de ese if que use esa variable no podrá funcionar, para arreglar eso lo mejor es definir la varible fuera del if e iniciarlizarla, porque como vimos antes, C# no puede usar una variable sin inicializar.
 
-#### 9.2 Blucle **while**
+#### 9.2 Condicional switch
+
+El switch nos va a permitir escribir menos lineas de código que un "if" siempre y cuando la condición a tener en cuenta sea una igualdad
+
+
+- A tener en cuenta
+  - Cada expresión constante ha de ser única.
+  - Solo se puede usar el switch para evaluar:
+• int
+• char
+• String
+(float y double han de utilizar if)
+  - Los case solo pueden contener expresiones constantes
+  - Todos los case deben llevar su break
+  - Se puede utilizar return y throw
+```csharp
+
+Switch (expresión de control) 
+{
+    case expresión constante:
+        código a realizar
+        break;
+
+    case expresión constante:
+        código a realizar
+        break;
+
+    default:
+        código a realizar
+        break;
+}
+```
+Switch funciona de la siguiente manera: La expresion de control es una variable, la cual se va a comparar con los cases, siempre empezando por el primero y yendo 1 a 1, cuando uno de los cases sea true, realizará el código de dentro, en caso de que no haya ningún true, se realizará el "default", el default no es obligatorio ponerlo.
+
+```csharp
+Console.WriteLine("De que quieres saber información: Fútbol, coches, aviones");
+
+string interes = Console.ReadLine();
+
+switch (interes)
+{
+    case "Fútbol":
+        Console.WriteLine("Es un deporte muy conocido");
+        break;
+
+    case "aviones":
+        Console.WriteLine("Vuelan por el cielo");
+        break;
+
+    case "coches":
+        Console.WriteLine("Van a 4 ruedas");
+        break;
+        
+    default:
+        Console.WriteLine("No está en la base de datos");
+        break;
+}
+```
+#### 9.3 Blucle **while**
 
 
 
