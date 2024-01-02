@@ -1,9 +1,9 @@
 ---
-attachments: [Clipboard_2023-10-24-13-37-59.png]
+attachments: [Clipboard_2023-10-24-13-37-59.png, Clipboard_2024-01-01-20-37-10.png, Clipboard_2024-01-02-01-52-25.png]
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-01T02:28:10.196Z'
+modified: '2024-01-02T01:32:32.265Z'
 ---
 
 # (C#)
@@ -42,7 +42,11 @@ modified: '2024-01-01T02:28:10.196Z'
     - [8. Transformar variables](#8-transformar-variables)
     - [9 Estructuras de contol de flujo](#9-estructuras-de-contol-de-flujo)
       - [9.1 Condicional **if**](#91-condicional-if)
-      - [9.2 Blucle **while**](#92-blucle-while)
+      - [9.2 Condicional switch](#92-condicional-switch)
+      - [9.3 Blucles](#93-blucles)
+        - [9.3.1 While](#931-while)
+        - [9.3.1 Do-While](#931-do-while)
+      - [Ejercicio](#ejercicio)
   - [Estructura básica](#estructura-básica)
     - [Métodos](#métodos)
   - [Estructura general](#estructura-general)
@@ -229,7 +233,7 @@ namespace "NombreQueQueramos"
     }
 }
 ```
-
+ 
 [Indice](#c)  
 - SIEMPRE hay que poner ; después de añadir una línea de código. 
 - SIEMPRE hay que definir un Main estático.
@@ -431,6 +435,7 @@ const int ESPACIO_CLASES = 30;
 //Las constantes funcionan exactamente igual que una variable
 ```
 ### 6. Booleanos
+[Indice](#c) 
 Un booleano es una constante que puede tener 2 valores, **"true"**(verdadero) y **"false"**(falaso)
 
 ```csharp
@@ -591,7 +596,7 @@ System.Console.WriteLine($"La suna es {num1 + num2}");
 ```
 
 ### 9 Estructuras de contol de flujo
-
+[Indice](#c) 
 Se les da este nombre a "if" y "while" ya que pueden modificar el flujo de ejecución de un programa.
 Como se explicó anteriormente, C# lee el código de arriba a abajo, pero con estas nuevas opciones podemos decirle al codigo que salte lineas,
 vaya a otras lineas, vuelva a una linea que ya se ejecutó, etc.
@@ -719,7 +724,7 @@ El switch nos va a permitir escribir menos lineas de código que un "if" siempre
 (float y double han de utilizar if)
   - Los case solo pueden contener expresiones constantes
   - Todos los case deben llevar su break
-  - Se puede utilizar return y throw
+  - Se puede utilizar [return]() y [throw]() (Se explicará más tarde)
 ```csharp
 
 Switch (expresión de control) 
@@ -763,10 +768,191 @@ switch (interes)
         break;
 }
 ```
-#### 9.3 Blucle **while**
+#### 9.3 Blucles
+Nos permiten repetir la ejecución de líneas de código un número determinado o indeterminado de veces.
+Ventajas:
+ - Permite repetir código de forma rápida y sencilla
+ - Ahorro de tiempo a la hora de programar
+ - Permite trabajar con grandes volúmenes de datos
+ - Permite trabajar con Arrays
+ <br>
+ Tipos:
+ 
+  - Determinados (Solo con leer el código fuente podemos saber cuantas veces se va a repetir)
+      - For 
+  - Indeterminados (Hay que ejecutarlo para saber cuantas veces se ejecuta)
+      - While
+      - Do-While
+  <br>
+  ##### 9.3.1 While
 
+  >[!Note]
+  > While viene del ingles "Mientras", esto nos ayudará a comprender el funcionamiento.
 
+  Se utiliza el bucle while cuando no sabemos el nº de veces que se repetirá el código de su interior
+  Sintaxis:
+  ```csharp
+  while(condición a evaluar)
+  {
+    //Código a repetir
+  }
+  ```
+  While funciona de la siguietne manera, **mientras** la condición a evaluar sea verdadera, se seguirá repitiendo el código, cuando sea falsa, parará.
+  Ej:
+  ```csharp
+Console.WriteLine("¿En que mes nació Messi?");
 
+string mesMessi = Console.ReadLine();
+
+while (mesMessi != "junio")
+{
+    Console.WriteLine("Incorrecto, vuelve a intentarlo");
+
+    mesMessi = Console.ReadLine();
+}
+
+Console.WriteLine("Muy bien, Messi nació en junio");
+  ```
+  ##### 9.3.1 Do-While   
+
+```csharp
+do
+{
+  //codigo
+}while (Condición);
+```
+Funciona practicamente igual que el while, la unica diferenciea es que va a ejecutar el codigo almenos 1 vez aunque sea falso.
+```csharp
+int num = 10;
+
+do
+{
+  Console.WriteLine("El numero es el " + num);
+  num++;
+}while(num<10);
+```
+Creamos una variable y le decimos que si es menor que 10 nos diga que numero és, pero al tener el "do", nos dirá que número es aunque no sea menor que 10.
+#### Ejercicio
+
+ En este ejemplo se van a poner en práctica varías cosas que se han dado previamente.
+ El objetivo es crear un programa que nos genere un numero aleatorio entre el 0-100 (no lo hemos visto asi que ahora proporcionaré la manera de hacerlo) y que el usuario deba averiguar cual es, cuando el usuario se equivoque habrá un texto que le dirá si es mayor o menor y al finalizar habrá un recuento de los intentos realizados.
+ ```csharp
+ //Para el numero random usaremos lo siguiente
+
+ Random numRandom = new Random();
+
+ int numAleatorio = numRandom.Next(0, 101); //Si ponemos 0,100 el numero será de 0-99.
+ ```
+
+ <h3>Resultado:</h3>   
+
+ ```csharp
+  Random numRandom = new Random();
+
+ int numAleatorio = numRandom.Next(0, 101);
+
+ int numIntentos = 0;
+
+ int numElegido;
+ Console.WriteLine(numAleatorio);
+ Console.WriteLine("Adivina que número estoy pensando");
+
+ do
+ {
+     numIntentos++;  
+     numElegido = int.Parse(Console.ReadLine());
+     if (numAleatorio > numElegido)
+     {
+         Console.WriteLine("Incorrecto, el número que he pensado es mayor");
+         Console.WriteLine("Vuelve a intentarlo:");
+     }
+     if (numAleatorio < numElegido)
+     {
+         Console.WriteLine("Incorrecto, el número que he pensado es menor");
+         Console.WriteLine("Vuelve a intentarlo:");
+     }
+     
+ }while (numAleatorio != numElegido);
+
+ Console.WriteLine($"Muy Bien, el número que habia pensado era el {numAleatorio} y lo has averiguado en tan solo {numIntentos} intentos");
+``` 
+
+### 10. Excepciones 
+
+    10.1 Introducción a Excepciones
+
+Las excepciones son errores en tiempo de ejecución del programa que escapan al control del programador.
+Algunos tipos de errores pueden ocurrir por: 
+ - Memoria corrupta
+ - Desbordamiento de pila
+ - Sectores de disco duro defectuosos
+ - Acceso a ficheros inexistentes
+ - Conexiones a BBDD interrumpidas
+ - Etc
+ <br>
+ Cojamos el ejercicio de arriba donde debemos de acertar el número, más especificamente esta linea:
+  ```chsarp
+  numElegido = int.Parse(Console.ReadLine());
+  ```
+  Si en está linea el usuario inserta letras, ya sea intencionalmente o no, nos va a salir un error y el código dejará de ejecutarse.
+  ```csharp
+  System.FormatException
+  HResult=0x80131537
+  Mensaje = The input string 'f' was not in a correct format.
+  Origen = System.Private.CoreLib
+  Seguimiento de la pila:
+   en System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)
+   en System.Int32.Parse(String s)
+   en prueba_variable.PruebaVariable.Main() en C:\Users\Izan\Documents\C#\ConsoleApp2\ConsoleApp2\Program.cs: línea 21
+  ```
+- Si leemos el código podemos encontrar información útil, en la primera línea, nos dice el tipo de error (System.FormatException), un error de formato.   
+- Luego en la tercera nos viene un mensaje que dice traducido "La cadena de entrada 'f' no tenía un formato correcto."   
+- Y para terminar en la última línea nos sale que archvio es el que ha fallado y en que línea.   
+<br>
+>[!Note]
+>En este ejemplo es sencillo ver donde está el fallo, pero al tener un proyecto muy grande es importante saber leer los mensajes de error >para poder identificar la falla.   
+
+10.2 Tipos de Excepciones
+10.3 Bloques try-catch
+La sintaxis es la siguiente:
+```chsarp
+try 
+{
+    //código que entra en error
+}
+catch
+{
+    //Código a ejecutar si "try" entra en error
+}
+```
+Como funciona try-catch
+  1. Siempre debe de haber un try y un catch
+  2. El fragmento de código que da el error la metemos dentro de un try (intenta), esto hará que el código intente ejecutar esa línea, si acaba en error hará lo que venga dentro del siguiente bloque, catch (Captura).
+  3. El código seguirá su flujo normal sin pararse.
+<br>
+Un ejemplo sencillo para ver como solventar errores seria el siguiente:
+```chasrp
+try
+{
+    numElegido = int.Parse(Console.ReadLine());
+}
+catch 
+{
+    Console.WriteLine("No has introducido un valor válido. Se pondrá el valor -1 por defecto");
+    numElegido = -1;
+}
+```
+Lo que hacemos aquí es lo siguiente.
+  1. Try intentará ejecutar la línea donde el usuario debe de poner el número, cuando el usuario ponga un valor no válido pasaremos a catch.
+  2. Catch lo que hará es mostrar un mensaje al usuario pero el código tiene otro problema ahora.
+  3. Si vemos el código la variable numElegido no se ha inicializado puesto que para inicializarla el usuario debe de escribir un número, al insertar la línea de código en un try el código ahora no está seguro de que esa línea se ejecute asi que entra en otro error, para solucionar eso debemos de inicializar la variable con un número que no interfiera en nuestro juego
+  4. Esta solución es poco adecuada pero para el ejemplo nos sirve.
+
+    10.4 Lanzar Excepciones (throw)
+    10.5 Propagación de Excepciones
+    10.6 Finally
+    10.7 Personalización de Excepciones
+    10.8 Buenas Prácticas en el Manejo de Excepciones
 
 
 
@@ -787,7 +973,7 @@ Aquí hablaremos de
 
 ## Estructura general
 [Indice](#c)  
-En C#, la estructura básica de un programa es la siguiente:
+En C#, laestructura básica de un programa es la siguiente:
 - Espacios de nombres [(namespace)](#1-espacios-de-nombres-namespace)
   - Alias (alias)
   - Clases [(class)](#2-clases-class)
