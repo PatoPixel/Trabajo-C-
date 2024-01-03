@@ -891,6 +891,7 @@ Algunos tipos de errores pueden ocurrir por:
  - Conexiones a BBDD interrumpidas
  - Etc   
  <br>
+
 Cojamos el ejercicio de arriba donde debemos de acertar el número, más especificamente esta linea:
 ```chsarp
 numElegido = int.Parse(Console.ReadLine());
