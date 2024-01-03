@@ -784,10 +784,10 @@ Ventajas:
   - Indeterminados (Hay que ejecutarlo para saber cuantas veces se ejecuta)
       - While
       - Do-While
-  <br>
+
   ##### 9.3.1 While
 
-  >[!Note]
+  >[!NOTE]
   > While viene del ingles "Mientras", esto nos ayudará a comprender el funcionamiento.
 
   Se utiliza el bucle while cuando no sabemos el nº de veces que se repetirá el código de su interior
@@ -910,7 +910,7 @@ Seguimiento de la pila:
 - Si leemos el código podemos encontrar información útil, en la primera línea, nos dice el tipo de error (System.FormatException), un error de formato.   
 - Luego en la tercera nos viene un mensaje que dice traducido "La cadena de entrada 'f' no tenía un formato correcto."   
 - Y para terminar en la última línea nos sale que archvio es el que ha fallado y en que línea.   
-<br>   
+ 
 >[!Note]   
 >En este ejemplo es sencillo ver donde está el fallo, pero al tener un proyecto muy grande es importante saber leer los mensajes de error para poder identificar la falla.   
 
@@ -931,7 +931,7 @@ Como funciona try-catch
 1. Siempre debe de haber un try y un catch
 2. El fragmento de código que da el error la metemos dentro de un try (intenta), esto hará que el código intente ejecutar esa línea, si acaba en error hará lo que venga dentro del siguiente bloque, catch (Captura).
 3. El código seguirá su flujo normal sin pararse.
-<br>
+
 Un ejemplo sencillo para ver como solventar errores seria el siguiente:
 ```chasrp
 try
