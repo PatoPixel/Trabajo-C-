@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png, Clipboard_2024-01-01-20-37-10.p
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-02T01:32:32.265Z'
+modified: '2024-01-03T18:41:21.667Z'
 ---
 
 # (C#)
@@ -891,21 +891,21 @@ Algunos tipos de errores pueden ocurrir por:
  - Conexiones a BBDD interrumpidas
  - Etc
  <br>
- Cojamos el ejercicio de arriba donde debemos de acertar el número, más especificamente esta linea:
-  ```chsarp
-  numElegido = int.Parse(Console.ReadLine());
-  ```
-  Si en está linea el usuario inserta letras, ya sea intencionalmente o no, nos va a salir un error y el código dejará de ejecutarse.
-  ```csharp
-  System.FormatException
-  HResult=0x80131537
-  Mensaje = The input string 'f' was not in a correct format.
-  Origen = System.Private.CoreLib
-  Seguimiento de la pila:
-   en System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)
-   en System.Int32.Parse(String s)
-   en prueba_variable.PruebaVariable.Main() en C:\Users\Izan\Documents\C#\ConsoleApp2\ConsoleApp2\Program.cs: línea 21
-  ```
+Cojamos el ejercicio de arriba donde debemos de acertar el número, más especificamente esta linea:
+```chsarp
+numElegido = int.Parse(Console.ReadLine());
+```
+Si en está linea el usuario inserta letras, ya sea intencionalmente o no, nos va a salir un error y el código dejará de ejecutarse.
+```csharp
+System.FormatException
+HResult=0x80131537
+Mensaje = The input string 'f' was not in a correct format.
+Origen = System.Private.CoreLib
+Seguimiento de la pila:
+  en System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)
+  en System.Int32.Parse(String s)
+  en prueba_variable.PruebaVariable.Main() en C:\Users\Izan\Documents\C#\ConsoleApp2\ConsoleApp2\Program.cs: línea 21
+```
 - Si leemos el código podemos encontrar información útil, en la primera línea, nos dice el tipo de error (System.FormatException), un error de formato.   
 - Luego en la tercera nos viene un mensaje que dice traducido "La cadena de entrada 'f' no tenía un formato correcto."   
 - Y para terminar en la última línea nos sale que archvio es el que ha fallado y en que línea.   
