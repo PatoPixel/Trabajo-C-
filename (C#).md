@@ -47,6 +47,7 @@ modified: '2024-01-02T01:32:32.265Z'
         - [9.3.1 While](#931-while)
         - [9.3.1 Do-While](#931-do-while)
       - [Ejercicio](#ejercicio)
+    - [10. Excepciones](#10-excepciones)
   - [Estructura básica](#estructura-básica)
     - [Métodos](#métodos)
   - [Estructura general](#estructura-general)
@@ -266,7 +267,7 @@ namespace prueba_nombre
 }
 ```
 - Usar comentarios
- 
+  
 -------------
  
 ### 1. Comentarios
