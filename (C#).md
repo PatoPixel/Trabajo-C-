@@ -912,7 +912,7 @@ Seguimiento de la pila:
 - Y para terminar en la última línea nos sale que archvio es el que ha fallado y en que línea.   
 <br>   
 >[!Note]
->En este ejemplo es sencillo ver donde está el fallo, pero al tener un proyecto muy grande es importante saber leer los mensajes de error >para poder identificar la falla.   
+>En este ejemplo es sencillo ver donde está el fallo, pero al tener un proyecto muy grande es importante saber leer los mensajes de error para poder identificar la falla.   
 
 10.2 Tipos de Excepciones
 10.3 Bloques try-catch
