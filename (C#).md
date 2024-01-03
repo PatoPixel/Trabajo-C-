@@ -911,7 +911,7 @@ Seguimiento de la pila:
 - Luego en la tercera nos viene un mensaje que dice traducido "La cadena de entrada 'f' no tenía un formato correcto."   
 - Y para terminar en la última línea nos sale que archvio es el que ha fallado y en que línea.   
 <br>   
->[!Note]
+>[!Note]   
 >En este ejemplo es sencillo ver donde está el fallo, pero al tener un proyecto muy grande es importante saber leer los mensajes de error para poder identificar la falla.   
 
 10.2 Tipos de Excepciones
@@ -927,10 +927,10 @@ catch
     //Código a ejecutar si "try" entra en error
 }
 ```
-Como funciona try-catch
-  1. Siempre debe de haber un try y un catch
-  2. El fragmento de código que da el error la metemos dentro de un try (intenta), esto hará que el código intente ejecutar esa línea, si acaba en error hará lo que venga dentro del siguiente bloque, catch (Captura).
-  3. El código seguirá su flujo normal sin pararse.
+Como funciona try-catch   
+1. Siempre debe de haber un try y un catch
+2. El fragmento de código que da el error la metemos dentro de un try (intenta), esto hará que el código intente ejecutar esa línea, si acaba en error hará lo que venga dentro del siguiente bloque, catch (Captura).
+3. El código seguirá su flujo normal sin pararse.
 <br>
 Un ejemplo sencillo para ver como solventar errores seria el siguiente:
 ```chasrp
