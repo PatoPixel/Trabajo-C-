@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png, Clipboard_2024-01-01-20-37-10.p
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-03T18:42:42.983Z'
+modified: '2024-01-03T18:46:38.556Z'
 ---
 
 # (C#)
@@ -910,7 +910,7 @@ Seguimiento de la pila:
 - Si leemos el código podemos encontrar información útil, en la primera línea, nos dice el tipo de error (System.FormatException), un error de formato.   
 - Luego en la tercera nos viene un mensaje que dice traducido "La cadena de entrada 'f' no tenía un formato correcto."   
 - Y para terminar en la última línea nos sale que archvio es el que ha fallado y en que línea.   
-<br>
+<br>   
 >[!Note]
 >En este ejemplo es sencillo ver donde está el fallo, pero al tener un proyecto muy grande es importante saber leer los mensajes de error >para poder identificar la falla.   
 
