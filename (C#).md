@@ -889,8 +889,7 @@ Algunos tipos de errores pueden ocurrir por:
  - Sectores de disco duro defectuosos
  - Acceso a ficheros inexistentes
  - Conexiones a BBDD interrumpidas
- - Etc   
- <br>
+ - Etc
 
 Cojamos el ejercicio de arriba donde debemos de acertar el número, más especificamente esta linea:
 ```chsarp
