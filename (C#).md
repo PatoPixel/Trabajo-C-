@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png, Clipboard_2024-01-01-20-37-10.p
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-03T18:41:21.667Z'
+modified: '2024-01-03T18:42:42.983Z'
 ---
 
 # (C#)
@@ -889,7 +889,7 @@ Algunos tipos de errores pueden ocurrir por:
  - Sectores de disco duro defectuosos
  - Acceso a ficheros inexistentes
  - Conexiones a BBDD interrumpidas
- - Etc
+ - Etc   
  <br>
 Cojamos el ejercicio de arriba donde debemos de acertar el número, más especificamente esta linea:
 ```chsarp
