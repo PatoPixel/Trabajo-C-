@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png, Clipboard_2024-01-01-20-37-10.p
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-03T18:46:38.556Z'
+modified: '2024-01-04T00:31:11.203Z'
 ---
 
 # (C#)
@@ -223,9 +223,9 @@ Presione cualquier tecla para cerrar esta ventana. . .
 ## Sintaxis básica
 Lo minimo que debemos de tener en nuestro proyecto de c# y lo que vamos a usar en los siguientes ejemplos es:
 ```csharp
-namespace "NombreQueQueramos"
+namespace NombreQueQueramos
 {
-    class "NombreQueQueramos"
+    class NombreQueQueramos
     {
         static void Main()
         {
@@ -258,7 +258,7 @@ namespace PruebaDocumento {}
 namespace prueba_nombre
 {
     class PruebaMenor
-    {
+    { 
         void pruebaMetodo()
         {
           //Codigo
@@ -880,7 +880,7 @@ Creamos una variable y le decimos que si es menor que 10 nos diga que numero és
 
 ### 10. Excepciones 
 
-    10.1 Introducción a Excepciones
+10.1 Introducción a Excepciones
 
 Las excepciones son errores en tiempo de ejecución del programa que escapan al control del programador.
 Algunos tipos de errores pueden ocurrir por: 
@@ -889,7 +889,8 @@ Algunos tipos de errores pueden ocurrir por:
  - Sectores de disco duro defectuosos
  - Acceso a ficheros inexistentes
  - Conexiones a BBDD interrumpidas
- - Etc
+ - Etc   
+ <br>
 
 Cojamos el ejercicio de arriba donde debemos de acertar el número, más especificamente esta linea:
 ```chsarp
@@ -913,23 +914,25 @@ Seguimiento de la pila:
 >[!Note]   
 >En este ejemplo es sencillo ver donde está el fallo, pero al tener un proyecto muy grande es importante saber leer los mensajes de error para poder identificar la falla.   
 
-10.2 Tipos de Excepciones
-10.3 Bloques try-catch
+
+10.2 Bloques try-catch
 La sintaxis es la siguiente:
 ```chsarp
 try 
 {
     //código que entra en error
 }
-catch
+catch (Nombre_excepción Nombre_variable_mensaje )
 {
     //Código a ejecutar si "try" entra en error
 }
 ```
 Como funciona try-catch   
 1. Siempre debe de haber un try y un catch
-2. El fragmento de código que da el error la metemos dentro de un try (intenta), esto hará que el código intente ejecutar esa línea, si acaba en error hará lo que venga dentro del siguiente bloque, catch (Captura).
-3. El código seguirá su flujo normal sin pararse.
+2. El fragmento de código que da el error la metemos dentro de un try (intenta), esto hará que el código intente ejecutar esa línea
+3. si acaba en error pasará al catch, comprobará que es la excepción correspondiente y ejecutará el código
+4. El nombre de la variable del mensaje lo que nos permite es guardar el mensaje de error en una variable, es decir, si yo cambio eso por mensaje, ahora podría usar la variable mensaje.Message, para usar el mesanje de error como yo quiera.
+4. El código seguirá su flujo normal sin pararse.
 
 Un ejemplo sencillo para ver como solventar errores seria el siguiente:
 ```chasrp
@@ -937,28 +940,120 @@ try
 {
     numElegido = int.Parse(Console.ReadLine());
 }
-catch 
+catch (Format.Exception mensajito)
 {
-    Console.WriteLine("No has introducido un valor válido. Se pondrá el valor -1 por defecto");
+    Console.WriteLine("Has introducido letras. Se pondrá el valor -1 por defecto, intentalo de nuevo");
+    Console.WriteLine(mensajito.Message);
     numElegido = -1;
 }
 ```
 Lo que hacemos aquí es lo siguiente.
-  1. Try intentará ejecutar la línea donde el usuario debe de poner el número, cuando el usuario ponga un valor no válido pasaremos a catch.
-  2. Catch lo que hará es mostrar un mensaje al usuario pero el código tiene otro problema ahora.
-  3. Si vemos el código la variable numElegido no se ha inicializado puesto que para inicializarla el usuario debe de escribir un número, al insertar la línea de código en un try el código ahora no está seguro de que esa línea se ejecute asi que entra en otro error, para solucionar eso debemos de inicializar la variable con un número que no interfiera en nuestro juego
-  4. Esta solución es poco adecuada pero para el ejemplo nos sirve.
+  1. Try intentará ejecutar la línea donde el usuario debe de poner el número, cuando el usuario ponga letras pasaremos a catch.
+  2. Catch comprobará que es el error de formato, en caso correcto ejecutará su código, si no, dejará paso a otro error.
+  3. Con la variable mensajito ponemos en consola cual es el problema "The input string 'h' was not in a correct format.".
+  3. Ya solucionado el problema de las letras ahora hay un problema de inicialización.
+  3. Si vemos el código la variable numElegido no se ha inicializado puesto que para inicializarla el usuario debe de escribir un número, al insertar la línea de código en un try el código ahora no está seguro de que esa línea se ejecute asi que entra en otro error, para solucionar eso debemos de inicializar la variable con un número que no interfiera en nuestro juego (puede ser el 101 por ejemplo o el 432).
+  4. La solución es poco adecuada pero para el ejemplo nos sirve.
 
-    10.4 Lanzar Excepciones (throw)
-    10.5 Propagación de Excepciones
-    10.6 Finally
-    10.7 Personalización de Excepciones
-    10.8 Buenas Prácticas en el Manejo de Excepciones
+- Pero que pasa si el usuario proporciona un número demasiado largo?   
+```csharp
+{
+    numElegido = int.Parse(Console.ReadLine());
+}
+catch (FormatException mensajito)
+{
+    Console.WriteLine("Has introducido letras. Se pondrá el valor -1 por defecto, intentalo de nuevo");
+    Console.WriteLine(mensajito.Message);
+    numElegido = -1;
+}
+catch (OverflowException mensajito)
+{
+    Console.WriteLine("Has introducido demasiados números. Se pondrá el valor -1 por defecto, intentalo de nuevo");
+    Console.WriteLine(mensajito.Message);
+    numElegido = -1;
+}
+```
+>[!Note]
+> Puedes poner "catch" sin necesidad de especificar la excepcion, esto hará que te recoja todas las excepciones en una sola línea, pero no podras almacenar el mensaje en una variable, para eso podemos poner catch (Exception "variable"), esto seguirá recogiendo todas las excepciones pero ahora podremos almacenar el mensaje. Tambien hay que tener en cuenta que puedes hacer un catch especifico y luego uno general pero no viceversa.
 
+10.3 Excluir excepciones
 
+Tambien podemos excluir una excepcion en un catch, quedaría de la siguiente manera
+```csharp
+try {}
+catch (Exception "variable") when ("variable".GetType()!=typeof("exepcion a excluir"))
+```
+1. Añadimos "when" (cuando...) despues de capturar todas las variables.
+2. miramos que tipo de excepcion es la "variable"
+3. Usamos comparadores para especificar cual queremos excluir
+4. Usamos "typeof" para especificar la excepción a excluir.
 
+```csharp
+try
+{
+    numElegido = int.Parse(Console.ReadLine());
+}
+catch (Exception mensajito) when (mensajito.GetType()!=typeof(OverflowException))
+{
+    Console.WriteLine("Has introducido letras. Se pondrá el valor -1 por defecto, intentalo de nuevo");
+    Console.WriteLine(mensajito.Message);
+    numElegido = -1;
+}
+```
+Realizando esto ahora podriamos añadir otro catch debajo en el que especifiquemos que hacer con "OverflowException".
 
+  10.4 Checked
 
+Para entender este bloque de código hay que entender como C# trata al código.
+Dado este caso:
+```csharp
+int numero = int.MaxValue; //Da el valor máximo de int
+
+int numeroExtra = numero + 20;
+
+Console.WriteLine(numeroExtra);
+```
+Esto deberia de darnos una excepción de desbordamiento (overflow) pero eso no ocurre. El código nos devuelve un valor erroneo (-2147483629).
+¿Porqué ocurre esto?
+C# trabaja para mantener un buen rendimiento, en un proyecto de C# es muy normal que haya muchos ecuaciones aritméticas, así que el programa prefiere dar un valor erróneo y seguir con el código a pararlo por completo.
+Esto puede ser un problema si necesitamos que ese valor sea correcto para el funcionamiento de nuestro programa, ahí es donde entra el bloque de código "checked".
+>[!Important]
+>Checked y unchecked solo se pueden usar con "int" y con "long".
+```chsarp
+int numero = int.MaxValue;
+
+checked 
+  { 
+  int numeroExtra = numero + 20; 
+  Console.WriteLine(numeroExtra);
+  }
+```
+Lo que hacemos es meter dentro de checked lo que queremos que de error, ahora al ejecutar el código C# vereficará esa parte para mostrar si hay excepciones o no.   
+Tambien se puede hacer de una forma más abreviada
+```chsarp
+int numero = int.MaxValue;
+
+int numeroExtra = checked(numero + 20); 
+
+Console.WriteLine(numeroExtra);
+```
+Ponemos checked justo donde puede estar el fallo.
+>[!Note]
+> Hay una forma de ponerlo en todo el proyecto de manera predeterminada. A la derecha en el "Explorador de soluciones" aremos click derecho en nuestro proyecto, en mi caso se llama "ConsoleApp3", buscaremos la opción de "propiedades", luego nos iremos a "Compilación" e iremos a "Opciones avanzadas" y ahí buscamos "Comprobar el desbordamiento aritmético", activamos el recuadro.   
+>Ahora no tendremos que poner checked y siempre nos está comprobando todos los desbordamientos aritméticos, ahora podriamos usar el bloque de código "unchecked" para que no comprueba si hay desbordamiento.
+
+10.5 Throw exceptions
+ 
+En este apartado vamos a ver como lanzar excepciones cuando nosotros queremos.
+```csharp
+throw new "nombreExcepcion"("información del error");
+```
+Ejemplo:
+```csharp
+throw new OverflowException("Error de overflow prueba"); //Si no ponemos nada entre parentesis nos aparecerá el texto predeterminado
+```
+Pero para que queremos esto?
+Esto nos sirve para "obligar" a usar un try-catch y así poder especificar que hacer acontinuación.  
 
 ## Estructura básica
 
