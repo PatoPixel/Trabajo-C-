@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png, Clipboard_2024-01-01-20-37-10.p
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-04T00:31:11.203Z'
+modified: '2024-01-06T19:45:49.664Z'
 ---
 
 # (C#)
@@ -1053,7 +1053,95 @@ Ejemplo:
 throw new OverflowException("Error de overflow prueba"); //Si no ponemos nada entre parentesis nos aparecerá el texto predeterminado
 ```
 Pero para que queremos esto?
-Esto nos sirve para "obligar" a usar un try-catch y así poder especificar que hacer acontinuación.  
+Esto nos sirve para "obligar" a usar un try-catch y así poder especificar que hacer acontinuación.
+
+Para que el ejemplo sea más realista voy a usar un [método](#método).
+Para entrar en contexto un método es un conjunto de líneas de código con un nombre único que podemos llamar desde cualquier parte del programa. Nos permite organizar y reutilizar bloques de código de manera modular.
+Usaremos el siguiente método:
+```csharp
+static string ObtenerNombreMes()
+{   
+    int numeroMes = int.Parse(Console.ReadLine());
+    string nombreMes;
+
+    switch (numeroMes)
+    {
+        case 1:
+            nombreMes = "Enero";
+            break;
+        case 2:
+            nombreMes = "Febrero";
+            break;
+        case 3:
+            nombreMes = "Marzo";
+            break;
+        case 4:
+            nombreMes = "Abril";
+            break;
+        case 5:
+            nombreMes = "Mayo";
+            break;
+        case 6:
+            nombreMes = "Junio";
+            break;
+        case 7:
+            nombreMes = "Julio";
+            break;
+        case 8:
+            nombreMes = "Agosto";
+            break;
+        case 9:
+            nombreMes = "Septiembre";
+            break;
+        case 10:
+            nombreMes = "Octubre";
+            break;
+        case 11:
+            nombreMes = "Noviembre";
+            break;
+        case 12:
+            nombreMes = "Diciembre";
+            break;
+        default:
+            throw new ArgumentException("Número de mes no válido. Debe estar en el rango del 1 al 12.");
+    }
+
+    return nombreMes;
+}
+```
+Este código nos devolverá el valor correspondiente a "nombreMes" cuando llamemos a este método. 
+¿Cómo podemos usar esto?
+
+```csharp
+static void Main()
+{
+    Console.WriteLine("Hola, en este código te voy a pedir que me des meses para distintas preguntas");
+    try
+    {
+    Console.WriteLine("Dame el mes en el que naciste tú");
+    string nombreMes = ObtenerNombreMes();
+    Console.WriteLine($"tu mes corresponde al {nombreMes}.");
+    }catch ( Exception e )
+    {
+        Console.WriteLine("Tu més no entra en los rangos del 1-12");
+    }
+
+
+    try
+    {
+        Console.WriteLine("Dame el mes en el que nació tu hermana");
+        string nombreMes = ObtenerNombreMes();
+        Console.WriteLine($"El mes en el que nació tu hermana corresponde al {nombreMes}.");
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("El mes de tu hermana no entra en los rangos del 1-12");
+    }
+
+}
+```
+Aquí podemos ver como podemos llamar al mismo método pero darle 2 mensajes de fallo distinto solo por usar el bloque try...catch. 
+Si hubieramos puesto un valor defaul como por ejemplo un texto, los siguiente programadores o tu mismo tendrian luego muy limitado el uso de este método, al lanzar (throw) un error, permitimos total libertad para que puedas dar el valor erroneo que quieras.
 
 ## Estructura básica
 
