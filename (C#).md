@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png, Clipboard_2024-01-01-20-37-10.p
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-06T19:45:49.664Z'
+modified: '2024-01-11T23:46:55.847Z'
 ---
 
 # (C#)
@@ -13,8 +13,8 @@ modified: '2024-01-06T19:45:49.664Z'
 [//]: # (author: Izan Abramovici Cabrera)
 [//]: # (date: 2023-11-21)
 
- 
-
+  
+   
 # Indice
 - [(C#)](#c)
 - [Indice](#indice)
@@ -35,19 +35,23 @@ modified: '2024-01-06T19:45:49.664Z'
     - [4. Variables](#4-variables)
     - [5. Constantes](#5-constantes)
     - [6. Booleanos](#6-booleanos)
-    - [7. Operadores](#7-operadores)
-      - [7.1 Operadores aritméticos](#71-operadores-aritméticos)
-      - [7.2 Operadores de comparación](#72-operadores-de-comparación)
-      - [7.3 Operadores lógicos](#73-operadores-lógicos)
-    - [8. Transformar variables](#8-transformar-variables)
-    - [9 Estructuras de contol de flujo](#9-estructuras-de-contol-de-flujo)
-      - [9.1 Condicional **if**](#91-condicional-if)
-      - [9.2 Condicional switch](#92-condicional-switch)
-      - [9.3 Blucles](#93-blucles)
-        - [9.3.1 While](#931-while)
-        - [9.3.1 Do-While](#931-do-while)
+    - [7. Arrays](#7-arrays)
+    - [8. Operadores](#8-operadores)
+      - [8.1 Operadores aritméticos](#81-operadores-aritméticos)
+      - [8.2 Operadores de comparación](#82-operadores-de-comparación)
+      - [8.3 Operadores lógicos](#83-operadores-lógicos)
+      - [8.4 Operadores lógicos a nivel de bit](#84-operadores-lógicos-a-nivel-de-bit)
+    - [9. Transformar variables](#9-transformar-variables)
+    - [10 Estructuras de contol de flujo](#10-estructuras-de-contol-de-flujo)
+      - [10.1 Condicional **if**](#101-condicional-if)
+      - [10.2 Ternarios](#102-ternarios)
+      - [10.3 Condicional switch](#103-condicional-switch)
+      - [10.4 Blucles](#104-blucles)
+        - [ 10.4.1 While ](#-1041-while-)
+        - [ 10.4.2 Do-While ](#-1042-do-while-)
+        - [ 10.4.3 For ](#-1043-for-)
       - [Ejercicio](#ejercicio)
-    - [10. Excepciones](#10-excepciones)
+    - [11. Excepciones](#11-excepciones)
   - [Estructura básica](#estructura-básica)
     - [Métodos](#métodos)
   - [Estructura general](#estructura-general)
@@ -59,7 +63,7 @@ modified: '2024-01-06T19:45:49.664Z'
 
 <div style="page-break-after: always;"></div>
  
- 
+  
  
 ## Introducción
 [Indice](#c)
@@ -448,9 +452,78 @@ Console.WriteLine(!haceCalor)
 //Esto hará que nos salga "True" por consola
 ```
 
-### 7. Operadores
+### 7. Arrays
 [Indice](#c)
-#### 7.1 Operadores aritméticos
+- ¿Qué es? Estructura de datos que contiene una colección de valores del mismo tipo.
+- ¿Para qué? Para almacenar valores que normalmente tienen alguna relación entre sí.
+
+>[!Note]
+>La primera posición de un array es siempre 0
+- Sintaxis:
+    Hay 3 formas de escribir un array   
+
+- Forma restrictiva:
+
+El array solo admite un número especifico de valores que vamos a especificar
+
+```csharp
+//Declaración:
+"variable"[] nombre_de_la_matriz;
+int[] mi_matriz;
+//Iniciación:
+mi_matriz=new int[4]; //El 4 hace referencia a la cantidad de valores que vas a insertar.
+mi_matriz[0] = 3
+mi_matriz[1] = 9
+mi_matriz[2] = 1
+mi_matriz[3] = 3 
+
+//En este caso usamos valores numéricos puesto que he usado int
+
+//Declaración e iniciación en la misma línea: 
+int[] mi_matriz=new int[4];
+//tambien podemos hacer
+int[] mi_matriz=new int[4]{1,5,3,9};
+```
+- Forma fexlible:
+Al iniciar la matriz insertaremos la cantidad que queramos.
+Esto se entiende mejor de la siguiente manera. Ej:
+Imaginemos que tenemos un programa que deja al usuario elegir todos los numeros que quiera, el ususario puede elegir tanto 2 numeros como 100, como no sabemos la cantidad, no le decimos a la matriz cuantos valores va a tener.
+
+```csharp 
+int[] mi_matriz;
+
+//Iniciación:
+mi_matriz=new int[]{valores}; //El 4 hace referencia a la cantidad de valores que vas a insertar.
+
+//Declaración e iniciación en la misma línea: 
+int[] mi_matriz = {65,3,7,12,5,6};  //Puedes poner todos los que quieras y añadir más después
+```
+
+- Array implícito:
+
+En este array, la variable elegirá su propio tipo dependiendo de los valores del array
+Hay que tener en cuenta que no podemos poner valores que no tengan relacion entre si, por ejemplo una "string" y un "int"
+
+```csharp
+//Tipo entero
+var arrayImplicito = new[] {1,6,2,67};
+
+//Tipo string
+var implictoString = new[] {"Juana","ADios","Hola"};
+
+//Tipo Double
+var implicitoDecimal = new[] {10,6,1.3,3,6}; 
+//En la posicion 2 he puesto un decimal, asi que el array se pone como double
+
+```
+
+Esta ha sido una iniciación a los arrays, pero los arrays son más extensos que esto, para más información ir a:
+  - [Uso de for con arrays](#forArrays)
+  - [Uso de for/foreach para arrays en POO]()
+
+### 8. Operadores
+[Indice](#c)
+#### 8.1 Operadores aritméticos
 <br>
 - Suma                | +
 - Resta               | -  
@@ -515,7 +588,7 @@ System.Console.WriteLine(7.0 / 3.0); //usa boolean como predeterminado
 System.Console.WriteLine(7f / 3f);
 
 ```
-#### 7.2 Operadores de comparación
+#### 8.2 Operadores de comparación
 - Igual que | ==
 - Diferente que | !=
 - Menor que | <
@@ -536,9 +609,10 @@ Console.WriteLine(valor);
 >[!note]
 >En C# no es como otros lenguajes, el "==" se puede usar siempre y cuando sean de tipos parecidos, es decir, no puedes comparar una string con valor 12 y un int con valor 10, pero si puedes comparar un int con un float.
 
-#### 7.3 Operadores lógicos
+#### 8.3 Operadores lógicos
 - AND : && (Solo devuelve **true** si todas las expresiones son verdaderas, si no devolverá false)
 - OR : || (Devuelve **true** si almenos 1 expresione es verdaderas, si no devolverá false)
+- XOR : ^ (a expresión XOR devuelve true cuando hay un número impar de operandos true y false cuando hay un número par de operandos true o todos false.)
 
 ```csharp
  bool prueba1 = true;
@@ -548,11 +622,79 @@ Console.WriteLine(valor);
  Console.WriteLine(prueba1 && prueba2); //Verdadero
  Console.WriteLine(prueba1 && prueba2 && prueba3); //Falso
  Console.WriteLine(prueba3 || prueba2); //Verdadero
+
+ bool condicion1 = false;
+ bool condicion2 = false;
+ bool condicion3 = true;
+ bool condicion4 = false;
+
+ bool resultadoXORfalse = condicion1 ^ condicion2; 
+ bool resultadoXORtrue = condicion1 ^ condicion2 ^ condicion3 ^ condicion4;
+
+ Console.WriteLine($"El resultado de la operación XOR es: {resultadoXORfalse}");
+ Console.WriteLine($"El resultado de la operación XOR es: {resultadoXORtrue}");
+
 ```
 
-### 8. Transformar variables
+#### 8.4 Operadores lógicos a nivel de bit
+
+Para entender esto debemos de saber como es el lenguaje binario.
+<br>
+El decimal va de los numero 0 - 9. Son 10 numero distintos.
+El binario va del 0 - 1.
+<br>
+>[!Note]
+>Normalmente al escribir en binario pones 4 digitos o 8, siendo los que no estes usando a la izquierda 0, esto se debe a que 1Byte son 8 bits   
+
+Una tabla ver que valores usan:
+Decimal - Binario
+ - 00 - 0000
+   01 - 0001
+  02 - 0010
+  03 - 0011
+  04 - 0100
+  05 - 0101
+  06 - 0110
+  07 - 0111
+  08 - 1000
+  09 - 1001
+  10 - 1010
+<br>
+Los operadores lógicos daban como resultado "verdadero" o "falso" en este caso verdadero será 1 y falso 0.
+```csharp
+int num1 = 5;   //101
+int num2 = 6;   //110
+int num3 = num1 & num2;
+/*
+    101                 
+ && 110             
+-----------
+    100   = 4                
+*/
+Console.WriteLine("AND a nivel de bit para 5 y 6 da: " + num3);
+
+num3 = num1 | num2;
+/*
+    101                 
+ || 110             
+-----------
+    111   = 7              
+*/
+Console.WriteLine("OR a nivel de bit para 5 y 6 da: " + num3);
+
+num3 = num1 ^ num2;
+/*
+    101                 
+ ^  110             
+-----------
+    011   = 3                
+*/
+Console.WriteLine("XOR a nivel de bit para 5 y 6 da: " + num3);
+```
+
+### 9. Transformar variables
 [Indice](#c) 
-<h4>8.1 Casting </h4>   
+<h4>9.1 Casting </h4>   
 
 - Implícito: Se realiza automáticamente por el compilador cuando hay una conversión segura y sin pérdida de datos.   
 ```csharp
@@ -568,7 +710,7 @@ int entero = (int)real;
 ```
 >[!NOte]
 >En este enlace están todas las [conversiones implicitas](https://learn.microsoft.com/es-es/dotnet/csharp/language-reference/builtin-types/numeric-conversions)
-<h4>8.2 Transformación de tipo </h4>
+<h4>9.2 Transformación de tipo </h4>
 Esta conversion nos permitirá cambiar strings a otro tipo de variable.   
 <br><br>
 Usaremos el siguiente comando <strong>[Tipo_Al_Que_Quieres_Convertir].Parse(string)</strong>
@@ -596,13 +738,13 @@ int num2 = int.Parse(System.Console.ReadLine();
 System.Console.WriteLine($"La suna es {num1 + num2}");
 ```
 
-### 9 Estructuras de contol de flujo
+### 10 Estructuras de contol de flujo
 [Indice](#c) 
 Se les da este nombre a "if" y "while" ya que pueden modificar el flujo de ejecución de un programa.
 Como se explicó anteriormente, C# lee el código de arriba a abajo, pero con estas nuevas opciones podemos decirle al codigo que salte lineas,
 vaya a otras lineas, vuelva a una linea que ya se ejecutó, etc.
 
-#### 9.1 Condicional **if**
+#### 10.1 Condicional **if**
 
 - If del ingles "si pasa algo" nos permitirá realizar ejecutar código si la condicion es correcta, seguirá la siguiente estructura:
 <br>
@@ -711,7 +853,20 @@ if (NotaEx1 >= 5 && NotaEx2 >= 5 && NotaEx3 >= 5)
 >[!Caution]
 >Cuidado al generar una variable dentro de un if, al estar dentro el código no lo tomará como existente, asi que todo lo que este fuera de ese if que use esa variable no podrá funcionar, para arreglar eso lo mejor es definir la varible fuera del if e iniciarlizarla, porque como vimos antes, C# no puede usar una variable sin inicializar.
 
-#### 9.2 Condicional switch
+#### 10.2 Ternarios
+
+Son como un if en 1 sola línea, se escriben tal que así:
+
+```csharp
+//(condicion) ? valorVerdadero : valorFalso;
+
+int num1 = 5;
+string frase = num1 > 6 ? "5 es mayor que 6" : "5 es menor que 6";
+
+Console.WriteLine(frase);
+```
+
+#### 10.3 Condicional switch
 
 El switch nos va a permitir escribir menos lineas de código que un "if" siempre y cuando la condición a tener en cuenta sea una igualdad
 
@@ -769,7 +924,7 @@ switch (interes)
         break;
 }
 ```
-#### 9.3 Blucles
+#### 10.4 Blucles
 Nos permiten repetir la ejecución de líneas de código un número determinado o indeterminado de veces.
 Ventajas:
  - Permite repetir código de forma rápida y sencilla
@@ -778,14 +933,14 @@ Ventajas:
  - Permite trabajar con Arrays
  <br>
  Tipos:
- 
-  - Determinados (Solo con leer el código fuente podemos saber cuantas veces se va a repetir)
-      - For 
   - Indeterminados (Hay que ejecutarlo para saber cuantas veces se ejecuta)
       - While
       - Do-While
+  - Determinados (Solo con leer el código fuente podemos saber cuantas veces se va a repetir)
+      - For 
+ 
 
-  ##### 9.3.1 While
+  ##### <h3> 10.4.1 While </h3>
 
   >[!NOTE]
   > While viene del ingles "Mientras", esto nos ayudará a comprender el funcionamiento.
@@ -814,7 +969,7 @@ while (mesMessi != "junio")
 
 Console.WriteLine("Muy bien, Messi nació en junio");
   ```
-  ##### 9.3.1 Do-While   
+  ##### <h3> 10.4.2 Do-While </h3>   
 
 ```csharp
 do
@@ -833,6 +988,59 @@ do
 }while(num<10);
 ```
 Creamos una variable y le decimos que si es menor que 10 nos diga que numero és, pero al tener el "do", nos dirá que número es aunque no sea menor que 10.
+
+##### <h3> 10.4.3 For </h3>
+
+El bucle for es cuando sabemos de un vistazo al código el nº de veces que se va a repetir su interior.
+La sintaxis básica del bucle for en C# es la siguiente:
+
+```csharp
+
+for (inicialización; condición; expresión de iteración)
+{
+    // Código a ejecutar en cada iteración
+}
+```
+Donde:
+
+1. Inicialización: Se ejecuta una vez al principio del bucle y generalmente se utiliza para inicializar una variable de control.
+2. Condición: Se evalúa antes de cada vuelta. Si la condición es true, el cuerpo del bucle se ejecuta; de lo contrario, el bucle se sale.
+3. Expresión de iteración: Se ejecuta al final de cada vuelta y generalmente se utiliza para modificar la variable de control (por ejemplo, incrementarla o decrementarla).
+Aquí hay un ejemplo simple de un bucle for que imprime los números del 1 al 5:
+
+```csharp
+
+for (int i = 1; i <= 5; i++)
+{
+    Console.WriteLine(i);
+}
+```
+Este bucle inicializa i en 1, se ejecuta mientras i sea menor o igual a 5, e incrementa i en 1 en cada vuelta.
+
+- <span id="forArrays">For para arrays</span>:
+
+Un for se puede usar de la siguiente manera para recorrer un array:
+```csharp
+var implicitoString = new[] { "Juana", "Andrea", "Juan" };
+
+for (int i = 0; i < 3; i++)
+{
+    Console.WriteLine(implicitoString[i]);
+}
+```
+Como sabemos que el array tiene 3 valores podemos hacerlo de esta manera, pero en el caso de no saberlo o si añadimos/eliminamos otro en la ejecucución no funcionará.
+<br>
+Para eso hay una manera mucho mejor para hacerlo, y es con la opcion de "Length".
+```csharp
+for (int i = 0; i < implicitoString.Length; i++)
+{
+    Console.WriteLine(implictoString[i]);
+}
+```
+De esta forma estaremos diciendo al for que ejecute el código de dentro hasta que llegue a la longitud del array, es decir, el número de variables que contiene.
+
+>[!Note]
+>Existe el bucle [foreach](), pero este se dará más adelante
 #### Ejercicio
 
  En este ejemplo se van a poner en práctica varías cosas que se han dado previamente.
@@ -878,9 +1086,9 @@ Creamos una variable y le decimos que si es menor que 10 nos diga que numero és
  Console.WriteLine($"Muy Bien, el número que habia pensado era el {numAleatorio} y lo has averiguado en tan solo {numIntentos} intentos");
 ``` 
 
-### 10. Excepciones 
+### 11. Excepciones 
 
-10.1 Introducción a Excepciones
+11.1 Introducción a Excepciones
 
 Las excepciones son errores en tiempo de ejecución del programa que escapan al control del programador.
 Algunos tipos de errores pueden ocurrir por: 
@@ -915,7 +1123,7 @@ Seguimiento de la pila:
 >En este ejemplo es sencillo ver donde está el fallo, pero al tener un proyecto muy grande es importante saber leer los mensajes de error para poder identificar la falla.   
 
 
-10.2 Bloques try-catch
+11.2 Bloques try-catch
 La sintaxis es la siguiente:
 ```chsarp
 try 
@@ -976,7 +1184,7 @@ catch (OverflowException mensajito)
 >[!Note]
 > Puedes poner "catch" sin necesidad de especificar la excepcion, esto hará que te recoja todas las excepciones en una sola línea, pero no podras almacenar el mensaje en una variable, para eso podemos poner catch (Exception "variable"), esto seguirá recogiendo todas las excepciones pero ahora podremos almacenar el mensaje. Tambien hay que tener en cuenta que puedes hacer un catch especifico y luego uno general pero no viceversa.
 
-10.3 Excluir excepciones
+11.3 Excluir excepciones
 
 Tambien podemos excluir una excepcion en un catch, quedaría de la siguiente manera
 ```csharp
@@ -1002,7 +1210,7 @@ catch (Exception mensajito) when (mensajito.GetType()!=typeof(OverflowException)
 ```
 Realizando esto ahora podriamos añadir otro catch debajo en el que especifiquemos que hacer con "OverflowException".
 
-  10.4 Checked
+  11.4 Checked
 
 Para entender este bloque de código hay que entender como C# trata al código.
 Dado este caso:
@@ -1019,7 +1227,7 @@ C# trabaja para mantener un buen rendimiento, en un proyecto de C# es muy normal
 Esto puede ser un problema si necesitamos que ese valor sea correcto para el funcionamiento de nuestro programa, ahí es donde entra el bloque de código "checked".
 >[!Important]
 >Checked y unchecked solo se pueden usar con "int" y con "long".
-```chsarp
+```csharp
 int numero = int.MaxValue;
 
 checked 
@@ -1030,7 +1238,7 @@ checked
 ```
 Lo que hacemos es meter dentro de checked lo que queremos que de error, ahora al ejecutar el código C# vereficará esa parte para mostrar si hay excepciones o no.   
 Tambien se puede hacer de una forma más abreviada
-```chsarp
+```csharp
 int numero = int.MaxValue;
 
 int numeroExtra = checked(numero + 20); 
@@ -1042,7 +1250,7 @@ Ponemos checked justo donde puede estar el fallo.
 > Hay una forma de ponerlo en todo el proyecto de manera predeterminada. A la derecha en el "Explorador de soluciones" aremos click derecho en nuestro proyecto, en mi caso se llama "ConsoleApp3", buscaremos la opción de "propiedades", luego nos iremos a "Compilación" e iremos a "Opciones avanzadas" y ahí buscamos "Comprobar el desbordamiento aritmético", activamos el recuadro.   
 >Ahora no tendremos que poner checked y siempre nos está comprobando todos los desbordamientos aritméticos, ahora podriamos usar el bloque de código "unchecked" para que no comprueba si hay desbordamiento.
 
-10.5 Throw exceptions
+11.5 Throw exceptions
  
 En este apartado vamos a ver como lanzar excepciones cuando nosotros queremos.
 ```csharp
