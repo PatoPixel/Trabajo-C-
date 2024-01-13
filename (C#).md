@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png, Clipboard_2024-01-01-20-37-10.p
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-11T23:46:55.847Z'
+modified: '2024-01-13T03:53:13.921Z'
 ---
 
 # (C#)
@@ -13,7 +13,7 @@ modified: '2024-01-11T23:46:55.847Z'
 [//]: # (author: Izan Abramovici Cabrera)
 [//]: # (date: 2023-11-21)
 
-  
+
    
 # Indice
 - [(C#)](#c)
@@ -53,13 +53,13 @@ modified: '2024-01-11T23:46:55.847Z'
       - [Ejercicio](#ejercicio)
     - [11. Excepciones](#11-excepciones)
   - [Estructura básica](#estructura-básica)
-    - [Métodos](#métodos)
   - [Estructura general](#estructura-general)
     - [1. Espacios de Nombres (namespace):](#1-espacios-de-nombres-namespace)
       - [2. Alias](#2-alias)
       - [4. Clases (class)](#4-clases-class)
+        - [ 3. Métodos (method): ](#-3-métodos-method-)
+          - [ Return ](#-return-)
         - [3. Campos (field):](#3-campos-field)
-        - [3. Métodos (method):](#3-métodos-method)
 
 <div style="page-break-after: always;"></div>
  
@@ -431,9 +431,9 @@ var pi = 3.14; // El compilador infiere que 'pi' es de tipo double.
 ### 5. Constantes
 [Indice](#c) 
 <br>
-Una constante es simplemente un variable que no va poder cambiar durante todo el código.   
+Una constante es simplemente un variable que no vamos a poder cambiar durante todo el código.   
 
-Una buena práctica es poner las constatnes en mayúsculas
+Una buena práctica es poner las constantes en mayúsculas
 ```csharp
 const int PI = 3.1416;
 const int ESPACIO_CLASES = 30;
@@ -737,7 +737,6 @@ int num2 = int.Parse(System.Console.ReadLine();
 
 System.Console.WriteLine($"La suna es {num1 + num2}");
 ```
-
 ### 10 Estructuras de contol de flujo
 [Indice](#c) 
 Se les da este nombre a "if" y "while" ya que pueden modificar el flujo de ejecución de un programa.
@@ -1351,10 +1350,11 @@ static void Main()
 Aquí podemos ver como podemos llamar al mismo método pero darle 2 mensajes de fallo distinto solo por usar el bloque try...catch. 
 Si hubieramos puesto un valor defaul como por ejemplo un texto, los siguiente programadores o tu mismo tendrian luego muy limitado el uso de este método, al lanzar (throw) un error, permitimos total libertad para que puedas dar el valor erroneo que quieras.
 
+
 ## Estructura básica
 
 Aquí hablaremos de 
-### Métodos
+
 
 
 
@@ -1593,22 +1593,13 @@ Esto nos permitirá añadir codigo a una clase desde distintios archvios.
 
 >[!NOTE]
 > Las clases son el inciio de la Programación Orientada a Objetos ([POO](#POO))
-##### 3. Campos (field):
- 
-**¿Qué es?**: Nos almacena una variable que podrá ser usada siempre en la clase o incluso fuera de la misma si es [pública](#markdown)
-
-```csharp
-class MiClase
-{
-    private int miCampo;
-}
-```
-
-##### 3. Métodos (method):
+##### <h3> 3. Métodos (method): </h3>
 [Indice](#c)
 **¿Necesario?**: No siempre. Un programa debe tener al menos un método Main como punto de entrada para la ejecución.
 **¿Qué es?**: código que realiza una tarea específica o una acción.
 **Ubicación**: Dentro de una clase.
+**¿Para qué sirve**: Para realizar una tarea en concreto en un momento determinado. Un método no ejecuta su código hasta que no es llamado.
+<br>
 - Estructura: 
 
 [modificadorAcceso] [modificadorOtros] tipoRetorno NombreDelMetodo([parámetros])
@@ -1618,9 +1609,9 @@ La estructura básica de un método en C# incluye varias palabras clave y elemen
 
 Aquí hay una descripción de estas palabras clave:
 
-- Modificador de Acceso (public, private, protected, internal, etc.): Indica el nivel de acceso al método.
+- Modificador de Acceso ([public](), [private](), [protected](), [internal](), etc.): Indica el nivel de acceso al método.
 
-- Modificador Otros (static, virtual, abstract, sealed, override, async, unsafe, etc.): Pueden modificar el comportamiento del método de diversas maneras. No todos son aplicables a todos los métodos.
+- Modificador Otros ([static](), [virtual](), [abstract](), [sealed](), [override](), [async](), [unsafe](), etc.): Pueden modificar el comportamiento del método de diversas maneras. No todos son aplicables a todos los métodos.
 
 - Tipo de Retorno (void, int, string, etc.): Indica el tipo de valor que devuelve el método. Puede ser void si no devuelve nada.
 
@@ -1630,7 +1621,7 @@ Aquí hay una descripción de estas palabras clave:
 
 - Cuerpo del Método: Contiene las declaraciones, expresiones y sentencias que definen la lógica del método.
 
-- Sentencia return (opcional): Devuelve un valor del tipo especificado en el tipo de retorno del método.
+- Sentencia [return](#Return) (opcional): Devuelve un valor del tipo especificado en el tipo de retorno del método.
 
 Un ejemplo completo podría ser:
 
@@ -1649,6 +1640,82 @@ public class MiClase
 }
 ```
 Este método se llama Sumar, es público, estático, tiene un tipo de retorno int, acepta dos parámetros a y b, y devuelve la suma de los dos parámetros. Recuerda que no todos los modificadores son aplicables a todos los métodos; su aplicabilidad depende del contexto y del tipo de método que estés definiendo.
+
+
+###### <h3> Return </h3>
+
+La instrucción return en C# tiene varias utilidades clave:
+
+**Devolver Resultados**: Un método puede realizar cálculos o procesos y luego devolver un resultado al código que lo llamó utilizando return. Esto permite utilizar el valor calculado en otros lugares del programa.
+
+```csharp
+static void Main()
+{
+    Console.WriteLine("Escriba el primer numero");
+    int a = int.Parse(Console.ReadLine());
+    int b = Sumar();
+    Console.WriteLine("total: " + (a + b)); 
+}
+static int Sumar()
+{
+    Console.WriteLine("Escriba el segundo numero");
+    int a = int.Parse(Console.ReadLine());
+    Console.WriteLine("Escriba el tercer numero");
+    int b = int.Parse(Console.ReadLine());
+    int resultado = a + b;
+    return resultado;
+}
+```
+**Salir Temprano**: Puede utilizarse para salir temprano de un método si ciertas condiciones no se cumplen, evitando así la ejecución de código innecesario.
+
+```csharp
+static void Main()
+{
+    Sumar(); 
+}
+static void Sumar()
+{
+    Console.WriteLine("Escriba el primer numero");
+    int a = int.Parse(Console.ReadLine());
+    if ( a <= 0)
+    {
+        Console.WriteLine("El número no es positivo.");
+        // Salir temprano del método
+        return;
+    }
+//De normal este código se ejecutaría pero en el caso de que el "if" sea verdadero,
+//todo el código que continua no se ejecutará.
+    Console.WriteLine($"El número {a} es positivo.");
+
+    Console.WriteLine("Escribe el segudno numero");
+
+    int b = int.Parse(Console.ReadLine());
+
+    Console.WriteLine($"La suma es {a + b}");
+
+
+```
+**Finalizar Métodos**: En un método que no devuelve un valor (void), return se utiliza simplemente para finalizar la ejecución del método.
+
+```csharp
+public void Saludar()
+{
+    Console.WriteLine("¡Hola desde el método Saludar!");
+    // Finalizar el método
+    return;
+}
+```
+##### 3. Campos (field):
+ 
+**¿Qué es?**: Nos almacena una variable que podrá ser usada siempre en la clase o incluso fuera de la misma si es [pública](#markdown)
+
+```csharp
+class MiClase
+{
+    private int miCampo;
+}
+```
+
 
 
 
