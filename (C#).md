@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png, Clipboard_2024-01-01-20-37-10.p
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-13T03:53:13.921Z'
+modified: '2024-01-15T01:43:57.947Z'
 ---
 
 # (C#)
@@ -13,7 +13,7 @@ modified: '2024-01-13T03:53:13.921Z'
 [//]: # (author: Izan Abramovici Cabrera)
 [//]: # (date: 2023-11-21)
 
-
+ 
    
 # Indice
 - [(C#)](#c)
@@ -53,7 +53,6 @@ modified: '2024-01-13T03:53:13.921Z'
       - [Ejercicio](#ejercicio)
     - [11. Excepciones](#11-excepciones)
   - [Estructura básica](#estructura-básica)
-  - [Estructura general](#estructura-general)
     - [1. Espacios de Nombres (namespace):](#1-espacios-de-nombres-namespace)
       - [2. Alias](#2-alias)
       - [4. Clases (class)](#4-clases-class)
@@ -1352,23 +1351,12 @@ Si hubieramos puesto un valor defaul como por ejemplo un texto, los siguiente pr
 
 
 ## Estructura básica
-
-Aquí hablaremos de 
-
-
-
-
-
-
-
-
-
-## Estructura general
 [Indice](#c)  
 En C#, laestructura básica de un programa es la siguiente:
 - Espacios de nombres [(namespace)](#1-espacios-de-nombres-namespace)
-  - Alias (alias)
+  - Alias [(alias)](#Alias)
   - Clases [(class)](#2-clases-class)
+    - Métodos (me)
     - Campos
   - Interfaces (interface)
   - Enumeraciones (enum)
@@ -1408,7 +1396,7 @@ namespace EspacioDeNombre
   - Usando namespace no hay conficto de nombres
   - Nos permite usar el código que tenga escrito en otros archivos o proyectos.   
   - Se pueden anidar.
-  - El uso de la palabra clave [using]()
+  - El uso de la palabra clave [using](#using)
 >[!WARNING]
 >Pudes anidar un namespace con otro namespace con exactamente el mismo nombre, pero si usas la palabra clave "using" para acortar la ruta te dará error y el código no podrá saber a que namespace te estás refiriendo.  
 
@@ -1496,7 +1484,7 @@ El codigo seguirá funcionando, lo  unico que hemos cambiado es el nombre del na
 Los alias son un mecanismo que te permite darle a un tipo existente un nombre alternativo. Esto puede ser útil para simplificar nombres largos o para evitar conflictos de nombres entre tipos.
 
 1. Definición:
-Puedes utilizar la palabra clave **using** para crear un alias para un tipo. La sintaxis básica es:
+Puedes utilizar la palabra clave <span id="using">**using**</span> para crear un alias para un tipo. La sintaxis básica es:
 ```csharp
 //using NombreAlias = RutaReal;
 using Numero = MiPrograma.Prueba;
@@ -1592,8 +1580,8 @@ partial class archivo1
 Esto nos permitirá añadir codigo a una clase desde distintios archvios.
 
 >[!NOTE]
-> Las clases son el inciio de la Programación Orientada a Objetos ([POO](#POO))
-##### <h3> 3. Métodos (method): </h3>
+> Las clases son el inicio de la Programación Orientada a Objetos ([POO](#POO))
+##### <h3 id="Métodos"> 3. Métodos (method): </h3>
 [Indice](#c)
 **¿Necesario?**: No siempre. Un programa debe tener al menos un método Main como punto de entrada para la ejecución.
 **¿Qué es?**: código que realiza una tarea específica o una acción.
@@ -1602,47 +1590,140 @@ Esto nos permitirá añadir codigo a una clase desde distintios archvios.
 <br>
 - Estructura: 
 
-[modificadorAcceso] [modificadorOtros] tipoRetorno NombreDelMetodo([parámetros])
+[modificadorAcceso] [modificadorOtros] tipoRetorno NombreDelMetodo([parámetros]);
 
-  - Es obligatorio que como minimo haya un [tipoRetorno]() y el nombre del método para crear un método
-La estructura básica de un método en C# incluye varias palabras clave y elementos opcionales. Aquí tienes una combinación típica de palabras clave que conforman la declaración de un método:
+- Es obligatorio que como minimo haya un [tipoRetorno]() y el nombre del método para crear un método
+La estructura básica de un método en C# incluye varias palabras clave y elementos opcionales.
 
 Aquí hay una descripción de estas palabras clave:
 
-- Modificador de Acceso ([public](), [private](), [protected](), [internal](), etc.): Indica el nivel de acceso al método.
+- Modificador de Acceso ([public](), [private](), [protected](), [internal](), etc.)(Opcional): Indica el nivel de acceso al método, de manera predeterminada está en private.
 
-- Modificador Otros ([static](), [virtual](), [abstract](), [sealed](), [override](), [async](), [unsafe](), etc.): Pueden modificar el comportamiento del método de diversas maneras. No todos son aplicables a todos los métodos.
+- Modificador Otros ([static](), [virtual](), [abstract](), [sealed](), [override](), [async](), [unsafe](), etc.)(opcional): Pueden modificar el comportamiento del método de diversas maneras. No todos son aplicables a todos los métodos.
 
-- Tipo de Retorno (void, int, string, etc.): Indica el tipo de valor que devuelve el método. Puede ser void si no devuelve nada.
+- Tipo de Retorno (void, int, string, etc.)(obligatorio): Indica el tipo de valor que devuelve el método. Puede ser void si no devuelve nada.
 
 - Nombre del Método: Es el identificador único del método.
 
 - Parámetros: Los valores que se pasan al método cuando se llama.
 
-- Cuerpo del Método: Contiene las declaraciones, expresiones y sentencias que definen la lógica del método.
+- Sentencia [return](#Return)(Obligatorio): Devuelve un valor del tipo especificado en el tipo de retorno del método, es obligatorio a menos que el método sea de tipo void.
 
-- Sentencia [return](#Return) (opcional): Devuelve un valor del tipo especificado en el tipo de retorno del método.
+Antes de continuar visita la sentencia return para entender los ejemplos.
 
-Un ejemplo completo podría ser:
+<h4> El ejemplo más sencillo sería:</h4> 
 
 ```csharp
 public class MiClase
 {
-    // Método con modificador de acceso, modificador static, tipo de retorno int y parámetros
-    public static int Sumar(int a, int b)
+    static void Main()
     {
-        // Cuerpo del método
-        int resultado = a + b;
-
-        // Devolver el resultado
-        return resultado;
+        Sumar(); 
     }
+    static int Sumar()
+    {
+      // Cuerpo del método
+      int a = 1; 
+      int b = 2;
+      int resultado = a + b;
+
+      // Devolver el resultado
+      return resultado;
+    }    
 }
 ```
-Este método se llama Sumar, es público, estático, tiene un tipo de retorno int, acepta dos parámetros a y b, y devuelve la suma de los dos parámetros. Recuerda que no todos los modificadores son aplicables a todos los métodos; su aplicabilidad depende del contexto y del tipo de método que estés definiendo.
+El método sumar está completo pero hay que llamarlo para que se ejecute, para ello tenemos que hacerlo dentro del Main.
 
+Las variables declaradas dentro de un método son propias de ese método y no se podrán acceder a ellas, a su vez sus nombres no se reservan, es decir, puede volver a usar ese nombre de variable en otro contexto.
 
-###### <h3> Return </h3>
+>[!Note]
+>Más tarde veremos que podemos usar para acceder a variables de dentro de un método.
+
+<h4>Ejemplo con parámetros </h4>
+
+Los parámetros en un método son variables que se definen en la declaración del método y que permiten pasar valores a la función cuando esta es llamada.
+
+```csharp
+static void Main()
+{ 
+    string mensajeMétodo = Sumar(1, 2, "balones");
+    Console.WriteLine(mensajeMétodo);
+}
+static string Sumar(int a, int b, string objeto)
+{
+    // Cuerpo del método
+    int resultado = (a + b);
+    string mensaje = "tienes " + resultado + " " + objeto; 
+
+    // Devolver el resultado
+    return mensaje;
+```
+
+<h4>Ejemplo con void </h4>
+
+Un método con tipo de retorno void no nos devolverá nada, el código que tengra dentro se ejecutará y se acabará.
+
+```csharp
+static void Main()
+{ 
+    Sumar(1, 2, "balones");
+    
+}
+static void Sumar(int a, int b, string objeto)
+{
+    // Cuerpo del método
+    int resultado = (a + b);
+    string mensaje = "tienes " + resultado + " " + objeto;
+
+    // Devolver el resultado
+    Console.WriteLine(mensaje);
+}
+```
+<h4>Ejemplo con una sola linea de código </h4>
+
+Imaginemos que tenmos este código:
+
+```csharp
+static void Main()
+{
+    Console.WriteLine(Sumar(24, 6));
+    
+}
+static int Sumar(int a, int b)
+{   
+    return a + b;
+}
+```
+
+El métdo solo está usando 1 línea de código, en estos casos podemos simplificar el código para quitarnos esas llaves:
+
+```csharp
+static void Main()
+{
+    Console.WriteLine(Sumar(24, 6));
+    
+}
+static int Sumar(int a, int b) => a + b;
+```
+
+De esta manera podemos limpiar nuestro código de linias innecesarias.
+
+<h4>Ejemplo con parámetro "opcional"</h4>
+
+Cuando ponemos los parámetros podemos iniciarlizarlos desde un principio.
+
+```csharp
+static void Main()
+{
+    Console.WriteLine(Sumar(24, 6));
+    Console.WriteLine(Sumar(24, 6, 5.4));
+}
+static double Sumar(int a, int b, double c = 0) => a + b + c;
+
+```
+
+En este caso hemos inicializado el double c, esto nos permite decidir si quieremos que use el tercer valor o no. Hay que tener en cuenta que deben de ir siempre al final.
+###### <h3 id="return"> Return </h3>
 
 La instrucción return en C# tiene varias utilidades clave:
 
