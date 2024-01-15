@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png, Clipboard_2024-01-01-20-37-10.p
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-15T11:58:26.895Z'
+modified: '2024-01-15T12:57:53.269Z'
 ---
 
 # (C#)
@@ -56,9 +56,9 @@ modified: '2024-01-15T11:58:26.895Z'
     - [1. Espacios de Nombres (namespace):](#1-espacios-de-nombres-namespace)
       - [2. Alias](#2-alias)
       - [3. Clases (class)](#3-clases-class)
-        - [1. Campos (field):](#1-campos-field)
-        - [ 2. Métodos (method): ](#-2-métodos-method-)
-          - [ Return ](#-return-)
+        - [1. Campos (field):](#Campos)
+        - [ 2. Métodos (method): ](#Métodos)
+          - [ Return ](#return)
   - [Programación orientada a objetos (POO) ](#programación-orientada-a-objetos-poo-)
 
 <div style="page-break-after: always;"></div>
@@ -879,7 +879,7 @@ El switch nos va a permitir escribir menos lineas de código que un "if" siempre
 (float y double han de utilizar if)
   - Los case solo pueden contener expresiones constantes
   - Todos los case deben llevar su break
-  - Se puede utilizar [return]() y [throw]() (Se explicará más tarde)
+  - Se puede utilizar [return](#return) y [throw](#throw) (Se explicará más tarde)
 ```csharp
 
 Switch (expresión de control) 
@@ -1249,7 +1249,7 @@ Ponemos checked justo donde puede estar el fallo.
 > Hay una forma de ponerlo en todo el proyecto de manera predeterminada. A la derecha en el "Explorador de soluciones" aremos click derecho en nuestro proyecto, en mi caso se llama "ConsoleApp3", buscaremos la opción de "propiedades", luego nos iremos a "Compilación" e iremos a "Opciones avanzadas" y ahí buscamos "Comprobar el desbordamiento aritmético", activamos el recuadro.   
 >Ahora no tendremos que poner checked y siempre nos está comprobando todos los desbordamientos aritméticos, ahora podriamos usar el bloque de código "unchecked" para que no comprueba si hay desbordamiento.
 
-11.5 Throw exceptions
+11.5 <span id="throw">Throw exceptions</span>
  
 En este apartado vamos a ver como lanzar excepciones cuando nosotros queremos.
 ```csharp
@@ -1357,17 +1357,10 @@ En C#, laestructura básica de un programa es la siguiente:
 - Espacios de nombres [(namespace)](#1-espacios-de-nombres-namespace)
   - Alias [(alias)](#Alias)
   - Clases [(class)](#2-clases-class)
-    - Métodos (me)
-    - Campos
-  - Interfaces (interface)
-  - Enumeraciones (enum)
-  - Delegados (delegate) 
-  - Eventos (event) 
-  - Estructuras (struct) 
-
+    - Campos [(fields)](#campos)
+    - Métodos [(method)](#Métodos)
 >[!IMPORTANT]
 > Los siguientes ejemplos sirven para comprender el uso de cada elemento, explicaré que función tiene el código pero no es necesario comprender cada línea de código, solamente lo que se esté explicando en esa parte en especifico, voy a explciar de forma jerárquica, es decir, más tarde explicaré cada sub-elemento que se ha usado.  
-
 
 
 ### 1. Espacios de Nombres (namespace):
@@ -1555,7 +1548,7 @@ namespace MiPrograma
 ``` 
 - Que puede contener una clase:
   - Clases (class)
-  - Campos [(Fields)](#1-campos-field)
+  - Campos [(Fields)](#Campos)
   - Métodos [(Methods)](#Métodos)  
   - Constructores (Constructors)
   - Eventos (event) 
@@ -1582,7 +1575,7 @@ Esto nos permitirá añadir codigo a una clase desde distintios archvios.
 >[!NOTE]
 > Las clases son el inicio de la Programación Orientada a Objetos ([POO](#POO))
 
-##### <h3>1. Campos (field):</h3>
+##### <h3 id="Campos">1. Campos (field):</h3>
 [Indice](#c)
 **¿Qué es?**: Son variables declaradas en una clase que podrá ser usada siempre en la misma o incluso fuera de la misma si es pública
 
@@ -1610,7 +1603,7 @@ Los campos son utiles para variables que queramos usar en toda la clase.
 
 [modificadorAcceso] [modificadorOtros] tipoRetorno NombreDelMetodo([parámetros]);
 
-- Es obligatorio que como minimo haya un [tipoRetorno]() y el nombre del método para crear un método
+- Es obligatorio que como minimo haya un tipoRetorno y el nombre del método para crear un método
 La estructura básica de un método en C# incluye varias palabras clave y elementos opcionales.
 
 Aquí hay una descripción de estas palabras clave:
@@ -1625,7 +1618,7 @@ Aquí hay una descripción de estas palabras clave:
 
 - Parámetros: Los valores que se pasan al método cuando se llama.
 
-- Sentencia [return](#Return)(Obligatorio): Devuelve un valor del tipo especificado en el tipo de retorno del método, es obligatorio a menos que el método sea de tipo void.
+- Sentencia [return](#return)(Obligatorio): Devuelve un valor del tipo especificado en el tipo de retorno del método, es obligatorio a menos que el método sea de tipo void.
 
 Antes de continuar visita la sentencia return para entender los ejemplos.
 
@@ -1742,7 +1735,7 @@ static double Sumar(int a, int b, double c = 0) => a + b + c;
 
 En este caso hemos inicializado el double c, esto nos permite decidir si quieremos que use el tercer valor o no. Hay que tener en cuenta que deben de ir siempre al final.
 ###### <h3 id="return"> Return </h3>
-
+[Indice](#c)
 La instrucción return en C# tiene varias utilidades clave:
 
 **Devolver Resultados**: Un método puede realizar cálculos o procesos y luego devolver un resultado al código que lo llamó utilizando return. Esto permite utilizar el valor calculado en otros lugares del programa.
@@ -1806,9 +1799,37 @@ public void Saludar()
 ```
 ## <h2 id="POO">Programación orientada a objetos (POO) </h2>
 
-
-
-
+- **¿En qué consiste?**
+Trasladar la naturaleza de los objetos de la vida real al código de programación.
+<br>
+- **¿Cuál es la naturaleza de un objeto de la vida real?**
+ Los objetos tienen un estado, un comportamiento, y unas propiedades
+<br>
+**Pongamos un ejemoplo: El objeto coche**
+  - ¿Cuál es el <span style = color:aqua;> **estado**</span> de un coche? Un coche puede estar parado, circulando, aparcado etc
+Estado lo entendemos por "como se encuentra/ como está"
+<br>
+  - ¿Qué <span style = color:aqua;> **propiedades**</span> tiene un coche? Un coche tiene un color, un peso, un tamaño etc.
+Propiedades lo entedemos como "las características del objeto"
+<br>
+  - ¿Qué <span style = color:aqua;> **comportamiento**</span> tiene un coche? Un coche puede arrancar, frenar, acelerar girar etc.
+Comportamiento lo entendemos como "que es capaza de hacer"
+<br>
+- Ventajas:
+  - Programas divididos en "trozos", "partes", "módulos" o <span style = color:aqua;>"clases"</span>.
+  <span style = color:lightgoldenrodyellow;>Modularización</span>.
+  Imaginemos una pc de torre, si se te estrope un componente con solo arreglar ese componente el problema se soluciona, no hay que cambiar el ordenador al completo ya que está dividido
+<br>
+  - Muy reutilizable. <span style = color:lightgoldenrodyellow;>Herencia</span>.
+  Imaginemos que compramos nuevos componentes, los antiguos podemos usarlos para otras torres sin ningun problema.
+<br>
+  - Si existe fallo en alguna línea del código, el programa continuará
+con su funcionamiento. <span style = color:lightgoldenrodyellow;>Tratamiento de Excepciones</span>.
+  Imaginemos que falla algo no muy importante, como un ventilador, el ordenador seguirá funcionando a pesar del fallo.
+<br>
+  - El <span style = color:lightgoldenrodyellow;>encapsulamiento</span> implica ocultar detalles internos y exponer solo la interfaz necesaria.
+  El ventilador del PC tiene métodos como "Encender" y "Apagar", ocultando los detalles internos.
+<br>
 
 
 
