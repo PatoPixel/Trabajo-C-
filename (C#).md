@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png, Clipboard_2024-01-01-20-37-10.p
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-15T17:49:28.991Z'
+modified: '2024-01-15T18:12:44.823Z'
 ---
 
 # (C#)
@@ -1608,7 +1608,7 @@ La estructura básica de un método en C# incluye varias palabras clave y elemen
 
 Aquí hay una descripción de estas palabras clave:
 
-- Modificador de Acceso ([public](), [private](), [protected](), [internal](), etc.)(Opcional): Indica el nivel de acceso al método, de manera predeterminada está en private.
+- [Modificador de Acceso](#Modificadores-de-acceso) (public, private, protected, internal, etc.)(Opcional): Indica el nivel de acceso al método, de manera predeterminada está en private.
 
 - Modificador Otros ([static](), [virtual](), [abstract](), [sealed](), [override](), [async](), [unsafe](), etc.)(opcional): Pueden modificar el comportamiento del método de diversas maneras. No todos son aplicables a todos los métodos.
 
@@ -1797,6 +1797,39 @@ public void Saludar()
     return;
 }
 ```
+
+### Modificadores de acceso
+
+1. PUBLIC
+ACCESIBLE DESDE CUALQUIER PARTE
+
+2. PRIVATE
+ACCESIBLE DESDE LA PROPIA CLASEG
+
+3. PROTECTED
+ACCESIBLE DESDE CLASE DERIVADA
+
+4. INTERNAL
+ACCESIBLE DESDE EL MISMO ENSAMBLADO
+
+5. PROTECTED INTERNAL
+ACCESIBLE DESDE EL MISMO ENSAMBLADO O
+CLASE DEREIVADA DE OTRO ENSAMBLADO
+
+6. PRIVATE PROTECTED
+ACCESIBLE DESDE LA MISMA CLASE O CLASE DERIVADA
+DEL MISMO ENSAMBLADO
+
+7. POR DEFECTO
+ACCESIBLE DESDE EL MISM&PAQUETE
+
+
+
+
+
+
+
+
 ## <h2 id="POO">Programación orientada a objetos (POO) </h2>
 
 - **¿En qué consiste?**
@@ -1837,6 +1870,8 @@ con su funcionamiento. <span style = color:lightgoldenrodyellow;>Tratamiento de 
 
   - El <span style = color:lightgoldenrodyellow;>encapsulamiento</span> implica ocultar detalles internos y exponer solo la interfaz necesaria.
   El ventilador del PC tiene métodos como "Encender" y "Apagar", ocultando los detalles internos.
+
+
 
 
 
