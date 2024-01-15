@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png, Clipboard_2024-01-01-20-37-10.p
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-15T01:43:57.947Z'
+modified: '2024-01-15T11:58:26.895Z'
 ---
 
 # (C#)
@@ -13,7 +13,7 @@ modified: '2024-01-15T01:43:57.947Z'
 [//]: # (author: Izan Abramovici Cabrera)
 [//]: # (date: 2023-11-21)
 
- 
+
    
 # Indice
 - [(C#)](#c)
@@ -55,13 +55,14 @@ modified: '2024-01-15T01:43:57.947Z'
   - [Estructura básica](#estructura-básica)
     - [1. Espacios de Nombres (namespace):](#1-espacios-de-nombres-namespace)
       - [2. Alias](#2-alias)
-      - [4. Clases (class)](#4-clases-class)
-        - [ 3. Métodos (method): ](#-3-métodos-method-)
+      - [3. Clases (class)](#3-clases-class)
+        - [1. Campos (field):](#1-campos-field)
+        - [ 2. Métodos (method): ](#-2-métodos-method-)
           - [ Return ](#-return-)
-        - [3. Campos (field):](#3-campos-field)
+  - [Programación orientada a objetos (POO) ](#programación-orientada-a-objetos-poo-)
 
 <div style="page-break-after: always;"></div>
- 
+  
   
  
 ## Introducción
@@ -1381,13 +1382,14 @@ namespace EspacioDeNombre
 }
 ```
 - Que puede contener un espacio de nombres:
-  - Clases [(class)](#2-clases-class)
+  - Alias [(alias)](#2-alias)
+  - Clases [(class)](#4-clases-class)
   - Interfaces (interface)
   - Enumeraciones (enum)
   - Delegados (delegate) 
   - Eventos (event) 
   - Estructuras (struct) 
-  - Alias (alias)
+  
 
 - Características:
   - No es obligatorio usarlo, pero es una buena práctica ya que te evita muchos problemas futuros y es más ordenado
@@ -1533,12 +1535,10 @@ namespace MiPrograma
 }
 ```
 Con esto lo que hacemos es saltarnos la parte del espacio de nombre.
-
->[!NOTE]
-> Ya he explicado namespace, asi que para no hacer los codigos tan largos voy a dejar de escribirlos si no es necesario para el ejemplo.  
+ 
 
 
-#### 4. Clases (class)
+#### 3. Clases (class)
 [Indice](#c)  
 
 **¿Que es?**: Las clases son fundamentales en C#, se utilizan para definir tipos de objetos.  
@@ -1554,10 +1554,10 @@ namespace MiPrograma
 }
 ``` 
 - Que puede contener una clase:
-  - Métodos (Methods)
-  - Campos (Fields)
-  - Constructores (Constructors)
   - Clases (class)
+  - Campos [(Fields)](#1-campos-field)
+  - Métodos [(Methods)](#Métodos)  
+  - Constructores (Constructors)
   - Eventos (event) 
   - Propiedades (Properties) 
 
@@ -1581,7 +1581,25 @@ Esto nos permitirá añadir codigo a una clase desde distintios archvios.
 
 >[!NOTE]
 > Las clases son el inicio de la Programación Orientada a Objetos ([POO](#POO))
-##### <h3 id="Métodos"> 3. Métodos (method): </h3>
+
+##### <h3>1. Campos (field):</h3>
+[Indice](#c)
+**¿Qué es?**: Son variables declaradas en una clase que podrá ser usada siempre en la misma o incluso fuera de la misma si es pública
+
+```csharp
+class MiClase
+{
+    private static int miCampo;
+ // En este caso solo en esta misma clase y debe de ser static si queremos usarla sin instanciarla
+    static void Main()
+    {
+      miCampo = 10;
+      Console.WriteLine(micampo);
+    }
+}
+```
+Los campos son utiles para variables que queramos usar en toda la clase.
+##### <h3 id="Métodos"> 2. Métodos (method): </h3>
 [Indice](#c)
 **¿Necesario?**: No siempre. Un programa debe tener al menos un método Main como punto de entrada para la ejecución.
 **¿Qué es?**: código que realiza una tarea específica o una acción.
@@ -1786,16 +1804,8 @@ public void Saludar()
     return;
 }
 ```
-##### 3. Campos (field):
- 
-**¿Qué es?**: Nos almacena una variable que podrá ser usada siempre en la clase o incluso fuera de la misma si es [pública](#markdown)
+## <h2 id="POO">Programación orientada a objetos (POO) </h2>
 
-```csharp
-class MiClase
-{
-    private int miCampo;
-}
-```
 
 
 
