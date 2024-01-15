@@ -3,7 +3,7 @@ attachments: [Clipboard_2023-10-24-13-37-59.png, Clipboard_2024-01-01-20-37-10.p
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-15T12:57:53.269Z'
+modified: '2024-01-15T17:49:28.991Z'
 ---
 
 # (C#)
@@ -56,9 +56,9 @@ modified: '2024-01-15T12:57:53.269Z'
     - [1. Espacios de Nombres (namespace):](#1-espacios-de-nombres-namespace)
       - [2. Alias](#2-alias)
       - [3. Clases (class)](#3-clases-class)
-        - [1. Campos (field):](#Campos)
-        - [ 2. Métodos (method): ](#Métodos)
-          - [ Return ](#return)
+        - [1. Campos (field):](#1-campos-field)
+        - [ 2. Métodos (method): ](#-2-métodos-method-)
+          - [ Return ](#-return-)
   - [Programación orientada a objetos (POO) ](#programación-orientada-a-objetos-poo-)
 
 <div style="page-break-after: always;"></div>
@@ -100,7 +100,7 @@ modified: '2024-01-15T12:57:53.269Z'
  5. Iniciamos sesisón con Microsoft
 
  6. Inciar proyecto
-
+  
 -------------
 
 ### Linux:
@@ -1801,35 +1801,42 @@ public void Saludar()
 
 - **¿En qué consiste?**
 Trasladar la naturaleza de los objetos de la vida real al código de programación.
-<br>
+
+
 - **¿Cuál es la naturaleza de un objeto de la vida real?**
  Los objetos tienen un estado, un comportamiento, y unas propiedades
-<br>
+
+
 **Pongamos un ejemoplo: El objeto coche**
   - ¿Cuál es el <span style = color:aqua;> **estado**</span> de un coche? Un coche puede estar parado, circulando, aparcado etc
 Estado lo entendemos por "como se encuentra/ como está"
-<br>
+
+
   - ¿Qué <span style = color:aqua;> **propiedades**</span> tiene un coche? Un coche tiene un color, un peso, un tamaño etc.
 Propiedades lo entedemos como "las características del objeto"
-<br>
+
+
   - ¿Qué <span style = color:aqua;> **comportamiento**</span> tiene un coche? Un coche puede arrancar, frenar, acelerar girar etc.
 Comportamiento lo entendemos como "que es capaza de hacer"
-<br>
+
+
 - Ventajas:
   - Programas divididos en "trozos", "partes", "módulos" o <span style = color:aqua;>"clases"</span>.
   <span style = color:lightgoldenrodyellow;>Modularización</span>.
   Imaginemos una pc de torre, si se te estrope un componente con solo arreglar ese componente el problema se soluciona, no hay que cambiar el ordenador al completo ya que está dividido
-<br>
+
+
   - Muy reutilizable. <span style = color:lightgoldenrodyellow;>Herencia</span>.
   Imaginemos que compramos nuevos componentes, los antiguos podemos usarlos para otras torres sin ningun problema.
-<br>
+
+
   - Si existe fallo en alguna línea del código, el programa continuará
 con su funcionamiento. <span style = color:lightgoldenrodyellow;>Tratamiento de Excepciones</span>.
   Imaginemos que falla algo no muy importante, como un ventilador, el ordenador seguirá funcionando a pesar del fallo.
-<br>
+
+
   - El <span style = color:lightgoldenrodyellow;>encapsulamiento</span> implica ocultar detalles internos y exponer solo la interfaz necesaria.
   El ventilador del PC tiene métodos como "Encender" y "Apagar", ocultando los detalles internos.
-<br>
 
 
 
