@@ -6,7 +6,7 @@ attachments:
 favorited: true
 title: (C#)
 created: 2023-11-21T11:31:08.984Z
-modified: 2024-01-17T00:01:38.193Z
+modified: 2024-01-17T00:11:34.200Z
 ---
 
 # (C#)
@@ -59,12 +59,12 @@ modified: 2024-01-17T00:01:38.193Z
     - [1. Espacios de Nombres (namespace):](#1-espacios-de-nombres-namespace)
       - [2. Alias](#2-alias)
       - [3. Clases (class)](#3-clases-class)
-        - [1. Campos (field):](#1-campos-field)
-        - [ 2. Métodos (method): ](#-2-métodos-method-)
-          - [ Return ](#-return-)
-    - [Modificadores de acceso](#modificadores-de-acceso)
+        - [1. Campos (field):](#Campos)
+        - [ 2. Métodos (method): ](#Métodos)
+          - [Return](#return)
   - [Programación orientada a objetos (POO) ](#POO)
-
+    - [Modificadores de acceso](#modificadores-de-acceso)
+    - [1. Creación de objetos](#creacionObjetos)
 <div style="page-break-after: always;"></div>
   
   
@@ -593,6 +593,9 @@ System.Console.WriteLine(7f / 3f);
 
 ```
 #### 8.2 Operadores de comparación
+[Indice](#c)
+
+
 - Igual que | ==
 - Diferente que | !=
 - Menor que | <
@@ -614,6 +617,9 @@ Console.WriteLine(valor);
 >En C# no es como otros lenguajes, el "==" se puede usar siempre y cuando sean de tipos parecidos, es decir, no puedes comparar una string con valor 12 y un int con valor 10, pero si puedes comparar un int con un float.
 
 #### 8.3 Operadores lógicos
+[Indice](#c)
+
+
 - AND : && (Solo devuelve **true** si todas las expresiones son verdaderas, si no devolverá false)
 - OR : || (Devuelve **true** si almenos 1 expresione es verdaderas, si no devolverá false)
 - XOR : ^ (a expresión XOR devuelve true cuando hay un número impar de operandos true y false cuando hay un número par de operandos true o todos false.)
@@ -641,6 +647,8 @@ Console.WriteLine(valor);
 ```
 
 #### 8.4 Operadores lógicos a nivel de bit
+[Indice](#c)
+
 
 Para entender esto debemos de saber como es el lenguaje binario.
 <br>
@@ -857,6 +865,8 @@ if (NotaEx1 >= 5 && NotaEx2 >= 5 && NotaEx3 >= 5)
 >Cuidado al generar una variable dentro de un if, al estar dentro el código no lo tomará como existente, asi que todo lo que este fuera de ese if que use esa variable no podrá funcionar, para arreglar eso lo mejor es definir la varible fuera del if e iniciarlizarla, porque como vimos antes, C# no puede usar una variable sin inicializar.
 
 #### 10.2 Ternarios
+[Indice](#c)
+
 
 Son como un if en 1 sola línea, se escriben tal que así:
 
@@ -870,6 +880,8 @@ Console.WriteLine(frase);
 ```
 
 #### 10.3 Condicional switch
+[Indice](#c)
+
 
 El switch nos va a permitir escribir menos lineas de código que un "if" siempre y cuando la condición a tener en cuenta sea una igualdad
 
@@ -928,6 +940,9 @@ switch (interes)
 }
 ```
 #### 10.4 Blucles
+[Indice](#c)
+
+
 Nos permiten repetir la ejecución de líneas de código un número determinado o indeterminado de veces.
 Ventajas:
  - Permite repetir código de forma rápida y sencilla
@@ -944,6 +959,8 @@ Ventajas:
  
 
   ##### <h3> 10.4.1 While </h3>
+[Indice](#c)
+
 
   >[!NOTE]
   > While viene del ingles "Mientras", esto nos ayudará a comprender el funcionamiento.
@@ -993,6 +1010,8 @@ do
 Creamos una variable y le decimos que si es menor que 10 nos diga que numero és, pero al tener el "do", nos dirá que número es aunque no sea menor que 10.
 
 ##### <h3> 10.4.3 For </h3>
+[Indice](#c)
+
 
 El bucle for es cuando sabemos de un vistazo al código el nº de veces que se va a repetir su interior.
 La sintaxis básica del bucle for en C# es la siguiente:
@@ -1092,6 +1111,8 @@ De esta forma estaremos diciendo al for que ejecute el código de dentro hasta q
 ### 11. Excepciones 
 
 11.1 Introducción a Excepciones
+[Indice](#c)
+
 
 Las excepciones son errores en tiempo de ejecución del programa que escapan al control del programador.
 Algunos tipos de errores pueden ocurrir por: 
@@ -1127,6 +1148,9 @@ Seguimiento de la pila:
 
 
 11.2 Bloques try-catch
+[Indice](#c)
+
+
 La sintaxis es la siguiente:
 ```chsarp
 try 
@@ -1188,6 +1212,8 @@ catch (OverflowException mensajito)
 > Puedes poner "catch" sin necesidad de especificar la excepcion, esto hará que te recoja todas las excepciones en una sola línea, pero no podras almacenar el mensaje en una variable, para eso podemos poner catch (Exception "variable"), esto seguirá recogiendo todas las excepciones pero ahora podremos almacenar el mensaje. Tambien hay que tener en cuenta que puedes hacer un catch especifico y luego uno general pero no viceversa.
 
 11.3 Excluir excepciones
+[Indice](#c)
+
 
 Tambien podemos excluir una excepcion en un catch, quedaría de la siguiente manera
 ```csharp
@@ -1214,6 +1240,8 @@ catch (Exception mensajito) when (mensajito.GetType()!=typeof(OverflowException)
 Realizando esto ahora podriamos añadir otro catch debajo en el que especifiquemos que hacer con "OverflowException".
 
   11.4 Checked
+[Indice](#c)
+
 
 Para entender este bloque de código hay que entender como C# trata al código.
 Dado este caso:
@@ -1582,6 +1610,8 @@ Esto nos permitirá añadir codigo a una clase desde distintios archvios.
 
 ##### <h3 id="Campos">1. Campos (field):</h3>
 [Indice](#c)
+
+
 **¿Qué es?**: Son variables declaradas en una clase que podrá ser usada siempre en la misma o incluso fuera de la misma si es pública
 
 ```csharp
@@ -1599,6 +1629,8 @@ class MiClase
 Los campos son utiles para variables que queramos usar en toda la clase.
 ##### <h3 id="Métodos"> 2. Métodos (method): </h3>
 [Indice](#c)
+
+
 **¿Necesario?**: No siempre. Un programa debe tener al menos un método Main como punto de entrada para la ejecución.
 **¿Qué es?**: código que realiza una tarea específica o una acción.
 **Ubicación**: Dentro de una clase.
@@ -1741,6 +1773,8 @@ static double Sumar(int a, int b, double c = 0) => a + b + c;
 En este caso hemos inicializado el double c, esto nos permite decidir si quieremos que use el tercer valor o no. Hay que tener en cuenta que deben de ir siempre al final.
 ###### <h3 id="return"> Return </h3>
 [Indice](#c)
+
+
 La instrucción return en C# tiene varias utilidades clave:
 
 **Devolver Resultados**: Un método puede realizar cálculos o procesos y luego devolver un resultado al código que lo llamó utilizando return. Esto permite utilizar el valor calculado en otros lugares del programa.
@@ -1804,7 +1838,6 @@ public void Saludar()
 ```
 
 
-
 ## <h2 id="POO">Programación orientada a objetos (POO) </h2>
 [Indice](#c)
 
@@ -1850,6 +1883,8 @@ con su funcionamiento. <span style = color:lightgoldenrodyellow;>Tratamiento de 
 
     
 ### Modificadores de acceso
+[Indice](#c)
+
 
 Esto sirve para el encapsulamiento.
 
@@ -1875,7 +1910,9 @@ Accesible desde la misma clase o clase derivada del mismo ensamblado
 Accesible desde el mismo paquete
 
 
-### 1. Creación de Objetos
+### <span id="creacionObjetos">1. Creación de Objetos</span>
+[Indice](#c)
+
 
 Las clases son fundamentales en POO, nos permiten modularizar nuestro código y crear objetos.
 
