@@ -1,9 +1,12 @@
 ---
-attachments: [Clipboard_2023-10-24-13-37-59.png, Clipboard_2024-01-01-20-37-10.png, Clipboard_2024-01-02-01-52-25.png]
+attachments:
+  - Clipboard_2023-10-24-13-37-59.png
+  - Clipboard_2024-01-01-20-37-10.png
+  - Clipboard_2024-01-02-01-52-25.png
 favorited: true
-title: '(C#)'
-created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-15T18:12:44.823Z'
+title: (C#)
+created: 2023-11-21T11:31:08.984Z
+modified: 2024-01-17T00:01:38.193Z
 ---
 
 # (C#)
@@ -59,7 +62,8 @@ modified: '2024-01-15T18:12:44.823Z'
         - [1. Campos (field):](#1-campos-field)
         - [ 2. Métodos (method): ](#-2-métodos-method-)
           - [ Return ](#-return-)
-  - [Programación orientada a objetos (POO) ](#programación-orientada-a-objetos-poo-)
+    - [Modificadores de acceso](#modificadores-de-acceso)
+  - [Programación orientada a objetos (POO) ](#POO)
 
 <div style="page-break-after: always;"></div>
   
@@ -102,7 +106,7 @@ modified: '2024-01-15T18:12:44.823Z'
  6. Inciar proyecto
   
 -------------
-
+ 
 ### Linux:
   1. Debemos instalar visual studio code, haremos lo siguiente:
 
@@ -1534,7 +1538,8 @@ Con esto lo que hacemos es saltarnos la parte del espacio de nombre.
 #### 3. Clases (class)
 [Indice](#c)  
 
-**¿Que es?**: Las clases son fundamentales en C#, se utilizan para definir tipos de objetos.  
+**¿Que es?**: Las clases son fundamentales en C#, se utilizan como modelo donde se redactan las características comunes de un
+grupo de objetos.  
 
 ```csharp
 namespace MiPrograma
@@ -1798,39 +1803,11 @@ public void Saludar()
 }
 ```
 
-### Modificadores de acceso
-
-1. PUBLIC
-ACCESIBLE DESDE CUALQUIER PARTE
-
-2. PRIVATE
-ACCESIBLE DESDE LA PROPIA CLASEG
-
-3. PROTECTED
-ACCESIBLE DESDE CLASE DERIVADA
-
-4. INTERNAL
-ACCESIBLE DESDE EL MISMO ENSAMBLADO
-
-5. PROTECTED INTERNAL
-ACCESIBLE DESDE EL MISMO ENSAMBLADO O
-CLASE DEREIVADA DE OTRO ENSAMBLADO
-
-6. PRIVATE PROTECTED
-ACCESIBLE DESDE LA MISMA CLASE O CLASE DERIVADA
-DEL MISMO ENSAMBLADO
-
-7. POR DEFECTO
-ACCESIBLE DESDE EL MISM&PAQUETE
-
-
-
-
-
-
 
 
 ## <h2 id="POO">Programación orientada a objetos (POO) </h2>
+[Indice](#c)
+
 
 - **¿En qué consiste?**
 Trasladar la naturaleza de los objetos de la vida real al código de programación.
@@ -1840,7 +1817,7 @@ Trasladar la naturaleza de los objetos de la vida real al código de programaci�
  Los objetos tienen un estado, un comportamiento, y unas propiedades
 
 
-**Pongamos un ejemoplo: El objeto coche**
+**Pongamos un ejemplo: El objeto coche**
   - ¿Cuál es el <span style = color:aqua;> **estado**</span> de un coche? Un coche puede estar parado, circulando, aparcado etc
 Estado lo entendemos por "como se encuentra/ como está"
 
@@ -1869,9 +1846,142 @@ con su funcionamiento. <span style = color:lightgoldenrodyellow;>Tratamiento de 
 
 
   - El <span style = color:lightgoldenrodyellow;>encapsulamiento</span> implica ocultar detalles internos y exponer solo la interfaz necesaria.
-  El ventilador del PC tiene métodos como "Encender" y "Apagar", ocultando los detalles internos.
+  El PC tiene un botón para "Encender" y "Apagar", este se conecta a la placa pero SOLO "conoce" "puede usar" lo que le interesa, no puede acceder a nada que no sea para ender y apagar.
+
+    
+### Modificadores de acceso
+
+Esto sirve para el encapsulamiento.
+
+1. PUBLIC
+Accesible desde cualquier parte
+
+2. PRIVATE
+Accesible desde la propia clase
+
+3. PROTECTED
+Accesible desde clase derivada
+
+4. INTERNAL
+Accesible desde el mismo ensamblado
+
+5. PROTECTED INTERNAL
+Accesible desde el mismo ensamblado o clase derivada de otro ensamblado 
+
+6. PRIVATE PROTECTED
+Accesible desde la misma clase o clase derivada del mismo ensamblado
+
+7. POR DEFECTO
+Accesible desde el mismo paquete
 
 
+### 1. Creación de Objetos
+
+Las clases son fundamentales en POO, nos permiten modularizar nuestro código y crear objetos.
+
+
+Primero debemos de entender que los tipos para las variables que hemos estado usando son consideradas de tipo "primitivo" tales como int, double, string, etc.
+En la creación de objetos lo que estamos haciendo es darle a la variable un tipo que nosotros hemos creado usando las clases.
+
+
+Ejemplo:
+
+```csharp
+class MiClase
+{
+    static void Main()
+    {
+        //Variable con un tipo creado por nosotros, esto lo transforma en un objeto.
+        Circulo primerCirculo; 
+        
+        //Iniciación  de varible/objeto de tipo Circulo. Conocido como "instaciar una clase"
+        primerCirculo = new Circulo(); 
+
+        //Al ser un tipo, podemos hacer los objetos que queramos y serán todos diferentes
+        Circulo segundoCirculo = new Circulo();
+        Circulo tercerCirculo = new Circulo();
+
+        //Podemos almacenar el resultado de un objeto siempre y cuando sean compatibles
+        double areaPrimerCirculo = primerCirculo.calcularArea(5); 
+
+        Console.WriteLine(areaPrimerCirculo);
+
+        Console.WriteLine(segundoCirculo.calcularArea(6));
+    }
+}
+class Circulo
+{
+    //Existe otras maneras más exactas para obtener este valor
+    private const double PI = 3.1416; 
+    
+    //Método para calcular el Area, es necesario ponerlo en Public si queremos que sea accesible fuera de esta clase
+    public double calcularArea(int radio) 
+    {
+        return PI * radio * radio; //Valor del Resultado
+    }
+}
+```
+
+- Una buena práctica a la hora de hacer clases es encapsular(poner en privado) a las variables que usemos, para que así no se puedan cambiar/acceder fuera de la clase. Pero en el caso que debamos de cambiar el valor deberiamos de hacerlo con un método, para especificar parámetros de cambios.
+
+
+Ejemplo:
+
+Nosotros tendriamos lo siguiente
+```csharp
+class MiClase
+{
+    static void Main()
+    {
+        ConversorEurosDolar primerCambio = new ConversorEurosDolar();
+
+        Console.WriteLine(primerCambio.pasarADolar(10));
+    }
+}
+class ConversorEurosDolar
+{
+    private double EuroADolar = 1.09;
+    
+    public double pasarADolar (double dinero)
+    {
+        return EuroADolar * dinero;
+    }
+    public double pasarAEuro(double dinero)
+    {
+        return (1 / EuroADolar) * dinero;
+    }
+}
+```
+Esto funciona pero el valor de las monedas fluctua asi que tenemos que se capaces de cambiar el valor de "EuroADolar".
+
+
+Para ello añadimo lo siguiente en la clases "ConversorEurosDolar":
+```csharp
+public void cambiarValorEuro (double valorNuevo) //No necesitamos que nos devuelva nada, solo que cambie el valor.
+{
+    if (valorNuevo > 0)EuroADolar = valorNuevo;
+}
+```
+Ponemos el if puesto que el valor de una moneda no puede ser negativo, en el caso de que hubieramos dejado la variable publica se podría cambiar a cualquier número, al encapsularla y hacer un método para cambiar el valor nos permite tener más control sobre como se usa el código.
+
+
+Ya podriamos cambiar el valor y seguir convirtiendo la moneda
+```csharp
+static void Main()
+{
+    ConversorEurosDolar primerCambio = new ConversorEurosDolar();
+
+    primerCambio.cambiarValorEuro(1.4);
+
+    Console.WriteLine(primerCambio.pasarADolar(10));
+}
+```
+
+>[!Important]
+>Hay que recordar que cada objeto es una instancia, es decir, si yo cambio el valor de la moneda, solo servirá para ese objeto, al crear otro seguirá el valor por defecto. Para que se cambie para siempre, la variable a cambiar deberia de ser static, para que se asocie a la clase y no a la instancia. Quedaría así:
+>```chsarp
+>private static double EuroADolar = 1.09;
+>```   
 
 
 
