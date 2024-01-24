@@ -1,12 +1,8 @@
 ---
-attachments:
-  - Clipboard_2023-10-24-13-37-59.png
-  - Clipboard_2024-01-01-20-37-10.png
-  - Clipboard_2024-01-02-01-52-25.png
 favorited: true
-title: (C#)
-created: 2023-11-21T11:31:08.984Z
-modified: 2024-01-17T00:11:34.200Z
+title: '(C#)'
+created: '2023-11-21T11:31:08.984Z'
+modified: '2024-01-24T01:09:26.345Z'
 ---
 
 # (C#)
@@ -16,7 +12,7 @@ modified: 2024-01-17T00:11:34.200Z
 [//]: # (author: Izan Abramovici Cabrera)
 [//]: # (date: 2023-11-21)
 
-
+ 
    
 # Indice
 - [(C#)](#c)
@@ -59,12 +55,19 @@ modified: 2024-01-17T00:11:34.200Z
     - [1. Espacios de Nombres (namespace):](#1-espacios-de-nombres-namespace)
       - [2. Alias](#2-alias)
       - [3. Clases (class)](#3-clases-class)
-        - [1. Campos (field):](#Campos)
-        - [ 2. Métodos (method): ](#Métodos)
-          - [Return](#return)
-  - [Programación orientada a objetos (POO) ](#POO)
+        - [1. Campos (field):](#1-campos-field)
+        - [ 2. Métodos (method): ](#-2-métodos-method-)
+          - [ Return ](#-return-)
+  - [Programación orientada a objetos (POO) ](#programación-orientada-a-objetos-poo-)
     - [Modificadores de acceso](#modificadores-de-acceso)
-    - [1. Creación de objetos](#creacionObjetos)
+    - [1. Creación de Objetos](#1-creación-de-objetos)
+    - [2. Constructores](#2-constructores)
+      - [2.1 Setters y Getters](#21-setters-y-getters)
+      - [2.2 Sobrecarga](#22-sobrecarga)
+      - [this.](#this)
+    - [3. Math](#3-math)
+    - [Ejemplo usando todo](#ejemplo-usando-todo)
+  
 <div style="page-break-after: always;"></div>
   
   
@@ -290,6 +293,15 @@ namespace prueba_nombre
 */
 ```
 Los comentarios en C# son anotaciones en el código que se utilizan para proporcionar información adicional. No afectan la ejecución del programa y son útiles para la documentación, explicación y comprensión del código fuente.
+
+>[!Note]
+>Una práctica entre lo programadores es poner comentarios tal que así
+>```csharp
+>// TODO: --Continuar o no terminado
+>```
+>Sirve para recoradarte a ti u a otra persona donde seguir el código o si algo está terminado o no.
+>Estos comentarios Visual Studio los guarda en "Lista de tareas" para poder ir rápido al archivo y linea donde se encuentra.
+
 
 ### 2. Identificadores
 [Indice](#c) 
@@ -1910,7 +1922,7 @@ Accesible desde la misma clase o clase derivada del mismo ensamblado
 Accesible desde el mismo paquete
 
 
-### <span id="creacionObjetos">1. Creación de Objetos</span>
+### 1. Creación de Objetos
 [Indice](#c)
 
 
@@ -2019,6 +2031,222 @@ static void Main()
 >```chsarp
 >private static double EuroADolar = 1.09;
 >```   
+
+### 2. Constructores
+
+Los contructores se usan para dar un estado inicial a los objetos.
+Se crean usando la misma variable que se ha usado en la clase y deben de ser publics.
+```csharp
+class Coche
+{
+  private int ruedas;
+  private double largo;
+  private double ancho;
+  private bool climatizador;
+  private String tapiceria;
+
+//Constructor poniendo paramaetros por defecto
+  public Coche(){
+    ruedas = 4;
+    largo = 5.10;
+    ancho = 4.50
+  }
+}
+```
+Creamos el objeto como hicimos anteriormente.
+Ahora nos encontramos con un problema, no podemos acceder a los datos que tiene el objeto Coche. Para solucionar esto usaremos lo siguiente
+
+#### 2.1 Setters y Getters
+>[!Note]
+>Por conveniencia al nombre le pondremos set o get delante, para identificarlos
+
+
+Para el set un ejemplo podria ser el siguiente
+```csharp
+public void setExtras(bool paramC1imatizador,String paramTapiceria)
+{
+climatizador = paramC1imatizador;
+tapiceria = paramTapiceria;
+}
+```
+
+Y un get ya lo hemos usado antes, quedaría algo así:
+
+```csharp
+public string getInfoCoche()
+{
+  return $"Información del coche: Ruedas: {ruedas}, Largo: {largo}m, Ancho:{ancho}m";
+}
+```
+
+#### 2.2 Sobrecarga
+
+Una sobrecarga hace referencia a cuando un método o contructor se usan varias veces con distintas funciones dentro, esto no entra en error siempre y cuando pidan valores distintos unos de otros.
+Un ejemplo completo quedaria asi:
+
+```csharp
+    static void Main()
+    {
+        Coche coche1 = new Coche();
+        Console.WriteLine(coche1.getInfoCoche());
+
+        Coche coche2 = new Coche(3.4,2.3);
+        coche2.setExtras(true, "cuero");
+        Console.WriteLine(coche2.getInfoCoche());
+        Console.WriteLine(coche2.getExtrasCoche());
+
+    }
+}
+class Coche
+{
+    private int ruedas;
+    private double largo;
+    private double ancho;
+    private bool climatizador;
+    private String tapiceria;
+
+    //Constructor poniendo paramaetros por defecto
+    public Coche()
+    {
+        ruedas = 4;
+        largo = 5.10;
+        ancho = 4.50;
+    }
+    public Coche(double cochelargo, double cocheAncho)
+    {
+        ruedas = 4;
+        largo = cochelargo;
+        ancho = cocheAncho;
+    }
+
+    public string getInfoCoche()
+    {
+        return $"Información del coche: Ruedas: {ruedas}, Largo: {largo}m, Ancho:{ancho}m";
+    }
+    public void setExtras(bool climatizador, String tapiceria)
+    {
+        this.climatizador = climatizador;
+        this.tapiceria = tapiceria;
+    }
+    public string getExtrasCoche() {
+        return $"Tapicería: {tapiceria}, Aire acondicionado: {climatizador}";
+    }
+```
+
+Podemos ver como hay 2 constructores coche, pero como uno pide parámetros y el otro no son considerados distintos, se usará el que se adapte mejor a las condiciones.
+
+#### this.
+
+El this se usa para especificar que estamos hablando de la variable de esa instancia
+```csharp
+public void setExtras(bool climatizador, String tapiceria)
+    {
+        this.climatizador = climatizador;
+        this.tapiceria = tapiceria;
+    }
+```
+En este caso las variables que le damos a los parámetros que hemos pasado son las mismas que hemos definido para almacenarla, esto se puede solucionar cambiando el nombre de alguna variable pero en programacion se acostumbra a que todo quede claro a que hace referencia, para eso usamos el "this".
+Con él le decimos que es la variable climatizador de la instancia de Coche.
+
+### 3. Math
+
+Hay un clase que ya existe en C# que nos ayuda a realizar operaciones matemática, aqui voy a dar el ejemplo de algunas pero podeis mirar todas las que hay en este enlace: [Math en C#](https://learn.microsoft.com/es-es/dotnet/api/system.math?view=net-8.0)
+
+```csharp
+//Redondeo 
+double numero = 3.75;
+Console.WriteLine(Math.Round(numero)); // Resultado: 4
+
+//Valor absoluto
+int valorNegativo = -5;
+Console.WriteLine(Math.Abs(valorNegativo)); // Resultado: 5
+
+//Potencia
+double baseNumero = 2;
+double exponente = 3;
+Console.WriteLine(Math.Pow(baseNumero, exponente)); // Resultado: 8
+
+//Raíz cuadrada
+double numeroParaRaiz = 9;
+Console.WriteLine(Math.Sqrt(numeroParaRaiz)); // Resultado: 3
+
+//Seno y coseno (en radianes)
+double anguloEnRadianes = Math.PI / 4; // 45 grados
+Console.WriteLine(Math.Sin(anguloEnRadianes)); // Resultado: 0.7071
+Console.WriteLine(Math.Cos(anguloEnRadianes)); // Resultado: 0.7071
+
+//Número máximo y mínimo
+int numero1 = 10, numero2 = 5;
+Console.WriteLine(Math.Max(numero1, numero2)); // Resultado: 10
+Console.WriteLine(Math.Min(numero1, numero2)); // Resultado: 5
+
+//Número aleatorio
+Random random = new Random();
+int numeroAleatorio = random.Next(1, 101); // Genera un número aleatorio entre 1 y 100
+Console.WriteLine(numeroAleatorio);
+```
+
+### Ejemplo usando todo
+
+Vamos a crear un programa que nos calcule la distancia que hay entre 2 puntos
+
+```csharp
+    static void Main()
+    {
+        //Creo el primer punto
+       Punto punto1 = new Punto();   
+
+        //Creo el segundo
+       Punto punto2 = new Punto(10,10);
+
+        Punto punto3 = new Punto(24, 62);
+        
+        //Llamo al método desde un punto
+       Console.WriteLine(punto1.DistanciaEntre2Puntos(punto2));
+
+        //Otra prueba
+        Console.WriteLine(punto3.DistanciaEntre2Puntos(punto2));
+    }
+}
+class Punto
+{
+    //Defino los campos privados
+    private int x, y;
+
+
+    //Defino un constructor
+    public Punto()
+    {
+        x = 0;
+        y = 0;
+    }
+
+    //Sobrecargo el constructor
+    public Punto(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    //Uso un parámetro para recibir un tipo "Punto" es decir, uno de esta clase.
+    public double DistanciaEntre2Puntos (Punto Punto2)
+    {
+        //Guardo variables para la distancia entre cada coordenada
+        int distanciaEnX = this.x - Punto2.x;
+
+        int distanciaEnY = this.y - Punto2.y;
+
+        /*Realizo el teorema de pitágoras
+         c^2 = a^2 + b^2     ==>    c = Raiz Cuadrada(a^2 + b^2)
+                    que es lo mismo que:
+        */
+        double distanciaEntrePuntos = Math.Sqrt(Math.Pow(distanciaEnX, 2) + Math.Pow(distanciaEnY, 2));
+
+        return distanciaEntrePuntos;
+    }
+} 
+```
+
 
 
 
