@@ -1,8 +1,8 @@
 ---
 favorited: true
-title: (C#)
-created: 2023-11-21T11:31:08.984Z
-modified: 2024-01-25T03:08:38.178Z
+title: '(C#)'
+created: '2023-11-21T11:31:08.984Z'
+modified: '2024-01-25T23:43:55.633Z'
 ---
 
 # (C#)
@@ -68,7 +68,11 @@ modified: 2024-01-25T03:08:38.178Z
     - [3. Math](#3-math)
     - [Ejemplo usando todo](#ejemplo-usando-todo)
     - [Herencia](#herencia)
-  
+  - [BBDD (Bases de datos)](#bbdd-bases-de-datos)
+    - [1. Instalación](#1-instalación)
+    - [2. Creacion base de datos](#2-creacion-base-de-datos)
+    - [3. Creacion del proyecto](#3-creacion-del-proyecto)
+      
 <div style="page-break-after: always;"></div>
   
   
@@ -2330,4 +2334,108 @@ class Camion : Vehiculo
 En este caso usamos "internal" para la clase, este nos permite usar esa clase para la herencia y haciendo sus datos inaccesibles para clases que no sean hijas.  
 Usaremos "protected" y no "private" ya que protected nos permite usar el código en otras clases siempre y cuando sean hijas, private te lo restringe a solo ella misma.
 Podemos ver como Coche y camnion pueden usar las variables de Vehiculo, a su vez vemos como al crear los objetos podemos acceder a los metodos Acelerar y Frenar sin haber escrito nada en las nuevas clases.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## BBDD (Bases de datos)
+
+Usaremos MYSQL como base de datos, para poder utilizar MYSQL con Visual Studio necesitaremos "Connector/NET"
+
+### 1. Instalación
+[Indice](#c)
+
+- Descargamos el conector desde este [enlace](https://dev.mysql.com/downloads/connector/net/)
+- Hacemos doble click en el archivo .msi
+- Le damos a continuar y estaría listo
+
+### 2. Creacion base de datos
+[Indice](#c)
+
+
+Dentro de workbench de mysql crearemos unos nueva conexion y crearemos una nueva base de datos
+```mysql
+DROP DATABASE IF EXISTS db_csharp;
+CREATE DATABASE IF NOT EXISTS db_csharp
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_spanish_ci;
+
+USE db_csharp;
+
+-- ---------------------------------
+-- Tabla unidades de medida
+-- ---------------------------------
+CREATE TABLE IF NOT EXISTS Unidad_Medida (
+  Codigo_um INT NOT NULL AUTO_INCREMENT,
+  Descripcion_um VARCHAR(45) NULL,
+  PRIMARY KEY (Codigo_um)
+  )
+ENGINE = InnoDB;
+-- ---------------------------------
+-- Tabla Marcas
+-- ---------------------------------
+CREATE TABLE IF NOT EXISTS Categoria (
+  Codigo_ca INT NOT NULL AUTO_INCREMENT,
+  Descripcion_ca VARCHAR(45) NULL,
+  PRIMARY KEY (Codigo_ca)
+  )
+ENGINE = InnoDB;
+-- ---------------------------------
+-- Tabla Articulos
+-- ---------------------------------
+CREATE TABLE IF NOT EXISTS Articulos (
+  Codigo_ar INT NOT NULL AUTO_INCREMENT,
+  Marca VARCHAR(45) NULL,
+  Stock SMALLINT NOT NULL DEFAULT 0,
+  Fecha_crea DATETIME NULL,
+  Fecha_modifica DATETIME NULL,
+  Codigo_um INT NOT NULL,
+  Codigo_ca INT NOT NULL,
+  PRIMARY KEY (Codigo_ar),
+  FOREIGN KEY (Codigo_um ) REFERENCES Unidad_Medida (Codigo_um) ON UPDATE CASCADE,
+  FOREIGN KEY (Codigo_ca ) REFERENCES Categoria (Codigo_ca) ON UPDATE CASCADE
+  )
+ENGINE = InnoDB;
+```
+
+Las relaciones serian así:
++--------+      +-----------+      +-----------+
+| Unidad |----->| Articulos |<-----| Categoria |
+| Medida |      +-----------+      +-----------+
++--------+      
+
+
+### 3. Creacion del proyecto
+[Indice](#c)
+
+
+Para juntar la base de datos con nuestro programa en C# necesitaremos hacer uso de una plantilla en especifico.
+
+En el selector de plantillas, hay 3 selects, en el primero pondremos "C#" en el esegundo "windows" y en el tercero "Escritorio".
+Tendremos que seleccionar la que se llama "Aplicacion de Windows Forms (.NET Framework). Creamos el proyecto
+
+Dentro del proyecto, a la derecha en el explorador de soluciones, deberemos eliminar "Form1.cs"
+
+
+
+
+
+
+
+
+
+
+
+
 
