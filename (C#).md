@@ -2,7 +2,7 @@
 favorited: true
 title: '(C#)'
 created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-25T23:43:55.633Z'
+modified: '2024-01-25T23:48:34.327Z'
 ---
 
 # (C#)
@@ -2409,10 +2409,11 @@ CREATE TABLE IF NOT EXISTS Articulos (
 ENGINE = InnoDB;
 ```
 
-Las relaciones serian así:
-+--------+      +-----------+      +-----------+
-| Unidad |----->| Articulos |<-----| Categoria |
-| Medida |      +-----------+      +-----------+
+Las relaciones serian así:  
+
++--------+‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎+----------+‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ +-----------+
+|‎ Unidad‎‎ ‎|‎----->|‎ Articulos‎ |<-----|‎ Categoria‎ |
+|‎ Medida‎ ‎|‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ +----------+‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ +-----------+
 +--------+      
 
 
