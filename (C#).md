@@ -1,8 +1,8 @@
 ---
 favorited: true
-title: '(C#)'
-created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-24T01:09:26.345Z'
+title: (C#)
+created: 2023-11-21T11:31:08.984Z
+modified: 2024-01-25T03:08:38.178Z
 ---
 
 # (C#)
@@ -64,9 +64,10 @@ modified: '2024-01-24T01:09:26.345Z'
     - [2. Constructores](#2-constructores)
       - [2.1 Setters y Getters](#21-setters-y-getters)
       - [2.2 Sobrecarga](#22-sobrecarga)
-      - [this.](#this)
+      - [2.3 this.](#23-this)
     - [3. Math](#3-math)
     - [Ejemplo usando todo](#ejemplo-usando-todo)
+    - [Herencia](#herencia)
   
 <div style="page-break-after: always;"></div>
   
@@ -2033,6 +2034,8 @@ static void Main()
 >```   
 
 ### 2. Constructores
+[Indice](#c)
+
 
 Los contructores se usan para dar un estado inicial a los objetos.
 Se crean usando la misma variable que se ha usado en la clase y deben de ser publics.
@@ -2057,15 +2060,18 @@ Creamos el objeto como hicimos anteriormente.
 Ahora nos encontramos con un problema, no podemos acceder a los datos que tiene el objeto Coche. Para solucionar esto usaremos lo siguiente
 
 #### 2.1 Setters y Getters
+[Indice](#c)
+
+
 >[!Note]
 >Por conveniencia al nombre le pondremos set o get delante, para identificarlos
 
 
 Para el set un ejemplo podria ser el siguiente
 ```csharp
-public void setExtras(bool paramC1imatizador,String paramTapiceria)
+public void setExtras(bool paramClimatizador,String paramTapiceria)
 {
-climatizador = paramC1imatizador;
+climatizador = paramClimatizador;
 tapiceria = paramTapiceria;
 }
 ```
@@ -2080,6 +2086,8 @@ public string getInfoCoche()
 ```
 
 #### 2.2 Sobrecarga
+[Indice](#c)
+
 
 Una sobrecarga hace referencia a cuando un método o contructor se usan varias veces con distintas funciones dentro, esto no entra en error siempre y cuando pidan valores distintos unos de otros.
 Un ejemplo completo quedaria asi:
@@ -2112,6 +2120,8 @@ class Coche
         largo = 5.10;
         ancho = 4.50;
     }
+
+    //Sobrecargamos el constructor
     public Coche(double cochelargo, double cocheAncho)
     {
         ruedas = 4;
@@ -2133,9 +2143,9 @@ class Coche
     }
 ```
 
-Podemos ver como hay 2 constructores coche, pero como uno pide parámetros y el otro no son considerados distintos, se usará el que se adapte mejor a las condiciones.
+Podemos ver como hay 2 constructores coche, pero como uno pide parámetros y el otro no, son considerados distintos, se usará el que se adapte mejor a las condiciones.
 
-#### this.
+#### 2.3 this.
 
 El this se usa para especificar que estamos hablando de la variable de esa instancia
 ```csharp
@@ -2149,6 +2159,8 @@ En este caso las variables que le damos a los parámetros que hemos pasado son l
 Con él le decimos que es la variable climatizador de la instancia de Coche.
 
 ### 3. Math
+[Indice](#c)
+
 
 Hay un clase que ya existe en C# que nos ayuda a realizar operaciones matemática, aqui voy a dar el ejemplo de algunas pero podeis mirar todas las que hay en este enlace: [Math en C#](https://learn.microsoft.com/es-es/dotnet/api/system.math?view=net-8.0)
 
@@ -2187,6 +2199,8 @@ Console.WriteLine(numeroAleatorio);
 ```
 
 ### Ejemplo usando todo
+[Indice](#c)
+
 
 Vamos a crear un programa que nos calcule la distancia que hay entre 2 puntos
 
@@ -2247,6 +2261,73 @@ class Punto
 } 
 ```
 
+### Herencia
+[Indice](#c)
 
 
+Este concepto es muy importante a la hora de programar ya que nos ahorra muchas lineas de código.
+La herencia nos permite darle las caracteristicas de la clase a otra sin necesidad de volver a escribir de nuevo el código, la sintaxis es la siguiente:
+
+```csharp
+class Empleado
+{
+  // Codigo/variables a heredar
+}
+
+class Jefe : Empleado
+{
+  //Más código propio
+}
+```
+Un ejemplo usandolo seria el siguiente:
+
+```csharp
+    static void Main() 
+    {
+        Coche coche1 = new Coche(5);
+        Console.WriteLine(coche1.Acelerar());
+
+        Camion camion1 = new Camion(1000);
+        Console.WriteLine(camion1.Frenar());
+
+    }
+}
+internal class Vehiculo
+{
+    protected int ruedas;
+    protected int puertas;
+
+    public string Acelerar()
+    {
+        return "Está acelerando";
+    }
+    public string Frenar()
+    {
+        return "Está frenando";
+    }
+}
+class Coche : Vehiculo
+{
+    int numeroAsientos;
+    public Coche(int numeroAsientos)
+    {
+        ruedas = 4;
+        puertas = 5;
+        this.numeroAsientos = numeroAsientos;
+    }
+}
+class Camion : Vehiculo
+{
+    public int cargaMax;
+    public Camion(int cargaMax)
+    {
+        ruedas = 4;
+        puertas = 5;
+        this.cargaMax = cargaMax;
+    }
+}
+```
+En este caso usamos "internal" para la clase, este nos permite usar esa clase para la herencia y haciendo sus datos inaccesibles para clases que no sean hijas.  
+Usaremos "protected" y no "private" ya que protected nos permite usar el código en otras clases siempre y cuando sean hijas, private te lo restringe a solo ella misma.
+Podemos ver como Coche y camnion pueden usar las variables de Vehiculo, a su vez vemos como al crear los objetos podemos acceder a los metodos Acelerar y Frenar sin haber escrito nada en las nuevas clases.
 
