@@ -1,8 +1,8 @@
 ---
 favorited: true
-title: '(C#)'
-created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-25T23:49:28.181Z'
+title: (C#)
+created: 2023-11-21T11:31:08.984Z
+modified: 2024-01-26T03:20:02.237Z
 ---
 
 # (C#)
@@ -72,7 +72,11 @@ modified: '2024-01-25T23:49:28.181Z'
     - [1. Instalación](#1-instalación)
     - [2. Creacion base de datos](#2-creacion-base-de-datos)
     - [3. Creacion del proyecto](#3-creacion-del-proyecto)
-      
+    - [4. Crear la conexion](#4-crear-la-conexion)
+    - [5. Crear las propiedas](#5-crear-las-propiedas)
+    - [6. Diseño del Formulario](#6-diseño-del-formulario)
+    - [7. Datos](#7-datos)
+        
 <div style="page-break-after: always;"></div>
   
   
@@ -2396,6 +2400,7 @@ ENGINE = InnoDB;
 -- ---------------------------------
 CREATE TABLE IF NOT EXISTS Articulos (
   Codigo_ar INT NOT NULL AUTO_INCREMENT,
+  Descripcion_ar VARCHAR(45) NULL,
   Marca VARCHAR(45) NULL,
   Stock SMALLINT NOT NULL DEFAULT 0,
   Fecha_crea DATETIME NULL,
@@ -2423,20 +2428,163 @@ Las relaciones serian así:
 
 Para juntar la base de datos con nuestro programa en C# necesitaremos hacer uso de una plantilla en especifico.
 
-En el selector de plantillas, hay 3 selects, en el primero pondremos "C#" en el esegundo "windows" y en el tercero "Escritorio".
+- En el selector de plantillas, hay 3 selects, en el primero pondremos "C#" en el esegundo "windows" y en el tercero "Escritorio".
 Tendremos que seleccionar la que se llama "Aplicacion de Windows Forms (.NET Framework). Creamos el proyecto
 
-Dentro del proyecto, a la derecha en el explorador de soluciones, deberemos eliminar "Form1.cs"
+- Dentro del proyecto, a la derecha en el explorador de soluciones, deberemos eliminar "Form1.cs"
+
+- Ahora hacemos click derecho en nuestro proyecto, vamos a "agregar" y clickamos en "Formulario (Windows Form)".
+
+- Ahora deberemos de entrar en el archivo de proytecto "Program.cs" ahi veremos que hay una linea que hace referencia al formulario que hemos borrado, debemos de cambiar el contenido por el formulario que hemos creado nosotros, en mi caso:
+```csharp
+Application.Run(new Form_articulos());
+```
+- Haremos click derecho en "Referencias" ahi agregamos una nueva referencia, deberemos de buscar "Mysql.data" la version 8.3.0
+
+>[!Note]
+>En caso de que no les aparezca en el buscador clicken en examinar y vayan donde hayan instalado el connector, en mi caso estaba dentro de la carpeta de MYSQL, alli verán un archivo .dll, ese es el que deben importar.
+
+### 4. Crear la conexion
+
+- Primero haremos click derecho en nuestro proyecto y en "agregar" clicaremos "clase", le ponemos el nombre que queremos. En mi caso la llamaré "Conexion"
+
+- Deberemos de modificar un poco la plantilla para que nos quede así
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+//Añadimos dos bibliotecas necesarias
+using MySql.Data;
+using MySql.Data.MySqlClient;
+
+namespace WindowsFormsApp1
+{
+    //Cambiamos de internal a public ya que necesitamos que el formulario pueda acceder
+    public class Conexion
+    {
+        //Las variables necesarias a almacenar para poder realizar la conexion
+        private string BaseDatos;
+        private string Servidor;
+        private string Puerto;
+        private string Usuario;
+        private string Clave;
+
+        private static Conexion con = null;
+
+    }
+}
+```
+
+- Ahora vamos a darle los valores a estas variables (Cada persona puede tener valores distintos)
+Vamos a añadir este método justo debajo de la ultima linea
+
+```csharp
+private Conexion() 
+{
+    this.BaseDatos = "db_csharp";
+    this.Servidor = "Localhost";
+    this.Puerto = "3306";
+    this.Usuario = "root";
+    this.Clave = "root";
+}
+```
+
+- Ahora vamos a definir la forma de conexión
+
+```csharp
+public MySqlConnection CrearConexion()
+{
+    MySqlConnection Cadena = new MySqlConnection();
+    try
+    {
+        Cadena.ConnectionString = $"datasource={this.Servidor.};" +
+                                  $"port={this.Puerto};" +
+                                  $"username={this.Usuario};" +
+                                  $"password={this.Clave};" +
+                                  $"Database={this.BaseDatos}";
+    }
+    catch (Exception ex) 
+    {
+        throw ex;
+    }
+    return Cadena;
+}
+```
+
+- Método para devolver la conexion
+
+```csharp
+public static Conexion getInstancia()
+{
+    if (con == null)
+    {
+        con = new Conexion();
+    }
+    return con;
+}
+```
+
+### 5. Crear las propiedas
+
+- Creamos una nueva clase para las propiedades. Yo le llamaré "P_Articulos".
+
+- Dentro crearemos porpiedades automaticas para todos los campos de la tabla "articulos".
+```csharp
+ public class P_Articulos
+{
+    public int Codigo_ar {  get; set; }
+    public string Descripcion_ar { get; set; }
+    public int Marca { get; set; }
+    public int Stock { get; set; }
+    public string Fecha_crea { get; set; }
+    public string Fecha_modifica { get; set; }
+    public int Codigo_um { get; set; }
+    public int Codigo_ca { get; set; }
+
+}
+```
+
+### 6. Diseño del Formulario
+
+Para este punto lo mejor es que vayas a buscar algun tutorial que te explique como funciona y puedes ver como se ve.
+Aun así yo voy a intentar explicarte como puedes hacer un formulario sencillo con sus campos.
 
 
+- Entraremos en el archvio cs de form, allí deberemos de usar el cuadro de herramientas, en caso de que no aparezca ve a ver>cuadro de herramientas.
 
+1. DataGridView
 
+Es lo que nos permite ver el contenido que vayamos añadiendo a la base de datos.
+Yo lo voy a poner en la parte de abajo ocupando un poco menos que la mitad
 
+Ahora, debajo de nuestro explorador de soluciones tendremos que ver que aparece una ventana de propiedades cuando tenemos seleccionado el DataGrid, aqui es donde deberemos de cambiarle el nombre por algo que lo identifique, esto lo haremos con TODOS los elementos que vamos a poner, esta opcion se llama (name), yo la llamaré DGV_principal.
 
+2. Elementos
 
+Vamos a hacer uso de "label", "textbox" y "button".
+El label lo usaremos para identificar que debemos de escribir en el textbox.
+Y el button lo vamos a usar para abrir una ventana emergente cuando debamos elegir los codigos de las claves foraneas.
 
+Esto ya queda a tu gusto el como personalizas tu formulario, recuerda ponerle un valor al (name) para poder identificarlo.
 
+Yo voy a usar 7 botones más, 2 irán juntos, serán los de guardar y cancelar.
+Los otros 5 serán: Nuevo, Actualizar, Eliminar,Reporte y Salir.
 
+### 7. Datos
+
+- Nueva clase con nombre D_Articulos
+
+- Añade estás 3 librerias 
+```csharp
+using System.Data;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+```
+
+-
 
 
 
