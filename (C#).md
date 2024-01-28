@@ -1,9 +1,11 @@
 ---
 favorited: true
-title: (C#)
-created: 2023-11-21T11:31:08.984Z
-modified: 2024-01-26T03:20:02.237Z
+title: '(C#)'
+created: '2023-11-21T11:31:08.984Z'
+modified: '2024-01-28T04:49:34.267Z'
 ---
+
+ 
 
 # (C#)
 --------------
@@ -70,17 +72,20 @@ modified: 2024-01-26T03:20:02.237Z
     - [Herencia](#herencia)
   - [BBDD (Bases de datos)](#bbdd-bases-de-datos)
     - [1. Instalación](#1-instalación)
-    - [2. Creacion base de datos](#2-creacion-base-de-datos)
+    - [2. Base de datos](#2-base-de-datos)
+      - [2.1 Creacion base de datos](#21-creacion-base-de-datos)
+      - [2.2 Insercion de datos](#22-insercion-de-datos)
     - [3. Creacion del proyecto](#3-creacion-del-proyecto)
     - [4. Crear la conexion](#4-crear-la-conexion)
     - [5. Crear las propiedas](#5-crear-las-propiedas)
-    - [6. Diseño del Formulario](#6-diseño-del-formulario)
-    - [7. Datos](#7-datos)
+    - [6. Diseño dl Formulario](#6-diseño-dl-formulario)
+    - [7. Select de MySql](#7-select-de-mysql)
+    - [8. Mostrar datos select](#8-mostrar-datos-select)
+    - [9. Añadir registro](#9-añadir-registro)
         
 <div style="page-break-after: always;"></div>
-  
-  
- 
+         
+     
 ## Introducción
 [Indice](#c)
 
@@ -2339,20 +2344,6 @@ En este caso usamos "internal" para la clase, este nos permite usar esa clase pa
 Usaremos "protected" y no "private" ya que protected nos permite usar el código en otras clases siempre y cuando sean hijas, private te lo restringe a solo ella misma.
 Podemos ver como Coche y camnion pueden usar las variables de Vehiculo, a su vez vemos como al crear los objetos podemos acceder a los metodos Acelerar y Frenar sin haber escrito nada en las nuevas clases.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## BBDD (Bases de datos)
 
 Usaremos MYSQL como base de datos, para poder utilizar MYSQL con Visual Studio necesitaremos "Connector/NET"
@@ -2364,10 +2355,10 @@ Usaremos MYSQL como base de datos, para poder utilizar MYSQL con Visual Studio n
 - Hacemos doble click en el archivo .msi
 - Le damos a continuar y estaría listo
 
-### 2. Creacion base de datos
+### 2. Base de datos
 [Indice](#c)
 
-
+#### 2.1 Creacion base de datos
 Dentro de workbench de mysql crearemos unos nueva conexion y crearemos una nueva base de datos
 ```mysql
 DROP DATABASE IF EXISTS db_csharp;
@@ -2421,7 +2412,27 @@ Las relaciones serian así:
 |‎ Medida‎ ‎|‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ +----------+‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ +-----------+  
 +--------+      
 
+#### 2.2 Insercion de datos
+```mysql
+-- Agregar registros a la tabla Unidad_Medida
+INSERT INTO Unidad_Medida (Descripcion_um) VALUES
+('Metro'),
+('Litro'),
+('Pulgadas');
 
+
+-- Agregar registros a la tabla Categoria
+INSERT INTO Categoria (Descripcion_ca) VALUES
+('Electrónica'),
+('Ropa'),
+('Hogar');
+
+-- Agregar registros a la tabla Articulos
+INSERT INTO Articulos (Descripcion_ar, Marca, Stock, Fecha_crea, Codigo_um, Codigo_ca) VALUES
+('Smartphone', 'Samsung', 50, NOW(), 3, 1),
+('Camiseta', 'Nike', 100,'2023-06-27', 1, 2),
+('Olla a presión', 'CocinaPro', 20, '2022-09-02', 2, 3);
+```
 ### 3. Creacion del proyecto
 [Indice](#c)
 
@@ -2445,6 +2456,8 @@ Application.Run(new Form_articulos());
 >En caso de que no les aparezca en el buscador clicken en examinar y vayan donde hayan instalado el connector, en mi caso estaba dentro de la carpeta de MYSQL, alli verán un archivo .dll, ese es el que deben importar.
 
 ### 4. Crear la conexion
+[Indice](#c)
+
 
 - Primero haremos click derecho en nuestro proyecto y en "agregar" clicaremos "clase", le ponemos el nombre que queremos. En mi caso la llamaré "Conexion"
 
@@ -2528,6 +2541,8 @@ public static Conexion getInstancia()
 ```
 
 ### 5. Crear las propiedas
+[Indice](#c)
+
 
 - Creamos una nueva clase para las propiedades. Yo le llamaré "P_Articulos".
 
@@ -2547,8 +2562,10 @@ public static Conexion getInstancia()
 }
 ```
 
-### 6. Diseño del Formulario
+### 6. Diseño dl Formulario
+[Indice](#c)
 
+ 
 Para este punto lo mejor es que vayas a buscar algun tutorial que te explique como funciona y puedes ver como se ve.
 Aun así yo voy a intentar explicarte como puedes hacer un formulario sencillo con sus campos.
 
@@ -2562,6 +2579,9 @@ Yo lo voy a poner en la parte de abajo ocupando un poco menos que la mitad
 
 Ahora, debajo de nuestro explorador de soluciones tendremos que ver que aparece una ventana de propiedades cuando tenemos seleccionado el DataGrid, aqui es donde deberemos de cambiarle el nombre por algo que lo identifique, esto lo haremos con TODOS los elementos que vamos a poner, esta opcion se llama (name), yo la llamaré DGV_principal.
 
+>[!tip]
+>En las porpiedades hay una opcion llamada "AllowUsersToAddRows", recomiendo poner esa opcion en false para no alterar el uso de la aplicación.   
+
 2. Elementos
 
 Vamos a hacer uso de "label", "textbox" y "button".
@@ -2573,7 +2593,12 @@ Esto ya queda a tu gusto el como personalizas tu formulario, recuerda ponerle un
 Yo voy a usar 7 botones más, 2 irán juntos, serán los de guardar y cancelar.
 Los otros 5 serán: Nuevo, Actualizar, Eliminar,Reporte y Salir.
 
-### 7. Datos
+3. Buscar
+
+Hay que añadir un botón para buscar los articulos en la base de datos.
+
+### 7. Select de MySql
+[Indice](#c)
 
 - Nueva clase con nombre D_Articulos
 
@@ -2584,7 +2609,259 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 ```
 
--
+- Con este método podremos seleccionar un elmente de la tabla articulos ingresando el nombre en la variable Texto.
+```csharp
+public DataTable Listado_articulos(string Texto)
+{
+    MySqlDataReader resultado;
+    DataTable Tabla = new DataTable();
+    MySqlConnection SqlCon = new MySqlConnection();
+    try
+    {
+        SqlCon = Conexion.getInstancia().CrearConexion();
+        string sql_select = "select a.codigo_ar," +
+                                    "a.descripcion_ar," +
+                                    "a.marca," +
+                                    "b.descripcion_um," +
+                                    "c.descripcion_ca," +
+                                    "a.stock," +
+                                    "a.Fecha_crea," +
+                                    "a.Fecha_modifica," +
+                                    "a.codigo_um," +
+                                    "a.codigo_ca " +
+                                    "from articulos a " +
+                                    "inner join Unidad_medida b on a.codigo_um = b.codigo_um " +
+                                    "inner join Categoria c on a.codigo_ca = c.codigo_ca " +
+                                    "where Descripcion_ar like '" + Texto + "' ";
+        //Esta variable nos guardará la consulta que realizaremos en MYSQL, nos junta las 3 tablas para poder recibir datos de las otras.
+        
+        MySqlCommand Comando = new MySqlCommand(sql_select, SqlCon);
+        Comando.CommandTimeout = 60;
+        SqlCon.Open();
+        resultado = Comando.ExecuteReader();
+        Tabla.Load(resultado);
+        return Tabla;
+    }
+    catch (Exception ex)
+    {
+        throw ex;
+    }
+    finally
+    {
+        if(SqlCon.State == ConnectionState.Open) SqlCon.Close();
+    }
+
+```
+
+>[!NOTE]
+>La diferencia entre "like" y "=" es que "=" busca exactamente lo que se escribe, en cambio "like" nos permite usar el comodin %, este comodin sería el equivalente a *, que sirve para todos, en el caso de que ponga "%" me buscará todos los registros de la tabla, pero si pongo "s%" buscará todos los registros que empiecen por s.   
 
 
 
+### 8. Mostrar datos select
+[Indice](#c)
+
+1. En el formulario que hicimos haremos click derecho en el DataGrid y haremos click en "ver codigo"
+
+2. Añadimos el siguiente método
+```csharp
+private void Listado_articulos(string Texto)
+{
+    D_Articulos Datos = new D_Articulos();
+
+    //(name) que se le haya puesto al DataGridView
+    DGV_principal.DataSource = Datos.Listado_articulos(Texto);
+
+}
+```
+3. Volvemos al formulario, hacemos click derecho y buscamos la opcion de "propiedades".
+En propiedades buscaremos el simbolo del rayo que hace referencia a "Eventos"
+
+4. Buscamos el evento "load" y le damos doble click, añadimos lo siguiente
+```csharp
+private void Form_articulos_Load(object sender, EventArgs e)
+{
+    this.Listado_articulos("%");
+}
+```
+
+Este método hará que al iniciar el formulario cargue este metodo llamdo "Listado_articulos" le pasará el valor % que sirve para decirle al Where que no queremos realizar ningun filtrado. Así nos mostrará toda la tabla al iniciar el formulario
+
+5. Cambiar formato de la tabla
+
+- Si queremos por ejemplo cambiar el nombre mostrado de los campos, cambiar el ancho o no mostrar campos haremos lo siguiente:
+```csharp
+private void Formato_articulos()
+{
+    DGV_principal.Columns[0].Width = 80;
+    DGV_principal.Columns[0].HeaderText = "Código";
+    DGV_principal.Columns[1].Width = 250;
+    DGV_principal.Columns[1].HeaderText = "Artículo";
+    DGV_principal.Columns[2].Width = 150;
+    DGV_principal.Columns[2].HeaderText = "Marca";
+    DGV_principal.Columns[3].Width = 80;
+    DGV_principal.Columns[3].HeaderText = "Medida";
+    DGV_principal.Columns[4].Width = 150;
+    DGV_principal.Columns[4].HeaderText = "Categoría";
+    DGV_principal.Columns[5].Width = 150;
+    GV_principal.Columns[5].HeaderText = "Stock actual";
+    DGV_principal.Columns[6].Width = 70;
+    DGV_principal.Columns[6].HeaderText = "Fecha Creación";
+    DGV_principal.Columns[7].Width = 70;
+    DGV_principal.Columns[7].HeaderText = "Ultima Modificación";
+    DGV_principal.Columns[8].Visible= false;
+    DGV_principal.Columns[9].Visible = false;
+}
+```
+
+- Deberemos de llamar al método, añadiremos la siguiente linea al método que creamos antes
+```chsarp
+private void Listado_articulos(string Texto)
+{
+    D_Articulos Datos = new D_Articulos();
+    DGV_principal.DataSource = Datos.Listado_articulos(Texto);
+    
+    //Agregamos esta linea
+    this.Formato_articulos();
+}
+```
+6. Botón buscar
+
+- Para el bloque de texto buscar crearemos un botón, luego de ello haremos doble click en él para que se nos habrá el código
+Pondremos lo siguiente:
+
+```csharp
+   //Pondremos el (name) del cuadro de texto que usamos para buscar y le añadimo ".Text.Trim"
+    this.Listado_articulos("%"+txt_buscar.Text.Trim()+"%");
+    //Lo concatenamos con % para hacer que la busqueda se complete con todos los resultados que tengan relacion con lo que escribimos.
+```
+
+7. Ahora simplemente clickamos en Iniciar y ya deberiamos de ver el DataGridView con los datos de la tabla
+
+
+### 9. Añadir registro
+[Indice](#c)
+
+
+- En mi caso yo he añadido un botón llamado "Nuevo" el cual voy a usar para que cuando lo clicke los campos de texto se me activen
+
+1. Para ello hay que ir a los campos de texto y poner la opcion ReadOnly como true. Mi tabla quedaría así:
+  - txt_Articulo: ReadOnly = true
+  - txt_Marca: ReadOnly = true
+  - txt_Medida: ReadOnly = true
+  - btn_Medida: Enable = false
+  - txt_Categoria: ReadOnly = true
+  - btn_Categoria: Enable = false
+  - txt_Stock: ReadOnly = true
+  - btn_Guardar: Visible = false
+  - btn_Cancelar: Visible = false
+
+2. Ahora entramos en el codigo del formulario, como hicimos previamente, click derecho en el formulario y le damos a ver codigo.
+Creamos un nuevo método:
+```csharp
+private void txt_ReadOnly(bool Estado)
+private void VistaCampos(bool Estado)
+{
+    // Bloques de texto
+    txt_desc_articulo.ReadOnly = !Estado;
+    txt_marca.ReadOnly = !Estado;
+    txt_stock.ReadOnly = !Estado;
+
+    txt_
+    //Botones
+
+    btn_medida.Enabled = Estado;
+    btn_categoria.Enabled = Estado;
+
+    btn_guardar.Visible = Estado;
+    btn_cancelar.Visible = Estado;
+
+    btn_nuevo.Enabled = !Estado;
+    btn_actualizar.Enabled = !Estado;
+    btn_eliminar.Enabled = !Estado;
+    btn_reporte.Enabled = !Estado;
+    btn_salir.Enabled = !Estado;
+}
+```
+3. Vamos a crear una variable para que el codigo sepa si estamos usando el boton nuevo o no (se debe de almacenar en el codigo del formulario)
+```csharp
+bool Nuevo = false;
+```
+
+4. Ahora haremos doble click en el boton Nuevo, para agregarle una funcionalidad
+
+
+```csharp
+private void btn_nuevo_Click(object sender, EventArgs e)
+{
+  //Modificamos la variable para que sea true
+    Nuevo = true;
+    VistaCampos(true);
+    txt_desc_articulo.Focus(); //Nos pondrá el curso directamente en el bloque de texto para empezar a escribir
+}
+```
+ - En mi caso tengo un boton "cancelar" al cual le voy a dar la funcionalidad contraria
+ ```csharp
+  private void btn_cancelar_Click(object sender, EventArgs e)
+  {
+    //actulizo la variable
+    Nuevo = false;
+    VistaCampos(false);
+    txt_buscar.Focus();
+  }
+```
+
+4. Crear Sql de insercion
+
+  - 1. Tenemos que irnos al archivo D_Articulos en mi caso
+
+  - 2. Crearemos un nuevo método que se verá así
+
+  ```csharp
+  public string Insertar_articulos(bool Nuevo, P_Articulos ObjetoArticulo)
+{
+    string Mensaje = "";
+    string Sql_insert = "";
+    MySqlConnection SqlCon = new MySqlConnection();
+    try
+    {
+        if (Nuevo = true)
+        {
+            SqlCon = Conexion.getInstancia().CrearConexion();
+            Sql_insert = "Insert into Articulos (Sescripcion_ar," +
+                                                "Sarca," +
+                                                "Stock," +
+                                                "Fecha_crea," +
+                                                "Fecha_modifica," +
+                                                "Codigo_um," +
+                                                "Codigo_ca)" +
+                                                "values('" + ObjetoArticulo.Descripcion_ar + "', " +
+                                                "'" + ObjetoArticulo.Marca + "', " +
+                                                "'" + ObjetoArticulo.Stock + "', " +
+                                                "'" + ObjetoArticulo.Fecha_crea + "', " +
+                                                "'" + ObjetoArticulo.Fecha_modifica + "', " +
+                                                "'" + ObjetoArticulo.Codigo_um + "', " +
+                                                "'" + ObjetoArticulo.Codigo_ca + "')";
+        }else
+        {
+            //Codigo para la actualizacion de registros, lo veremos más tarde
+        }    
+
+        MySqlCommand Comando = new MySqlCommand(Sql_insert, SqlCon);
+        SqlCon.Open();
+        Mensaje = Comando.ExecuteNonQuery() >= 1 ? "Se ingresó correctametne" : "No se puedo ingresar el registro";
+    }
+    catch (Exception ex)
+    {
+        Mensaje = ex.Message;
+    }
+    finally
+    {
+        if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+    }
+    return Mensaje;
+}
+  ```
+
+  Este método recibe 2 parámetros, un boleano el cual le dirá al "if" si este registro es nuevo o si es una actualización y el otro parámetro nos devuelve un objeto de la clase P_articulos, el cual no va a dar los datos ingresados en los campos.
+  
