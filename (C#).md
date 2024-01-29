@@ -1,8 +1,8 @@
 ---
 favorited: true
-title: (C#)
-created: 2023-11-21T11:31:08.984Z
-modified: 2024-01-29T03:16:28.507Z
+title: '(C#)'
+created: '2023-11-21T11:31:08.984Z'
+modified: '2024-01-29T19:41:16.858Z'
 ---
 
  
@@ -48,19 +48,19 @@ modified: 2024-01-29T03:16:28.507Z
       - [10.2 Ternarios](#102-ternarios)
       - [10.3 Condicional switch](#103-condicional-switch)
       - [10.4 Blucles](#104-blucles)
-        - [ 10.4.1 While ](#-1041-while-)
-        - [ 10.4.2 Do-While ](#-1042-do-while-)
-        - [ 10.4.3 For ](#-1043-for-)
+        - [ 10.4.1 While ](#while)
+        - [ 10.4.2 Do-While ](#do-while)
+        - [ 10.4.3 For ](#for)
       - [Ejercicio](#ejercicio)
     - [11. Excepciones](#11-excepciones)
   - [Estructura básica](#estructura-básica)
     - [1. Espacios de Nombres (namespace):](#1-espacios-de-nombres-namespace)
       - [2. Alias](#2-alias)
       - [3. Clases (class)](#3-clases-class)
-        - [1. Campos (field):](#1-campos-field)
-        - [ 2. Métodos (method): ](#-2-métodos-method-)
-          - [ Return ](#-return-)
-  - [Programación orientada a objetos (POO) ](#programación-orientada-a-objetos-poo-)
+        - [1. Campos (field):](#Campos)
+        - [ 2. Métodos (method): ](#Métodos)
+          - [ Return ](#return)
+  - [Programación orientada a objetos (POO) ](#POO)
     - [Modificadores de acceso](#modificadores-de-acceso)
     - [1. Creación de Objetos](#1-creación-de-objetos)
     - [2. Constructores](#2-constructores)
@@ -70,6 +70,8 @@ modified: 2024-01-29T03:16:28.507Z
     - [3. Math](#3-math)
     - [Ejemplo usando todo](#ejemplo-usando-todo)
     - [Herencia](#herencia)
+    - [Arrays de objetos](#arrays-de-objetos)
+      - [Foreach](#foreach)
   - [BBDD (Bases de datos)](#bbdd-bases-de-datos)
     - [1. Instalación](#1-instalación)
     - [2. Base de datos](#2-base-de-datos)
@@ -78,7 +80,7 @@ modified: 2024-01-29T03:16:28.507Z
     - [3. Creacion del proyecto](#3-creacion-del-proyecto)
     - [4. Crear la conexion](#4-crear-la-conexion)
     - [5. Crear las propiedas](#5-crear-las-propiedas)
-    - [6. Diseño dl Formulario](#6-diseño-dl-formulario)
+    - [6. Diseño del Formulario](#6-diseño-del-formulario)
     - [7. Select de MySql](#7-select-de-mysql)
     - [8. Mostrar datos select](#8-mostrar-datos-select)
     - [9. Añadir registro](#9-añadir-registro)
@@ -87,7 +89,7 @@ modified: 2024-01-29T03:16:28.507Z
     - [12. Elimar logicamente](#12-elimar-logicamente)
         
 <div style="page-break-after: always;"></div>
-         
+          
      
 ## Introducción
 [Indice](#c)
@@ -113,7 +115,7 @@ modified: 2024-01-29T03:16:28.507Z
 
 1. deberemos de usar un IDE (Integrated Development Environment o, lo que es lo mismo, Entorno de Desarrollo Integrado), usaremos Visual Studio para windows y visual studio code para linux, deberemos seguir los siguientes pasos:
 ### Windows:
- 1. Enlace de descarga para el visual studio community: https://visualstudio.microsoft.com/es/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false
+ 1. Enlace de descarga para el visual studio community: [aquí](https://visualstudio.microsoft.com/es/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false)
 
  2. Instalamos haciendo doble click 
  
@@ -249,6 +251,9 @@ Presione cualquier tecla para cerrar esta ventana. . .
    ```
 -------------  
 ## Sintaxis básica
+[Indice](#c) 
+
+
 Lo minimo que debemos de tener en nuestro proyecto de c# y lo que vamos a usar en los siguientes ejemplos es:
 ```csharp
 namespace NombreQueQueramos
@@ -263,7 +268,7 @@ namespace NombreQueQueramos
 }
 ```
  
-[Indice](#c)  
+ 
 - SIEMPRE hay que poner ; después de añadir una línea de código. 
 - SIEMPRE hay que definir un Main estático.
 - Es caseSensitive : distingue entre mayúsculas y minisculas.
@@ -338,8 +343,8 @@ Tipos:
       - Enteros
       - Reales
       - Booleanos
-    - [Enumerados](#enum)
-    - [Estructurados](#struct)
+    - Enumerados
+    - Estructurados
 
 >[!NOTE]
 >Se va a hacer una pequeña explicacion de cada tipo lo minimo para entenderlo pero por ahora no entraremos en detalles más especificos
@@ -552,7 +557,7 @@ var implicitoDecimal = new[] {10,6,1.3,3,6};
 
 Esta ha sido una iniciación a los arrays, pero los arrays son más extensos que esto, para más información ir a:
   - [Uso de for con arrays](#forArrays)
-  - [Uso de for/foreach para arrays en POO]()
+  - [Uso de for/foreach para arrays en POO](#foreach)
 
 ### 8. Operadores
 [Indice](#c)
@@ -832,15 +837,12 @@ if(condifición){ //Se lee primero
 
 ```csharp
 Console.WriteLine("¿Que nota has sacado en el examen 1?");
-
 int NotaEx1 = int.Parse(Console.ReadLine());
 
 Console.WriteLine("¿Que nota has sacado en el examen 2?");
-
 int NotaEx2 = int.Parse(Console.ReadLine());
 
 Console.WriteLine("¿Que nota has sacado en el examen 2?");
-
 int NotaEx3 = int.Parse(Console.ReadLine());
 
 //Aqui vas a poder observar como al usar variables de tipo int, 
@@ -855,15 +857,12 @@ else Console.WriteLine("Has suspendido al menos 1 examen, tiene que volver en se
 
 ```csharp
 Console.WriteLine("¿Que nota has sacado en el examen 1?");
-
 int NotaEx1 = int.Parse(Console.ReadLine());
 
 Console.WriteLine("¿Que nota has sacado en el examen 2?");
-
 int NotaEx2 = int.Parse(Console.ReadLine());
 
 Console.WriteLine("¿Que nota has sacado en el examen 3?");
-
 int NotaEx3 = int.Parse(Console.ReadLine());
 
 if (NotaEx1 >= 5 && NotaEx2 >= 5 && NotaEx3 >= 5)
@@ -910,8 +909,6 @@ Console.WriteLine(frase);
 
 #### 10.3 Condicional switch
 [Indice](#c)
-
-
 El switch nos va a permitir escribir menos lineas de código que un "if" siempre y cuando la condición a tener en cuenta sea una igualdad
 
 
@@ -970,8 +967,6 @@ switch (interes)
 ```
 #### 10.4 Blucles
 [Indice](#c)
-
-
 Nos permiten repetir la ejecución de líneas de código un número determinado o indeterminado de veces.
 Ventajas:
  - Permite repetir código de forma rápida y sencilla
@@ -987,10 +982,8 @@ Ventajas:
       - For 
  
 
-  ##### <h3> 10.4.1 While </h3>
+  ##### <h3 id="while"> 10.4.1 While </h3>
 [Indice](#c)
-
-
   >[!NOTE]
   > While viene del ingles "Mientras", esto nos ayudará a comprender el funcionamiento.
 
@@ -1018,8 +1011,8 @@ while (mesMessi != "junio")
 
 Console.WriteLine("Muy bien, Messi nació en junio");
   ```
-  ##### <h3> 10.4.2 Do-While </h3>   
-
+  ##### <h3 id="do-while"> 10.4.2 Do-While </h3>   
+[Indice](#c)
 ```csharp
 do
 {
@@ -1038,7 +1031,7 @@ do
 ```
 Creamos una variable y le decimos que si es menor que 10 nos diga que numero és, pero al tener el "do", nos dirá que número es aunque no sea menor que 10.
 
-##### <h3> 10.4.3 For </h3>
+##### <h3 id="for"> 10.4.3 For </h3>
 [Indice](#c)
 
 
@@ -1091,7 +1084,7 @@ for (int i = 0; i < implicitoString.Length; i++)
 De esta forma estaremos diciendo al for que ejecute el código de dentro hasta que llegue a la longitud del array, es decir, el número de variables que contiene.
 
 >[!Note]
->Existe el bucle [foreach](), pero este se dará más adelante
+>Existe el bucle [foreach](#foreach), pero este se dará más adelante
 #### Ejercicio
 
  En este ejemplo se van a poner en práctica varías cosas que se han dado previamente.
@@ -1141,8 +1134,6 @@ De esta forma estaremos diciendo al for que ejecute el código de dentro hasta q
 
 11.1 Introducción a Excepciones
 [Indice](#c)
-
-
 Las excepciones son errores en tiempo de ejecución del programa que escapan al control del programador.
 Algunos tipos de errores pueden ocurrir por: 
  - Memoria corrupta
@@ -1150,8 +1141,7 @@ Algunos tipos de errores pueden ocurrir por:
  - Sectores de disco duro defectuosos
  - Acceso a ficheros inexistentes
  - Conexiones a BBDD interrumpidas
- - Etc   
- <br>
+ - Etc  
 
 Cojamos el ejercicio de arriba donde debemos de acertar el número, más especificamente esta linea:
 ```chsarp
@@ -1323,7 +1313,7 @@ throw new OverflowException("Error de overflow prueba"); //Si no ponemos nada en
 Pero para que queremos esto?
 Esto nos sirve para "obligar" a usar un try-catch y así poder especificar que hacer acontinuación.
 
-Para que el ejemplo sea más realista voy a usar un [método](#método).
+Para que el ejemplo sea más realista voy a usar un [método](#Métodos).
 Para entrar en contexto un método es un conjunto de líneas de código con un nombre único que podemos llamar desde cualquier parte del programa. Nos permite organizar y reutilizar bloques de código de manera modular.
 Usaremos el siguiente método:
 ```csharp
@@ -1416,9 +1406,9 @@ Si hubieramos puesto un valor defaul como por ejemplo un texto, los siguiente pr
 [Indice](#c)  
 En C#, laestructura básica de un programa es la siguiente:
 - Espacios de nombres [(namespace)](#1-espacios-de-nombres-namespace)
-  - Alias [(alias)](#Alias)
-  - Clases [(class)](#2-clases-class)
-    - Campos [(fields)](#campos)
+  - Alias [(alias)](#2-alias)
+  - Clases [(class)](#3-clases-class)
+    - Campos [(fields)](#Campos)
     - Métodos [(method)](#Métodos)
 >[!IMPORTANT]
 > Los siguientes ejemplos sirven para comprender el uso de cada elemento, explicaré que función tiene el código pero no es necesario comprender cada línea de código, solamente lo que se esté explicando en esa parte en especifico, voy a explciar de forma jerárquica, es decir, más tarde explicaré cada sub-elemento que se ha usado.  
@@ -1426,6 +1416,8 @@ En C#, laestructura básica de un programa es la siguiente:
 
 ### 1. Espacios de Nombres (namespace):
 [Indice](#c)
+
+
 **¿Qué es?**: es un contenedor que se utiliza para organizar y agrupar tipos relacionados. El propósito principal de los espacios de nombres es evitar conflictos de nombres y proporcionar una estructura jerárquica para organizar el código.  
 
 ```csharp
@@ -1437,7 +1429,7 @@ namespace EspacioDeNombre
 ```
 - Que puede contener un espacio de nombres:
   - Alias [(alias)](#2-alias)
-  - Clases [(class)](#4-clases-class)
+  - Clases [(class)](#3-clases-class)
   - Interfaces (interface)
   - Enumeraciones (enum)
   - Delegados (delegate) 
@@ -1537,6 +1529,9 @@ namespace ArchivoPrincipal
 ```
 El codigo seguirá funcionando, lo  unico que hemos cambiado es el nombre del namespace, pero las clases y los métodos siguen teniendo el mismo nombre.
 #### 2. Alias
+[Indice](#c)
+
+
 Los alias son un mecanismo que te permite darle a un tipo existente un nombre alternativo. Esto puede ser útil para simplificar nombres largos o para evitar conflictos de nombres entre tipos.
 
 1. Definición:
@@ -1674,9 +1669,9 @@ La estructura básica de un método en C# incluye varias palabras clave y elemen
 
 Aquí hay una descripción de estas palabras clave:
 
-- [Modificador de Acceso](#Modificadores-de-acceso) (public, private, protected, internal, etc.)(Opcional): Indica el nivel de acceso al método, de manera predeterminada está en private.
+- [Modificador de Acceso](#modificadores-de-acceso) (public, private, protected, internal, etc.)(Opcional): Indica el nivel de acceso al método, de manera predeterminada está en private.
 
-- Modificador Otros ([static](), [virtual](), [abstract](), [sealed](), [override](), [async](), [unsafe](), etc.)(opcional): Pueden modificar el comportamiento del método de diversas maneras. No todos son aplicables a todos los métodos.
+- Modificador Otros (static, virtual, abstract, sealed, override, async, unsafe, etc.)(opcional): Pueden modificar el comportamiento del método de diversas maneras. No todos son aplicables a todos los métodos.
 
 - Tipo de Retorno (void, int, string, etc.)(obligatorio): Indica el tipo de valor que devuelve el método. Puede ser void si no devuelve nada.
 
@@ -1957,17 +1952,17 @@ class MiClase
 {
     static void Main()
     {
-        //Variable con un tipo creado por nosotros, esto lo transforma en un objeto.
+//Variable con un tipo creado por nosotros, esto lo transforma en un objeto.
         Circulo primerCirculo; 
-        
-        //Iniciación  de varible/objeto de tipo Circulo. Conocido como "instaciar una clase"
+
+//Iniciación  de varible/objeto de tipo Circulo. Conocido como "instaciar una clase"
         primerCirculo = new Circulo(); 
 
-        //Al ser un tipo, podemos hacer los objetos que queramos y serán todos diferentes
+//Al ser un tipo, podemos hacer los objetos que queramos y serán todos diferentes
         Circulo segundoCirculo = new Circulo();
         Circulo tercerCirculo = new Circulo();
 
-        //Podemos almacenar el resultado de un objeto siempre y cuando sean compatibles
+//Podemos almacenar el resultado de un objeto siempre y cuando sean compatibles
         double areaPrimerCirculo = primerCirculo.calcularArea(5); 
 
         Console.WriteLine(areaPrimerCirculo);
@@ -2162,6 +2157,8 @@ class Coche
 Podemos ver como hay 2 constructores coche, pero como uno pide parámetros y el otro no, son considerados distintos, se usará el que se adapte mejor a las condiciones.
 
 #### 2.3 this.
+[Indice](#c)
+
 
 El this se usa para especificar que estamos hablando de la variable de esa instancia
 ```csharp
@@ -2347,6 +2344,89 @@ En este caso usamos "internal" para la clase, este nos permite usar esa clase pa
 Usaremos "protected" y no "private" ya que protected nos permite usar el código en otras clases siempre y cuando sean hijas, private te lo restringe a solo ella misma.
 Podemos ver como Coche y camnion pueden usar las variables de Vehiculo, a su vez vemos como al crear los objetos podemos acceder a los metodos Acelerar y Frenar sin haber escrito nada en las nuevas clases.
 
+
+### Arrays de objetos
+[Indice](#c)
+
+
+ Al igual que puedes hacer un array de tipos int puedes hacer un array de objetos
+
+```csharp
+    static void Main() 
+    {
+        Persona Persona1 = new Persona("Juan", 18);
+        Persona Persona2 = new Persona("Pepe", 22);
+        Persona Persona3 = new Persona("Guadalupe", 12);
+        Persona Persona4 = new Persona("Sara", 32);
+
+        Persona[] arrayPersona = { Persona1, Persona2, Persona3, Persona4 };  
+    }
+}
+class Persona
+{
+    private string nombre;
+    private int edad;
+    public Persona(string nombre, int edad) 
+    { 
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+}
+```
+#### Foreach
+[Indice](#c)
+
+
+En el bucle for existe una variable que es el foreach, sirve para arrays y es muy util en POO
+Su sintaxis es:
+
+```csharp
+
+foreach ("Nombre de la claseObjeto" "variablenueva" in "nombre del array")
+{
+  //accion
+}
+```
+
+Un ejemplo quedaria tal que así
+
+```csharp
+    static void Main() 
+    {
+        Persona Persona1 = new Persona("Juan", 18);
+        Persona Persona2 = new Persona("Pepe", 22);
+        Persona Persona3 = new Persona("Guadalupe", 12);
+        Persona Persona4 = new Persona("Sara", 32);
+
+        Persona[] arrayPersona = { Persona1, Persona2, Persona3, Persona4 };
+
+        foreach (Persona Personas in arrayPersona)
+        {
+                Console.WriteLine(Personas.getPersona());
+        }
+            
+        
+    }
+}
+class Persona
+{
+    private string nombre;
+    private int edad;
+    public Persona(string nombre, int edad) 
+    { 
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+    public string getPersona()
+    {
+        return "El nombre es " + nombre + " y tiene " + edad + " años";
+    }
+}
+```
+
+
+
+
 ## BBDD (Bases de datos)
 
 Usaremos MYSQL como base de datos, para poder utilizar MYSQL con Visual Studio necesitaremos "Connector/NET"
@@ -2416,6 +2496,9 @@ Las relaciones serian así:
 +--------+      
 
 #### 2.2 Insercion de datos
+[Indice](#c)
+
+
 ```mysql
 -- Agregar registros a la tabla Unidad_Medida
 INSERT INTO Unidad_Medida (Descripcion_um) VALUES
@@ -2565,7 +2648,7 @@ public static Conexion getInstancia()
 }
 ```
 
-### 6. Diseño dl Formulario
+### 6. Diseño del Formulario
 [Indice](#c)
 
  
@@ -2623,19 +2706,19 @@ public DataTable Listado_articulos(string Texto)
     {
         SqlCon = Conexion.getInstancia().CrearConexion();
         string sql_select = "select a.codigo_ar," +
-                                    "a.descripcion_ar," +
-                                    "a.marca," +
-                                    "b.descripcion_um," +
-                                    "c.descripcion_ca," +
-                                    "a.stock," +
-                                    "a.Fecha_crea," +
-                                    "a.Fecha_modifica," +
-                                    "a.codigo_um," +
-                                    "a.codigo_ca " +
-                                    "from articulos a " +
-                                    "inner join Unidad_medida b on a.codigo_um = b.codigo_um " +
-                                    "inner join Categoria c on a.codigo_ca = c.codigo_ca " +
-                                    "where Descripcion_ar like '" + Texto + "' ";
+                            "a.descripcion_ar," +
+                            "a.marca," +
+                            "b.descripcion_um," +
+                            "c.descripcion_ca," +
+                            "a.stock," +
+                            "a.Fecha_crea," +
+                            "a.Fecha_modifica," +
+                            "a.codigo_um," +
+                            "a.codigo_ca " +
+                            "from articulos a " +
+                            "inner join Unidad_medida b on a.codigo_um = b.codigo_um " +
+                            "inner join Categoria c on a.codigo_ca = c.codigo_ca " +
+                            "where Descripcion_ar like '" + Texto + "' ";
         //Esta variable nos guardará la consulta que realizaremos en MYSQL, nos junta las 3 tablas para poder recibir datos de las otras.
         
         MySqlCommand Comando = new MySqlCommand(sql_select, SqlCon);
@@ -2659,8 +2742,8 @@ public DataTable Listado_articulos(string Texto)
 >[!NOTE]
 >La diferencia entre "like" y "=" es que "=" busca exactamente lo que se escribe, en cambio "like" nos permite usar el comodin %, este comodin sería el equivalente a *, que sirve para todos, en el caso de que ponga "%" me buscará todos los registros de la tabla, pero si pongo "s%" buscará todos los registros que empiecen por s.   
 
-
-
+ 
+ 
 ### 8. Mostrar datos select
 [Indice](#c)
 
@@ -2828,17 +2911,17 @@ private void btn_nuevo_Click(object sender, EventArgs e)
         if (Nuevo = true)
         {  
             Sql = "Insert into Articulos (Descripcion_ar, " +
-                                                "Marca, " +
-                                                "Stock, " +
-                                                "Fecha_crea, " +
-                                                "Codigo_um, " +
-                                                "Codigo_ca) " +
-                                                "values('" + ObjetoArticulo.Descripcion_ar + "', " +
-                                                "'" + ObjetoArticulo.Marca + "', " +
-                                                "'" + ObjetoArticulo.Stock + "', " +
-                                                "'" + ObjetoArticulo.Fecha_crea + "', " +
-                                                "'" + ObjetoArticulo.Codigo_um + "', " +
-                                                "'" + ObjetoArticulo.Codigo_ca + "')";
+                                          "Marca, " +
+                                          "Stock, " +
+                                          "Fecha_crea, " +
+                                          "Codigo_um, " +
+                                          "Codigo_ca) " +
+                                          "values('" + ObjetoArticulo.Descripcion_ar + "', " +
+                                          "'" + ObjetoArticulo.Marca + "', " +
+                                          "'" + ObjetoArticulo.Stock + "', " +
+                                          "'" + ObjetoArticulo.Fecha_crea + "', " +
+                                          "'" + ObjetoArticulo.Codigo_um + "', " +
+                                          "'" + ObjetoArticulo.Codigo_ca + "')";
         }else
         {
             //Codigo para la actualizacion de registros, lo veremos más tarde
@@ -2918,12 +3001,12 @@ else
 {
    SqlCon = Conexion.getInstancia().CrearConexion();
    Sql = "update Articulos set Descripcion_ar= '" + ObjetoArticulo.Descripcion_ar + "'," +
-                         "Marca= '" + ObjetoArticulo.Marca + "',"+
-                         "Stock= '" + ObjetoArticulo.Stock + "',"+
-                         "Fecha_modifica= '" + ObjetoArticulo.Fecha_modifica + "',"+
-                         "Codigo_um= '" + ObjetoArticulo.Codigo_um + "'," +
-                         "Codigo_ca= '" + ObjetoArticulo.Codigo_ca + "'" + 
-                         "where codigo_ar ='" + ObjetoArticulo.Codigo_ar + "'";
+                      "Marca= '" + ObjetoArticulo.Marca + "',"+
+                      "Stock= '" + ObjetoArticulo.Stock + "',"+
+                      "Fecha_modifica= '" + ObjetoArticulo.Fecha_modifica + "',"+
+                      "Codigo_um= '" + ObjetoArticulo.Codigo_um + "'," +
+                      "Codigo_ca= '" + ObjetoArticulo.Codigo_ca + "'" + 
+                      "where codigo_ar ='" + ObjetoArticulo.Codigo_ar + "'";
   }    
 }
 ```
