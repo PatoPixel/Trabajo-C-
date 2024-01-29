@@ -1,8 +1,8 @@
 ---
 favorited: true
-title: '(C#)'
-created: '2023-11-21T11:31:08.984Z'
-modified: '2024-01-28T04:49:34.267Z'
+title: (C#)
+created: 2023-11-21T11:31:08.984Z
+modified: 2024-01-29T03:16:28.507Z
 ---
 
  
@@ -82,6 +82,9 @@ modified: '2024-01-28T04:49:34.267Z'
     - [7. Select de MySql](#7-select-de-mysql)
     - [8. Mostrar datos select](#8-mostrar-datos-select)
     - [9. Añadir registro](#9-añadir-registro)
+    - [10. Actualizar registro](#10-actualizar-registro)
+    - [11 Eliminar registro fisicamente](#11-eliminar-registro-fisicamente)
+    - [12. Elimar logicamente](#12-elimar-logicamente)
         
 <div style="page-break-after: always;"></div>
          
@@ -2435,7 +2438,7 @@ INSERT INTO Articulos (Descripcion_ar, Marca, Stock, Fecha_crea, Codigo_um, Codi
 ```
 ### 3. Creacion del proyecto
 [Indice](#c)
-
+  
 
 Para juntar la base de datos con nuestro programa en C# necesitaremos hacer uso de una plantilla en especifico.
 
@@ -2552,7 +2555,7 @@ public static Conexion getInstancia()
 {
     public int Codigo_ar {  get; set; }
     public string Descripcion_ar { get; set; }
-    public int Marca { get; set; }
+    public string Marca { get; set; }
     public int Stock { get; set; }
     public string Fecha_crea { get; set; }
     public string Fecha_modifica { get; set; }
@@ -2586,12 +2589,12 @@ Ahora, debajo de nuestro explorador de soluciones tendremos que ver que aparece 
 
 Vamos a hacer uso de "label", "textbox" y "button".
 El label lo usaremos para identificar que debemos de escribir en el textbox.
-Y el button lo vamos a usar para abrir una ventana emergente cuando debamos elegir los codigos de las claves foraneas.
+Y el button lo vamos a usar para realizar acciones.
 
 Esto ya queda a tu gusto el como personalizas tu formulario, recuerda ponerle un valor al (name) para poder identificarlo.
 
-Yo voy a usar 7 botones más, 2 irán juntos, serán los de guardar y cancelar.
-Los otros 5 serán: Nuevo, Actualizar, Eliminar,Reporte y Salir.
+Yo voy a usar 5 botones más, 2 irán juntos, serán los de guardar y cancelar.
+Los otros 3 serán: Nuevo, Actualizar, Eliminar.
 
 3. Buscar
 
@@ -2660,6 +2663,7 @@ public DataTable Listado_articulos(string Texto)
 
 ### 8. Mostrar datos select
 [Indice](#c)
+
 
 1. En el formulario que hicimos haremos click derecho en el DataGrid y haremos click en "ver codigo"
 
@@ -2741,7 +2745,7 @@ Pondremos lo siguiente:
 
 ### 9. Añadir registro
 [Indice](#c)
-
+ 
 
 - En mi caso yo he añadido un botón llamado "Nuevo" el cual voy a usar para que cuando lo clicke los campos de texto se me activen
 
@@ -2749,9 +2753,7 @@ Pondremos lo siguiente:
   - txt_Articulo: ReadOnly = true
   - txt_Marca: ReadOnly = true
   - txt_Medida: ReadOnly = true
-  - btn_Medida: Enable = false
   - txt_Categoria: ReadOnly = true
-  - btn_Categoria: Enable = false
   - txt_Stock: ReadOnly = true
   - btn_Guardar: Visible = false
   - btn_Cancelar: Visible = false
@@ -2766,13 +2768,10 @@ private void VistaCampos(bool Estado)
     txt_desc_articulo.ReadOnly = !Estado;
     txt_marca.ReadOnly = !Estado;
     txt_stock.ReadOnly = !Estado;
+    txt_medida.ReadOnly = !Estado;
+    txt_categoria.ReadOnly = !Estado;
 
-    txt_
     //Botones
-
-    btn_medida.Enabled = Estado;
-    btn_categoria.Enabled = Estado;
-
     btn_guardar.Visible = Estado;
     btn_cancelar.Visible = Estado;
 
@@ -2785,6 +2784,7 @@ private void VistaCampos(bool Estado)
 ```
 3. Vamos a crear una variable para que el codigo sepa si estamos usando el boton nuevo o no (se debe de almacenar en el codigo del formulario)
 ```csharp
+int CodigoArticulo = 0;
 bool Nuevo = false;
 ```
 
@@ -2804,42 +2804,39 @@ private void btn_nuevo_Click(object sender, EventArgs e)
  ```csharp
   private void btn_cancelar_Click(object sender, EventArgs e)
   {
-    //actulizo la variable
-    Nuevo = false;
+    CodigoArticulo = 0;
     VistaCampos(false);
     txt_buscar.Focus();
   }
 ```
 
-4. Crear Sql de insercion
+5. Crear Sql de insercion
 
   - 1. Tenemos que irnos al archivo D_Articulos en mi caso
 
   - 2. Crearemos un nuevo método que se verá así
 
-  ```csharp
-  public string Insertar_articulos(bool Nuevo, P_Articulos ObjetoArticulo)
+```csharp
+  public string Insertar_actualizar_articulos(bool Nuevo, P_Articulos ObjetoArticulo)
 {
     string Mensaje = "";
     string Sql_insert = "";
     MySqlConnection SqlCon = new MySqlConnection();
     try
     {
+        SqlCon = Conexion.getInstancia().CrearConexion();
         if (Nuevo = true)
-        {
-            SqlCon = Conexion.getInstancia().CrearConexion();
-            Sql_insert = "Insert into Articulos (Sescripcion_ar," +
-                                                "Sarca," +
-                                                "Stock," +
-                                                "Fecha_crea," +
-                                                "Fecha_modifica," +
-                                                "Codigo_um," +
-                                                "Codigo_ca)" +
+        {  
+            Sql = "Insert into Articulos (Descripcion_ar, " +
+                                                "Marca, " +
+                                                "Stock, " +
+                                                "Fecha_crea, " +
+                                                "Codigo_um, " +
+                                                "Codigo_ca) " +
                                                 "values('" + ObjetoArticulo.Descripcion_ar + "', " +
                                                 "'" + ObjetoArticulo.Marca + "', " +
                                                 "'" + ObjetoArticulo.Stock + "', " +
                                                 "'" + ObjetoArticulo.Fecha_crea + "', " +
-                                                "'" + ObjetoArticulo.Fecha_modifica + "', " +
                                                 "'" + ObjetoArticulo.Codigo_um + "', " +
                                                 "'" + ObjetoArticulo.Codigo_ca + "')";
         }else
@@ -2849,7 +2846,7 @@ private void btn_nuevo_Click(object sender, EventArgs e)
 
         MySqlCommand Comando = new MySqlCommand(Sql_insert, SqlCon);
         SqlCon.Open();
-        Mensaje = Comando.ExecuteNonQuery() >= 1 ? "Se ingresó correctametne" : "No se puedo ingresar el registro";
+        Mensaje = Comando.ExecuteNonQuery() >= 1 ? "Se ingresó correctamente" : "No se puedo ingresar el registro";
     }
     catch (Exception ex)
     {
@@ -2861,7 +2858,233 @@ private void btn_nuevo_Click(object sender, EventArgs e)
     }
     return Mensaje;
 }
-  ```
+```
 
   Este método recibe 2 parámetros, un boleano el cual le dirá al "if" si este registro es nuevo o si es una actualización y el otro parámetro nos devuelve un objeto de la clase P_articulos, el cual no va a dar los datos ingresados en los campos.
-  
+ 
+6. Accion del boton guardar
+```csharp
+private void btn_guardar_Click(object sender, EventArgs e)
+{
+    string Mensaje = "";
+    P_Articulos ObjetoArticulo = new P_Articulos();
+
+    ObjetoArticulo.Codigo_ar = CodigoArticulo;
+    ObjetoArticulo.Descripcion_ar = txt_desc_articulo.Text.Trim();
+    ObjetoArticulo.Marca = txt_marca.Text.Trim();
+    ObjetoArticulo.Codigo_um = int.Parse(txt_medida.Text.Trim());
+    ObjetoArticulo.Codigo_ca = int.Parse(txt_categoria.Text.Trim());
+    ObjetoArticulo.Stock = int.Parse(txt_stock.Text.Trim());
+    ObjetoArticulo.Fecha_crea = DateTime.Now.ToString("yyyy-MM-dd");
+    //Este se usará cuando queramos actualizar
+    ObjetoArticulo.Fecha_modifica = DateTime.Now.ToString("yyyy-MM-dd");
+
+    D_Articulos Datos = new D_Articulos();
+    Mensaje = Datos.Insertar_actualizar_articulos(Nuevo, ObjetoArticulo);
+    
+    if (Mensaje.Equals("Se ingresó correctamente"))
+    {   
+        CodigoArticulo = 0;
+        VistaCampos(false);
+        //Actualizar el DataGridView
+        Listado_articulos("%");
+        MessageBox.Show(Mensaje, "Aviso de sistema",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+    }else
+    {
+        MessageBox.Show(Mensaje, "Aviso de sistema",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+    }
+}
+```
+  Paso los datos al objeto que creamos de las propiedade y luego paso esos datos al método para insertar los nuevos datos
+
+
+7. El botón guardar está listo, luego cambiaremos la parte de los codigos para que se puedan modificar
+
+
+### 10. Actualizar registro
+[Indice](#c)
+
+
+1. En el método anterior que usamos como sql para insertar dejamos el "else" suelto, ahí añadiremos lo siguiente
+
+```csharp
+public string Insertar_actualizar_articulos(bool Nuevo, P_Articulos ObjetoArticulo){
+//Codigo anterior
+else
+{
+   SqlCon = Conexion.getInstancia().CrearConexion();
+   Sql = "update Articulos set Descripcion_ar= '" + ObjetoArticulo.Descripcion_ar + "'," +
+                         "Marca= '" + ObjetoArticulo.Marca + "',"+
+                         "Stock= '" + ObjetoArticulo.Stock + "',"+
+                         "Fecha_modifica= '" + ObjetoArticulo.Fecha_modifica + "',"+
+                         "Codigo_um= '" + ObjetoArticulo.Codigo_um + "'," +
+                         "Codigo_ca= '" + ObjetoArticulo.Codigo_ca + "'" + 
+                         "where codigo_ar ='" + ObjetoArticulo.Codigo_ar + "'";
+  }    
+}
+```
+
+2. Añadimos funcionalidad al boton de actualizar
+
+Copiamos la funcionalidad del boton Nuevo solo que quitamos que ponga la variable nuevo en "true"
+
+```csharp
+private void btn_actualizar_Click(object sender, EventArgs e)
+{
+    Nuevo = false;
+    VistaCampos(true);
+    txt_desc_articulo.Focus();
+}
+```
+
+3. Creamos otro método los registros en los bloques de texto
+
+```csharp
+private void Seleccionar_registro()
+{
+    if (string.IsNullOrEmpty(Convert.ToString(DGV_principal.CurrentRow.Cells["codigo_ar"].Value)))
+    { 
+       MessageBox.Show("Selecciona un registro",
+                       "Aviso del sistema",
+                       MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+    }else
+        {
+          //Este es la otra variable que definimos encima de la de Nuevo;
+        this.CodigoArticulo = Convert.ToInt32(DGV_principal.CurrentRow.Cells["codigo_ar"].Value);
+        txt_desc_articulo.Text = Convert.ToString(DGV_principal.CurrentRow.Cells["descripcion_ar"].Value);
+        txt_marca.Text = Convert.ToString(DGV_principal.CurrentRow.Cells["marca"].Value);
+        txt_medida.Text   = Convert.ToString(DGV_principal.CurrentRow.Cells["codigo_um"].Value);
+        txt_categoria.Text = Convert.ToString(DGV_principal.CurrentRow.Cells["codigo_ca"].Value);
+        txt_stock.Text = Convert.ToString(DGV_principal.CurrentRow.Cells["stock"].Value);
+    }
+}
+```
+
+4. Añadimos un nuevo evento al DataGridView
+
+    - Seleccionamos el DVG y vamos a propiedades, alli deberemos de irnos a eventos y seleccionar el que dice "CellClick"
+
+```csharp
+private void DGV_principal_CellClick(object sender, DataGridViewCellEventArgs e)
+{
+    this.Seleccionar_registro();
+}
+```
+
+### 11 Eliminar registro fisicamente
+[Indice](#c)
+
+
+Eliminar fisicamente un registro no es recomendable, es mejor guardar los datos a eliminarlos, para ellos existe el borrado logico que vamos a ver luego.
+
+1. Creamos la nueva consulta sql
+
+```csharp
+ public string Eliminar_articulos(int Codigo_Articulo)
+ {
+     string Mensaje = "";
+     string Sql = "";
+     MySqlConnection SqlCon = new MySqlConnection();
+     try
+     {
+         SqlCon = Conexion.getInstancia().CrearConexion();
+          Sql = "delete from articulos where codigo_ar='"+Codigo_Articulo+"'";
+       
+         MySqlCommand Comando = new MySqlCommand(Sql, SqlCon);
+         SqlCon.Open();
+         Mensaje = Comando.ExecuteNonQuery() >= 1 ? "Se eliminó correctamente" : "No se puedo eliminar el registro";
+     }
+     catch (Exception ex)
+     {
+         Mensaje = ex.Message;
+     }
+     finally
+     {
+         if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+     }
+     return Mensaje;
+ }
+```
+
+2. Ponemos las funcionalidades del boton Eliminar
+
+```csharp
+private void btn_eliminar_Click(object sender, EventArgs e)
+{
+    if (CodigoArticulo > 0)
+    {
+        String mensaje = "";
+        D_Articulos Datos = new D_Articulos();
+        mensaje = Datos.Eliminar_articulos(CodigoArticulo);
+        if (mensaje.Equals("Se eliminó correctamente"))
+        {
+
+            this.Listado_articulos("%");
+            MessageBox.Show(mensaje, "Aviso sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }else 
+        { 
+            MessageBox.Show(mensaje, "Aviso sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+    }else
+    {
+        MessageBox.Show("Seleccione un registro", "Aviso sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    }
+}
+```
+
+### 12. Elimar logicamente
+[Indice](#c)
+
+
+Debemos de cambiar unas cuantas cosas de nuestro proyecto
+
+1. Darle un campo "activo" a nuestras tablas 
+Añadimos la siguiente linea debajo del ultimo campo de Articulos
+```sql
+CREATE TABLE IF NOT EXISTS Articulos (
+  Codigo_ar INT NOT NULL AUTO_INCREMENT,
+  Descripcion_ar VARCHAR(45) NULL,
+  Marca VARCHAR(45) NULL,
+  Stock SMALLINT NOT NULL DEFAULT 0,
+  Fecha_crea DATE NULL,
+  Fecha_modifica DATE NULL,
+  Codigo_um INT NOT NULL,
+  Codigo_ca INT NOT NULL,
+  Activo BIT DEFAULT 1,  -- Linea añadida
+  PRIMARY KEY (Codigo_ar),
+  FOREIGN KEY (Codigo_um ) REFERENCES Unidad_Medida (Codigo_um) ON UPDATE CASCADE,
+  FOREIGN KEY (Codigo_ca ) REFERENCES Categoria (Codigo_ca) ON UPDATE CASCADE
+  )
+ENGINE = InnoDB;
+```
+
+2. Añadir al sql de "Listado Articulos" la siguiente linea
+
+```sql
+string sql_select = "select a.codigo_ar," +
+                    "a.descripcion_ar," +
+                    "a.marca," +
+                    "b.descripcion_um," +
+                    "c.descripcion_ca," +
+                    "a.stock," +
+                    "a.Fecha_crea," +
+                    "a.Fecha_modifica," +
+                    "a.codigo_um," +
+                    "a.codigo_ca " +
+                    "from articulos a " +
+                    "inner join Unidad_medida b on a.codigo_um = b.codigo_um " +
+                    "inner join Categoria c on a.codigo_ca = c.codigo_ca " +
+                    "where Descripcion_ar like '" + Texto + "' " +
+                    "and a.activo = 1";      -- Linea añadida   
+```
+
+3. Cambiar sql del metodo "Eliminar_articulos"
+```csharp
+// Valor anterior Sql = "delete from articulos where codigo_ar='"+Codigo_Articulo+"'";
+Sql = "update articulos set activo = 0 where codigo_ar=' " + Codigo_Articulo + "' ";
+```
+
