@@ -701,15 +701,15 @@ Una tabla ver que valores usan:
 Decimal - Binario
  - 00 - 0000
    01 - 0001
-  02 - 0010
-  03 - 0011
-  04 - 0100
-  05 - 0101
-  06 - 0110
-  07 - 0111
-  08 - 1000
-  09 - 1001
-  10 - 1010
+ - 02 - 0010
+ - 03 - 0011
+ - 04 - 0100
+ - 05 - 0101
+ - 06 - 0110
+ - 07 - 0111
+ - 08 - 1000
+ - 09 - 1001
+ - 10 - 1010
 <br>
 Los operadores lógicos daban como resultado "verdadero" o "falso" en este caso verdadero será 1 y falso 0.
 
