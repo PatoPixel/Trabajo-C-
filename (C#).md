@@ -799,6 +799,7 @@ vaya a otras lineas, vuelva a una linea que ya se ejecutó, etc.
 
 - If del ingles "si pasa algo" nos permitirá realizar ejecutar código si la condicion es correcta, seguirá la siguiente estructura:
 <br>
+
 ```csharp
 if(condifición){
  
@@ -808,6 +809,7 @@ if(condifición){
 ```
 - Si usamos If también existe Else, este nos permite ejecutar código si la condicion es contraria al if, pero los else siempre deben de ir acompañados de un if.
 <br>
+
 ```csharp
 if(condifición){ 
   
@@ -821,6 +823,7 @@ if(condifición){
 ```
 - Otra opción es el Else if, que nos permite añadir otra nueva condición a verificar que debe de ser verdadera para que se ejecute:
 <br>
+
 ```csharp
 if(condifición){ //Se lee primero  
   
