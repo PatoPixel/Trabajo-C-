@@ -563,6 +563,7 @@ Esta ha sido una iniciación a los arrays, pero los arrays son más extensos que
 [Indice](#c)
 #### 8.1 Operadores aritméticos
 <br>
+
 - Suma                | +
 
 - Resta               | -  
