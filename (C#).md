@@ -712,7 +712,8 @@ Decimal - Binario
   10 - 1010
 <br>
 Los operadores lógicos daban como resultado "verdadero" o "falso" en este caso verdadero será 1 y falso 0.
-```cshar
+
+```csharp
 int num1 = 5;   //101
 int num2 = 6;   //110
 int num3 = num1 & num2;
