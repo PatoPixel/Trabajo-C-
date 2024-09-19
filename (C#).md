@@ -700,7 +700,7 @@ El binario va del 0 - 1.
 Una tabla ver que valores usan:
 Decimal - Binario
  - 00 - 0000
-   01 - 0001
+ - 01 - 0001
  - 02 - 0010
  - 03 - 0011
  - 04 - 0100
