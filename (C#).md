@@ -625,7 +625,7 @@ double num2 = 3;
 System.Console.WriteLine(num / num2);
 
 //2. Escribiendo a mano un número decimal
-System.Console.WriteLine(7.0 / 3.0); //usa boolean como predeterminado
+System.Console.WriteLine(7.0 / 3.0); //usa double como predeterminado
 
 //3. Especificando que es un decimal
 System.Console.WriteLine(7f / 3f);
