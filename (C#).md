@@ -564,9 +564,13 @@ Esta ha sido una iniciación a los arrays, pero los arrays son más extensos que
 #### 8.1 Operadores aritméticos
 <br>
 - Suma                | +
+
 - Resta               | -  
+
 - Multiplicación      | *
+
 - División            | /
+
 - Residuo / Módulo    | % (Devuelve el resto de una division)
 
 Hay 2 utilidades aparte de las que ya tienes:
