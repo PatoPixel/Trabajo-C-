@@ -388,7 +388,7 @@ Tipos:
     - float: 32 bits
     - double: 64 bits
     - decimal: 128 bits
-    - char: Para carácteres sueltos (Seria un 4 grupo de los primitivos llamado "utf16") 16 bits
+    - char: Para carácteres sueltos (Seria un 4º grupo de los primitivos llamado "utf16") 16 bits
     - String: Es una cadena de chars (es de tipo por referencia): 16bits por carácter
     - bool (booleano): 8 bits
 >[!Note]
