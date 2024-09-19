@@ -791,6 +791,7 @@ System.Console.WriteLine($"La suna es {num1 + num2}");
 ```
 ### 10 Estructuras de contol de flujo
 [Indice](#c) 
+
 Se les da este nombre a "if" y "while" ya que pueden modificar el flujo de ejecución de un programa.
 Como se explicó anteriormente, C# lee el código de arriba a abajo, pero con estas nuevas opciones podemos decirle al codigo que salte lineas,
 vaya a otras lineas, vuelva a una linea que ya se ejecutó, etc.
